@@ -19,5 +19,7 @@
   "Equip": "Equip",
   "Unequip": "Unequip",
   "Armor Empty": "Armor Empty",
-  "Weapon Empty": "Weapon Empty"
+  "Weapon Empty": "Weapon Empty",
+  "Not Enough Gold": "Not Enough Gold",
+  "Bought": "Bought"
 }

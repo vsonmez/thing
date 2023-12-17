@@ -5,6 +5,7 @@ import Item from "../../items/models/item-global.type";
 import ButtonComponent from "../../shared-components/Button.component";
 import CurrencyComponent from "../../shared-components/Currency.component";
 import { useTranslation } from "react-i18next";
+import useMessagesStore from "../../store/hooks/message/use-message-store";
 /**
  * It receives an item object as a prop, which should have a price property. The component uses hooks (useCharacterGold and useInventory) to get access to the character's gold and inventory functionality.
 
@@ -15,17 +16,19 @@ The component renders a ButtonComponent with an onClick event handler set to onB
 Overall, this code represents a button that allows the user to buy an item if they have enough gold.
  */
 const BuyButton = ({ item }: { item: Item }) => {
+  const { addMessage } = useMessagesStore();
   const { t } = useTranslation();
   const { characterGold, decreaseGold } = useCharacterGold();
   const { addItemToInventory } = useInventory();
   const price = useRef(item.price);
   const onBuy = useCallback(() => {
     if (price.current > characterGold) {
-      console.error("not enough gold");
+      addMessage(t("Not enough gold"), "error");
       return;
     }
     decreaseGold(price.current);
     addItemToInventory(item);
+    addMessage(`${t("Bought")}: ${item.name} ${price.current} ${t("Gold")}`, "success");
   }, [decreaseGold, price, addItemToInventory, item, characterGold]);
   return (
     <ButtonComponent onClick={onBuy} className="flex gap-1 items-center mt-1">

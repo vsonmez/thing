@@ -2,10 +2,17 @@ import React, { useEffect, useMemo, useRef, useState } from "react";
 import Helpers from "../helpers/index.helpers";
 import { useTranslation } from "react-i18next";
 /**
- *  It renders the formatted currency value using the Helpers.formatCurrency function.
+ * This code snippet defines a React component called Currency that renders a formatted currency value. It uses the Helpers.formatCurrency function to format the value. The component also includes some logic related to language settings and localization using the useTranslation hook.
  */
 const Currency = ({ value }: { value: number }) => {
-  const [locales, setLocales] = useState("en-US");
+  const initialLanguage = useRef(localStorage.getItem("language"));
+  const initialLanguageValue = useMemo(() => {
+    if (initialLanguage.current) {
+      return initialLanguage.current === "tr" ? "tr-TR" : "en-US";
+    }
+    return "en-US";
+  }, []);
+  const [locales, setLocales] = useState(initialLanguageValue);
   const { i18n } = useTranslation();
   useEffect(() => {
     setLocales(i18n.language === "tr" ? "tr-TR" : "en-US");

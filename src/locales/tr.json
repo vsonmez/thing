@@ -19,5 +19,7 @@
   "Equip": "Kuşan",
   "Unequip": "Çıkart",
   "Armor Empty": "Zırh Boş",
-  "Weapon Empty": "Silah Boş"
+  "Weapon Empty": "Silah Boş",
+  "Not Enough Gold": "Yetersiz Altın!",
+  "Bought": "Satın Aldın."
 }
