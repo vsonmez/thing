@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/thing/static/css/main.63025895.css",
-    "main.js": "/thing/static/js/main.2d3c57b9.js",
+    "main.css": "/thing/static/css/main.d6ff3d54.css",
+    "main.js": "/thing/static/js/main.e0105477.js",
     "static/media/chainShirt.jpeg": "/thing/static/media/chainShirt.7c3cf71b216714c7fcab.jpeg",
     "static/media/plateArmorOfMirroring.jpeg": "/thing/static/media/plateArmorOfMirroring.8ee4cef6a8fac6154720.jpeg",
     "static/media/plateArmorOfProtection.jpeg": "/thing/static/media/plateArmorOfProtection.6182b19e63134c1d86ab.jpeg",
@@ -30,11 +30,11 @@
     "static/media/dagger.jpeg": "/thing/static/media/dagger.5c9d1a16ad313651e683.jpeg",
     "static/media/sword.jpeg": "/thing/static/media/sword.45ee235f7127808696dc.jpeg",
     "index.html": "/thing/index.html",
-    "main.63025895.css.map": "/thing/static/css/main.63025895.css.map",
-    "main.2d3c57b9.js.map": "/thing/static/js/main.2d3c57b9.js.map"
+    "main.d6ff3d54.css.map": "/thing/static/css/main.d6ff3d54.css.map",
+    "main.e0105477.js.map": "/thing/static/js/main.e0105477.js.map"
   },
   "entrypoints": [
-    "static/css/main.63025895.css",
-    "static/js/main.2d3c57b9.js"
+    "static/css/main.d6ff3d54.css",
+    "static/js/main.e0105477.js"
   ]
 }
