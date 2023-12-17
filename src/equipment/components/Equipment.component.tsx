@@ -15,9 +15,6 @@ const Equipment = () => {
   const { t } = useTranslation();
   const { unEquipWeapon, equippedWeapon } = useEquipWeapon();
   const { unEquipArmor, equippedArmor } = useEquipArmor();
-  const onUnequipWeapon = useCallback(() => {
-    unEquipWeapon();
-  }, [unEquipWeapon]);
 
   return (
     <div className="space-y-2 border-b pb-4">
@@ -27,7 +24,7 @@ const Equipment = () => {
           <li className="relative w-[64px]">
             <small className="absolute bottom-6 w-full text-center">{equippedWeapon.name}</small>
             <ItemImageComponent width={64} itemDefName={equippedWeapon.defname}></ItemImageComponent>
-            <ButtonComponent onClick={onUnequipWeapon} className="mt-1 text-[12px] w-full">
+            <ButtonComponent onClick={unEquipWeapon} className="mt-1 text-[12px] w-full">
               <span>{t("Unequip")}</span>
             </ButtonComponent>
           </li>

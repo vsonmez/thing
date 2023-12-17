@@ -4,6 +4,8 @@ import Armor from "../../../items/models/armor.type";
 import EquipmentStore from "../../equipment.store";
 import useCharacterDefense from "../character/use-character-defense.hook";
 import useInventory from "../inventory/use-inventory.hook";
+import { useTranslation } from "react-i18next";
+import useMessagesStore from "../message/use-message-store";
 /**
  * This code snippet defines a custom hook called useEquipArmor. It returns an object that contains three properties: 
  * - equippedArmor,
@@ -19,6 +21,8 @@ The unEquipArmor function is used to remove the defense of the character. It dec
 The useEquipArmor hook utilizes other custom hooks such as useInventory and useCharacterDefense to manage the state and actions related to inventory and character defense.
  */
 const useEquipArmor = () => {
+  const { addMessage } = useMessagesStore();
+  const { t } = useTranslation();
   const dispatch = AppStore.useAppDispatch();
   const equippedArmor = AppStore.useAppSelector(EquipmentStore.select.armor);
   const { setIsEquipped } = useInventory();
@@ -28,6 +32,7 @@ const useEquipArmor = () => {
     decreaseDefense(equippedArmor.defense);
     setIsEquipped({ defname: equippedArmor.defname, isEquipped: false });
     dispatch(EquipmentStore.actions.unEquipArmor());
+    addMessage(`${t("Unequipped")}: ${equippedArmor.name}`);
   }, [dispatch, equippedArmor, setIsEquipped, decreaseDefense]);
 
   const equipArmor = useCallback(

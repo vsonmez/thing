@@ -18,6 +18,8 @@
   "Critical": "Kritik",
   "Equip": "Kuşan",
   "Unequip": "Çıkart",
+  "Equipped": "Kuşanıldı",
+  "Unequipped": "Çıkartıldı",
   "Armor Empty": "Zırh Boş",
   "Weapon Empty": "Silah Boş",
   "Not Enough Gold": "Yetersiz Altın!",

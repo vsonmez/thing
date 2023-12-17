@@ -5,6 +5,7 @@ import useEquipWeapon from "../../store/hooks/equipment/use-equip-weapon.hook";
 import Helpers from "../../helpers/index.helpers";
 import useEquipArmor from "../../store/hooks/equipment/use-equip-armor.hook";
 import { useTranslation } from "react-i18next";
+import useMessagesStore from "../../store/hooks/message/use-message-store";
 /**
  * This code snippet defines a functional component called EquipButton that takes an item prop of type Item.
  *
@@ -15,6 +16,7 @@ import { useTranslation } from "react-i18next";
  * The component returns a button component with an onClick handler that calls onEquip with the item prop. The button displays the text "Equip".
  */
 const EquipButton = ({ item }: { item: Item }) => {
+  const { addMessage } = useMessagesStore();
   const { t } = useTranslation();
   const { equipWeapon } = useEquipWeapon();
   const { equipArmor } = useEquipArmor();
@@ -26,6 +28,7 @@ const EquipButton = ({ item }: { item: Item }) => {
       if (Helpers.isItemArmor(item)) {
         equipArmor(item);
       }
+      addMessage(`${t("Equipped")}: ${item.name}`);
     },
     [equipWeapon, equipArmor]
   );

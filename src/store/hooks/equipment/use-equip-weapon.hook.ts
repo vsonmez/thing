@@ -4,6 +4,8 @@ import AppStore from "../../index.store";
 import Weapon from "../../../items/models/weapon.type";
 import useInventory from "../inventory/use-inventory.hook";
 import useCharacterDamage from "../character/use-character-damage.hook";
+import useMessagesStore from "../message/use-message-store";
+import { useTranslation } from "react-i18next";
 
 /**
  * This code snippet defines a custom React hook called useEquipWeapon. This hook provides methods to get and set the hand weapon of a character.
@@ -17,6 +19,8 @@ The useEquipWeapon hook returns three values:
 The hook internally uses other custom hooks like useInventory and useCharacterDamage to manage the state and perform related actions.
  */
 const useEquipWeapon = () => {
+  const { addMessage } = useMessagesStore();
+  const { t } = useTranslation();
   const dispatch = AppStore.useAppDispatch();
   const equippedWeapon = AppStore.useAppSelector(EquipmentStore.select.hand);
   const { setIsEquipped } = useInventory();
@@ -26,6 +30,7 @@ const useEquipWeapon = () => {
     decreaseDamage(equippedWeapon.damage);
     setIsEquipped({ defname: equippedWeapon.defname, isEquipped: false });
     dispatch(EquipmentStore.actions.unEquipWeapon());
+    addMessage(`${t("Unequipped")}: ${equippedWeapon.name}`);
   }, [dispatch, equippedWeapon, setIsEquipped, decreaseDamage]);
 
   const equipWeapon = useCallback(

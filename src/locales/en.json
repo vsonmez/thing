@@ -18,6 +18,8 @@
   "Critical": "Critical",
   "Equip": "Equip",
   "Unequip": "Unequip",
+  "Equipped": "Equipped",
+  "Unequipped": "Unequipped",
   "Armor Empty": "Armor Empty",
   "Weapon Empty": "Weapon Empty",
   "Not Enough Gold": "Not Enough Gold",

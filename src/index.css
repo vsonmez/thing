@@ -10,6 +10,7 @@ body,
 body {
   background-color: black;
   color: antiquewhite;
+  font-family: "MedievalSharp", cursive;
 }
 .root {
   display: flex;
