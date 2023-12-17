@@ -1,0 +1,23 @@
+{
+  "Attack": "Attack",
+  "Damage": "Damage",
+  "Damage Range": "Damage Range",
+  "Experience": "Experience",
+  "Defense": "Defense",
+  "Health": "Health",
+  "Gold": "Gold",
+  "Level": "Level",
+  "Market": "Market",
+  "Inventory": "Inventory",
+  "Inventory And Equipments": "Inventory & Equipments",
+  "Armors": "Armors",
+  "Weapons": "Weapons",
+  "Equipments": "Equipments",
+  "Buy": "Buy",
+  "Sell": "Sell",
+  "Critical": "Critical",
+  "Equip": "Equip",
+  "Unequip": "Unequip",
+  "Armor Empty": "Armor Empty",
+  "Weapon Empty": "Weapon Empty"
+}

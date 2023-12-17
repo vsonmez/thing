@@ -5,6 +5,7 @@ import CurrencyComponent from "../../shared-components/Currency.component";
 import useCharacterGold from "../../store/hooks/character/use-character-gold.hook";
 import useInventory from "../../store/hooks/inventory/use-inventory.hook";
 import useEquipWeapon from "../../store/hooks/equipment/use-equip-weapon.hook";
+import { useTranslation } from "react-i18next";
 /**
  * This code defines a SellButton component that takes an item object as a prop. When the button is clicked, it triggers the onSell function.
 
@@ -16,6 +17,7 @@ The onSell function does the following:
 The component renders a button with the label "Sell" and the value of half the item's price in gold.
  */
 const SellButton = ({ item }: { item: Item }) => {
+  const { t } = useTranslation();
   const { unEquipWeapon } = useEquipWeapon();
   const { increaseGold } = useCharacterGold();
   const { removeItemFromInventory } = useInventory();
@@ -32,10 +34,10 @@ const SellButton = ({ item }: { item: Item }) => {
   return (
     <ButtonComponent onClick={() => onSell(item)} className="flex gap-1 items-center">
       <>
-        <span>Sell</span>
+        <span>{t("Sell")}</span>
         <small>
           <i>
-            <CurrencyComponent value={item.price / 2}></CurrencyComponent>gp
+            <CurrencyComponent value={item.price / 2}></CurrencyComponent> {t("Gold")}
           </i>
         </small>
       </>

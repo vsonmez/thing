@@ -4,6 +4,7 @@ import ItemImageComponent from "../../items/components/ItemImage.component";
 import ItemDetailComponent from "../../items/components/ItemDetail.component";
 import InventoryButtonsComponent from "./InventoryButtons.component";
 import EquipmentComponent from "../../equipment/components/Equipment.component";
+import { useTranslation } from "react-i18next";
 /**
  *  It uses the useInventory hook to fetch an inventory object. The component renders a list of items from the inventory object.
 
@@ -12,12 +13,13 @@ Each item is rendered as a list item (li) with its name and quantity displayed. 
 Overall, this code snippet is rendering an inventory view with items and their details.
  */
 const Inventory = () => {
+  const { t } = useTranslation();
   const { inventory } = useInventory();
   return (
     <>
       <EquipmentComponent></EquipmentComponent>
       <div>
-        <h1>Inventory</h1>
+        <h1>{t("Inventory")}</h1>
         <ul className="flex gap-4">
           {Object.values(inventory).map((item) => (
             <li key={item.defname}>

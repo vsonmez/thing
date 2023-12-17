@@ -1,0 +1,23 @@
+{
+  "Attack": "Atak",
+  "Damage": "Hasar",
+  "Damage Range": "Hasar Aralığı",
+  "Experience": "Deneyim",
+  "Defense": "Savunma",
+  "Health": "Can",
+  "Gold": "Altın",
+  "Level": "Seviye",
+  "Market": "Pazar",
+  "Inventory": "Envanter",
+  "Inventory And Equipments": "Envanter ve Ekipmanlar",
+  "Armors": "Zırhlar",
+  "Weapons": "Silahlar",
+  "Equipments": "Ekipmanlar",
+  "Buy": "Satın Al",
+  "Sell": "Sat",
+  "Critical": "Kritik",
+  "Equip": "Kuşan",
+  "Unequip": "Çıkart",
+  "Armor Empty": "Zırh Boş",
+  "Weapon Empty": "Silah Boş"
+}

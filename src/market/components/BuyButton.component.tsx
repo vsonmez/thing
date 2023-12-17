@@ -4,6 +4,7 @@ import useInventory from "../../store/hooks/inventory/use-inventory.hook";
 import Item from "../../items/models/item-global.type";
 import ButtonComponent from "../../shared-components/Button.component";
 import CurrencyComponent from "../../shared-components/Currency.component";
+import { useTranslation } from "react-i18next";
 /**
  * It receives an item object as a prop, which should have a price property. The component uses hooks (useCharacterGold and useInventory) to get access to the character's gold and inventory functionality.
 
@@ -14,6 +15,7 @@ The component renders a ButtonComponent with an onClick event handler set to onB
 Overall, this code represents a button that allows the user to buy an item if they have enough gold.
  */
 const BuyButton = ({ item }: { item: Item }) => {
+  const { t } = useTranslation();
   const { characterGold, decreaseGold } = useCharacterGold();
   const { addItemToInventory } = useInventory();
   const price = useRef(item.price);
@@ -28,10 +30,10 @@ const BuyButton = ({ item }: { item: Item }) => {
   return (
     <ButtonComponent onClick={onBuy} className="flex gap-1 items-center mt-1">
       <>
-        <span>Buy</span>
+        <span>{t("Buy")}</span>
         <small>
           <i>
-            <CurrencyComponent value={price.current}></CurrencyComponent>gp
+            <CurrencyComponent value={price.current}></CurrencyComponent> {t("Gold")}
           </i>
         </small>
       </>

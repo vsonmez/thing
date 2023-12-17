@@ -1,5 +1,5 @@
-const formatCurrency = (value: number) => {
-  const numberParts = new Intl.NumberFormat("en-US", {
+const formatCurrency = (value: number, locales: string = "en-US") => {
+  const numberParts = new Intl.NumberFormat(locales, {
     style: "currency",
     currency: "USD",
   }).formatToParts(value);

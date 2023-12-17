@@ -8,6 +8,7 @@ import CharacterNameComponent from "../character/components/CharacterName.compon
 import CharacterGoldComponent from "../character/components/CharacterGold.component";
 import CharacterDamageComponent from "../character/components/CharacterDamage.component";
 import CharacterStrengthAndDexterityComponent from "../character/components/CharacterStrengthAndDexterity.component";
+import LanguageComponent from "./Language.component";
 /**
  *
  * It returns a JSX element representing a header section with multiple child components.
@@ -26,7 +27,7 @@ import CharacterStrengthAndDexterityComponent from "../character/components/Char
  */
 const Header: React.FC = () => {
   return (
-    <header className="flex gap-2">
+    <header className="flex gap-2 items-center p-2 border-b border-gray-700">
       <CharacterNameComponent></CharacterNameComponent>
       <CharacterLevelComponent></CharacterLevelComponent>
       <CharacterGoldComponent></CharacterGoldComponent>
@@ -36,6 +37,9 @@ const Header: React.FC = () => {
       <CharacterAttackComponent></CharacterAttackComponent>
       <CharacterDamageComponent></CharacterDamageComponent>
       <CharacterExperienceComponent></CharacterExperienceComponent>
+      <div className="ml-auto">
+        <LanguageComponent></LanguageComponent>
+      </div>
     </header>
   );
 };

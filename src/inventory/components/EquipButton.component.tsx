@@ -4,6 +4,7 @@ import ButtonComponent from "../../shared-components/Button.component";
 import useEquipWeapon from "../../store/hooks/equipment/use-equip-weapon.hook";
 import Helpers from "../../helpers/index.helpers";
 import useEquipArmor from "../../store/hooks/equipment/use-equip-armor.hook";
+import { useTranslation } from "react-i18next";
 /**
  * This code snippet defines a functional component called EquipButton that takes an item prop of type Item.
  *
@@ -14,6 +15,7 @@ import useEquipArmor from "../../store/hooks/equipment/use-equip-armor.hook";
  * The component returns a button component with an onClick handler that calls onEquip with the item prop. The button displays the text "Equip".
  */
 const EquipButton = ({ item }: { item: Item }) => {
+  const { t } = useTranslation();
   const { equipWeapon } = useEquipWeapon();
   const { equipArmor } = useEquipArmor();
   const onEquip = useCallback(
@@ -29,7 +31,7 @@ const EquipButton = ({ item }: { item: Item }) => {
   );
   return (
     <ButtonComponent onClick={() => onEquip(item)}>
-      <span>Equip</span>
+      <span>{t("Equip")}</span>
     </ButtonComponent>
   );
 };
