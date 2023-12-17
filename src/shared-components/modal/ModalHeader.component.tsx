@@ -1,5 +1,15 @@
 import React, { useCallback } from "react";
+/**
+ * This code snippet defines a functional component called ModalHeader in TypeScript/React. This component takes two props: title (a string) and onClose (a function that takes no arguments and returns nothing).
 
+Inside the component, there is a handleOnClose function defined using the useCallback hook. This function simply calls the onClose prop when invoked.
+
+The component returns JSX code that represents the header of a modal. It consists of a <div> element with some CSS classes, containing an <h3> element to display the title prop, and a <button> element.
+
+The <button> element has an onClick event handler that calls the handleOnClose function when clicked. It also has some CSS classes and attributes for styling.
+
+Overall, this code snippet represents a reusable modal header component with a close button that triggers the onClose function when clicked.
+ */
 const ModalHeader = ({ title, onClose }: { title: string; onClose: () => void }) => {
   const handleOnClose = useCallback(() => {
     onClose();

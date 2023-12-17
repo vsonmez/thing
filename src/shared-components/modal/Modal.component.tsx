@@ -1,7 +1,11 @@
 import React from "react";
 import ModalHeaderComponent from "./ModalHeader.component";
 import ModalFooterComponent from "./ModalFooter.component";
+/**
+ * This code defines a Modal component in TypeScript and JSX. The component takes in several props: title (a string), children (a JSX element), showFooter (an optional boolean), and onClose (a function that takes no arguments and returns nothing).
 
+The component renders a modal dialog with a header, content area, and footer. The title prop is used in the ModalHeaderComponent to display the title. The children prop is rendered in a scrollable area within the modal. If showFooter is true, the ModalFooterComponent is rendered at the bottom of the modal.
+ */
 const Modal = ({
   title,
   children,

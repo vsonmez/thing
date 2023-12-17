@@ -4,7 +4,7 @@ import React, { useCallback } from "react";
 
 Inside the component, there is a onChangeHandler function defined using the useCallback hook. This function is triggered when the select element's value changes. It extracts the new value from the event and calls the onChange callback, passing the new value as an argument.
 
-The component returns a <select> element with an onChange event listener set to the onChangeHandler function. It also renders a series of <option> elements based on the options array, using the key and value properties of each object as the corresponding attributes.
+The component returns a select element with an onChange event listener set to the onChangeHandler function. It also renders a series of <option> elements based on the options array, using the key and value properties of each object as the corresponding attributes.
  */
 const Select = ({
   options,
