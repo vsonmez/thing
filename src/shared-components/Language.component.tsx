@@ -2,14 +2,7 @@ import React, { useCallback, useRef } from "react";
 import i18n from "../i18n";
 import SelectComponent from "./inputs/Select.component";
 /**
- * This code snippet is a functional component written in TypeScript using React. It renders a <select> element with two options: "Turkish" and "English".
-
-The component uses the useState hook to define a state variable called language and a function to update it called setLanguage. The initial value of language is set to the value of i18n.language.
-
-The useCallback hook is used to define a memoized callback function called onLanguageChange. This function is triggered when the value of the select element changes. It updates the language state variable with the selected value and also calls the changeLanguage function from i18n (presumably an internationalization library) with the selected value.
-
-The component returns the select element.
-
+ * This code snippet defines a functional component called Language. It creates an array of language options using the useRef hook. When the language is changed in the SelectComponent, the onLanguageChange function is called, which in turn calls i18n.changeLanguage to update the language. The SelectComponent is rendered with the initial value set to the current language.
  */
 const Language = () => {
   const options = useRef([
