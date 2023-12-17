@@ -1,0 +1,40 @@
+{
+  "files": {
+    "main.css": "/thing/static/css/main.63025895.css",
+    "main.js": "/thing/static/js/main.2d3c57b9.js",
+    "static/media/chainShirt.jpeg": "/thing/static/media/chainShirt.7c3cf71b216714c7fcab.jpeg",
+    "static/media/plateArmorOfMirroring.jpeg": "/thing/static/media/plateArmorOfMirroring.8ee4cef6a8fac6154720.jpeg",
+    "static/media/plateArmorOfProtection.jpeg": "/thing/static/media/plateArmorOfProtection.6182b19e63134c1d86ab.jpeg",
+    "static/media/dragonScaleArmor.jpeg": "/thing/static/media/dragonScaleArmor.3fd1dd84496dd6f4b72f.jpeg",
+    "static/media/scaleMail.jpeg": "/thing/static/media/scaleMail.0e6fee0b00b56f86cad2.jpeg",
+    "static/media/plateArmorOfPower.jpeg": "/thing/static/media/plateArmorOfPower.f09f646f5b363e7520fc.jpeg",
+    "static/media/plateArmorOfInvincibility.jpeg": "/thing/static/media/plateArmorOfInvincibility.b869c17891c23b57ac43.jpeg",
+    "static/media/plateArmorOfEtherealness.jpeg": "/thing/static/media/plateArmorOfEtherealness.d2ea54ebc8548658f26d.jpeg",
+    "static/media/plateArmorOfGolem.jpeg": "/thing/static/media/plateArmorOfGolem.ee43644962670d97c344.jpeg",
+    "static/media/fullPlate.jpeg": "/thing/static/media/fullPlate.d13495bc4317045bd216.jpeg",
+    "static/media/lightLeatherArmor.jpeg": "/thing/static/media/lightLeatherArmor.8cb14431f8adeff82d67.jpeg",
+    "static/media/katana.jpeg": "/thing/static/media/katana.174e7b013034f7b95bb4.jpeg",
+    "static/media/adamantinePlateArmor.jpeg": "/thing/static/media/adamantinePlateArmor.55a2e8eca48de8efe02f.jpeg",
+    "static/media/studdedLeatherArmor.jpeg": "/thing/static/media/studdedLeatherArmor.c76a43d1fc3bbc774f12.jpeg",
+    "static/media/leatherArmor.jpeg": "/thing/static/media/leatherArmor.848f58a8a0d4eacc1f1e.jpeg",
+    "static/media/scimitar.jpeg": "/thing/static/media/scimitar.7e0ad1ef4ba422257edc.jpeg",
+    "static/media/paddedArmor.jpeg": "/thing/static/media/paddedArmor.41d558e8544528ce71d8.jpeg",
+    "static/media/mithrilPlateArmor.jpeg": "/thing/static/media/mithrilPlateArmor.67507ebb770737768e7e.jpeg",
+    "static/media/warhammer.jpeg": "/thing/static/media/warhammer.6d95585609cc94e4f593.jpeg",
+    "static/media/battleaxe.jpeg": "/thing/static/media/battleaxe.7caed7cf4f1fd35cc23d.jpeg",
+    "static/media/halfPlate.jpeg": "/thing/static/media/halfPlate.5854275a32af0d94b308.jpeg",
+    "static/media/mace.jpeg": "/thing/static/media/mace.497599b7540177d2af51.jpeg",
+    "static/media/longsword.jpeg": "/thing/static/media/longsword.9f7ff046159ccec650be.jpeg",
+    "static/media/rapier.jpeg": "/thing/static/media/rapier.d7eb7dadd092ad364a8e.jpeg",
+    "static/media/axe.jpeg": "/thing/static/media/axe.d4322f916175c829677b.jpeg",
+    "static/media/dagger.jpeg": "/thing/static/media/dagger.5c9d1a16ad313651e683.jpeg",
+    "static/media/sword.jpeg": "/thing/static/media/sword.45ee235f7127808696dc.jpeg",
+    "index.html": "/thing/index.html",
+    "main.63025895.css.map": "/thing/static/css/main.63025895.css.map",
+    "main.2d3c57b9.js.map": "/thing/static/js/main.2d3c57b9.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.63025895.css",
+    "static/js/main.2d3c57b9.js"
+  ]
+}
