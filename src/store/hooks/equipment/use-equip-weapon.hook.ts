@@ -31,7 +31,7 @@ const useEquipWeapon = () => {
     setIsEquipped({ defname: equippedWeapon.defname, isEquipped: false });
     dispatch(EquipmentStore.actions.unEquipWeapon());
     addMessage(`${t("Unequipped")}: ${equippedWeapon.name}`);
-  }, [dispatch, equippedWeapon, setIsEquipped, decreaseDamage]);
+  }, [dispatch, equippedWeapon, setIsEquipped, decreaseDamage, addMessage, t]);
 
   const equipWeapon = useCallback(
     (weapon: Weapon) => {

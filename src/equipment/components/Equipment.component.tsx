@@ -1,4 +1,4 @@
-import React, { useCallback } from "react";
+import React from "react";
 import useEquipWeapon from "../../store/hooks/equipment/use-equip-weapon.hook";
 import ItemImageComponent from "../../items/components/ItemImage.component";
 import ButtonComponent from "../../shared-components/Button.component";

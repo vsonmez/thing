@@ -4,6 +4,7 @@ import ModalComponent from "./modal/Modal.component";
 import InventoryComponent from "../inventory/components/Inventory.component";
 import MarketComponent from "../market/components/Market.component";
 import { useTranslation } from "react-i18next";
+import CityListComponent from "../locations/components/CityList.component";
 /**
  * This code is defining a functional component called Footer. It uses the useTranslation hook from a translation library to get the t function for translating text. It also uses the useState hook to manage the state of showModal and selectedTab variables.
 
@@ -16,9 +17,9 @@ If showModal is true, the component renders a ModalComponent with a title based 
 const Footer = () => {
   const { t } = useTranslation();
   const [showModal, setShowModal] = useState(false);
-  const [selectedTab, setSelectedTab] = useState<"Inventory" | "Market">();
+  const [selectedTab, setSelectedTab] = useState<"Inventory" | "Market" | "Cities">();
 
-  const onChangeTab = useCallback((selectedTab: "Inventory" | "Market") => {
+  const onChangeTab = useCallback((selectedTab: "Inventory" | "Market" | "Cities") => {
     setSelectedTab(selectedTab);
     setShowModal(true);
   }, []);
@@ -44,15 +45,24 @@ const Footer = () => {
         >
           <span>{t("Inventory And Equipments")}</span>
         </ButtonComponent>
+        <ButtonComponent
+          onClick={() => {
+            onChangeTab("Cities");
+          }}
+          className="p-2 border-0"
+        >
+          <span>{t("Cities")}</span>
+        </ButtonComponent>
       </footer>
       {showModal && (
         <ModalComponent
-          title={t(selectedTab === "Inventory" ? "Inventory And Equipments" : "Market")}
+          title={t(selectedTab === "Inventory" ? "Inventory And Equipments" : selectedTab)}
           onClose={onClose}
         >
           <>
             {selectedTab === "Inventory" && <InventoryComponent></InventoryComponent>}
             {selectedTab === "Market" && <MarketComponent></MarketComponent>}
+            {selectedTab === "Cities" && <CityListComponent></CityListComponent>}
           </>
         </ModalComponent>
       )}

@@ -10,7 +10,7 @@ const CharacterLevel: React.FC = () => {
   return (
     <div className="flex">
       <span> {t("Level")}</span>
-      <span className="ml-1">{characterLevel}</span>
+      <span className="ml-1">{characterLevel}/100</span>
     </div>
   );
 };

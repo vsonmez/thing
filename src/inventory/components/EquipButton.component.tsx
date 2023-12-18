@@ -30,7 +30,7 @@ const EquipButton = ({ item }: { item: Item }) => {
       }
       addMessage(`${t("Equipped")}: ${item.name}`);
     },
-    [equipWeapon, equipArmor]
+    [equipWeapon, equipArmor, addMessage, t]
   );
   return (
     <ButtonComponent onClick={() => onEquip(item)}>

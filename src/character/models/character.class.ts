@@ -8,7 +8,7 @@ import Helpers from "../../helpers/index.helpers";
 class Character {
   stats: CharacterStats;
   name: string;
-  level: number = 1;
+  level: number = 0;
   experience: number = 0;
   gold: number;
   constructor(name: string) {

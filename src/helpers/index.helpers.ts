@@ -1,5 +1,6 @@
 import calculateStatModifierFN from "./calculate-stat-modifier.helper";
 import createCharacterFN from "./create-character.helper";
+import experienceFNS from "./experience.helper";
 import formatCurrencyFN from "./format-currency.helper";
 import getRandomNumberFN from "./get-random-number.helper";
 import isItemArmorFN from "./is-item-armor.helper";
@@ -37,5 +38,9 @@ namespace Helpers {
    * Calculates the stat modifier.
    */
   export const calculateStatModifier = calculateStatModifierFN;
+  /**
+   * Experience helper functions
+   */
+  export const experience = experienceFNS;
 }
 export default Helpers;

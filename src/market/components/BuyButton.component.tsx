@@ -29,7 +29,7 @@ const BuyButton = ({ item }: { item: Item }) => {
     decreaseGold(price.current);
     addItemToInventory(item);
     addMessage(`${t("Bought")}: ${item.name} ${price.current} ${t("Gold")}`, "success");
-  }, [decreaseGold, price, addItemToInventory, item, characterGold]);
+  }, [decreaseGold, price, addItemToInventory, item, characterGold, addMessage, t]);
   return (
     <ButtonComponent onClick={onBuy} className="flex gap-1 items-center mt-1">
       <>

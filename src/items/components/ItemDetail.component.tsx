@@ -15,14 +15,14 @@ const ItemDetail = ({ item }: { item: Item }) => {
         </small>
       )}
       {Helpers.isItemWeapon(item) && (
-        <small>
-          {t("Damage Range")}: 1-{item.damage}
-        </small>
-      )}
-      {Helpers.isItemWeapon(item) && (
-        <small>
-          {t("Critical")}: x{item.critical} {t("Damage").toLowerCase()}
-        </small>
+        <>
+          <small>
+            {t("Damage Range")}: 1-{item.damage}
+          </small>
+          <small>
+            {t("Critical")}: x{item.critical} {t("Damage").toLowerCase()}
+          </small>
+        </>
       )}
     </div>
   );

@@ -9,7 +9,10 @@ import weapons from "./weapon.items";
  *
  * Each property is assigned a value of an object literal.
  */
-const Items: { weapons: ItemList; armors: ItemList } = {
+const Items: {
+  weapons: ItemList;
+  armors: ItemList;
+} = {
   weapons: {
     ...Helpers.makeImmutable(weapons),
   },
