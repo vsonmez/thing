@@ -3,7 +3,11 @@ import Locations from "../index.locations";
 import { useTranslation } from "react-i18next";
 import CityImageComponent from "./CityImage.component";
 import ButtonComponent from "../../shared-components/Button.component";
+/**
+ * This code snippet defines a functional component called CityList. It uses the useTranslation hook from a translation library to get the i18n object. It also uses the useRef hook to create a ref that holds an array of values from an object called Locations.
 
+The CityImageComponent is passed the city.id and width as props. The text content inside the <div> includes the city name, a small description in either English or Turkish depending on the current language, and a button labeled "Travel".
+ */
 const CityList = () => {
   const { i18n } = useTranslation();
   const cityList = useRef(Object.values(Locations));
