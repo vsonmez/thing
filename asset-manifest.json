@@ -1,8 +1,20 @@
 {
   "files": {
-    "main.css": "/thing/static/css/main.633c1595.css",
-    "main.js": "/thing/static/js/main.84fa5147.js",
+    "main.css": "/thing/static/css/main.f89a2063.css",
+    "main.js": "/thing/static/js/main.edf67e0f.js",
+    "static/media/astradon.jpeg": "/thing/static/media/astradon.0195d9b241e083750034.jpeg",
+    "static/media/solsticeHaven.jpeg": "/thing/static/media/solsticeHaven.5314207811789a54abc0.jpeg",
+    "static/media/nyxhollow.jpeg": "/thing/static/media/nyxhollow.123c1b9e615afa82f937.jpeg",
+    "static/media/eldorath.jpeg": "/thing/static/media/eldorath.8cec81ba6ca9688bf865.jpeg",
+    "static/media/seraphim.jpeg": "/thing/static/media/seraphim.14581325b54b463149cb.jpeg",
+    "static/media/wyvernsReach.jpeg": "/thing/static/media/wyvernsReach.1fbade799020c31b9b8b.jpeg",
+    "static/media/aerendir.jpeg": "/thing/static/media/aerendir.d1128648ec0057cd1759.jpeg",
+    "static/media/cephalon.jpeg": "/thing/static/media/cephalon.e8cbf4e5287d05d7b182.jpeg",
+    "static/media/celestia.jpeg": "/thing/static/media/celestia.e15213a4e269b2177c97.jpeg",
+    "static/media/luminara.jpeg": "/thing/static/media/luminara.f505c388c44ed85cbda9.jpeg",
     "static/media/chainShirt.jpeg": "/thing/static/media/chainShirt.7c3cf71b216714c7fcab.jpeg",
+    "static/media/duskmere.jpeg": "/thing/static/media/duskmere.279c459b14e32f7dc9f2.jpeg",
+    "static/media/shadowfen.jpeg": "/thing/static/media/shadowfen.7228b950598347925586.jpeg",
     "static/media/plateArmorOfMirroring.jpeg": "/thing/static/media/plateArmorOfMirroring.8ee4cef6a8fac6154720.jpeg",
     "static/media/plateArmorOfProtection.jpeg": "/thing/static/media/plateArmorOfProtection.6182b19e63134c1d86ab.jpeg",
     "static/media/dragonScaleArmor.jpeg": "/thing/static/media/dragonScaleArmor.3fd1dd84496dd6f4b72f.jpeg",
@@ -30,11 +42,11 @@
     "static/media/dagger.jpeg": "/thing/static/media/dagger.5c9d1a16ad313651e683.jpeg",
     "static/media/sword.jpeg": "/thing/static/media/sword.45ee235f7127808696dc.jpeg",
     "index.html": "/thing/index.html",
-    "main.633c1595.css.map": "/thing/static/css/main.633c1595.css.map",
-    "main.84fa5147.js.map": "/thing/static/js/main.84fa5147.js.map"
+    "main.f89a2063.css.map": "/thing/static/css/main.f89a2063.css.map",
+    "main.edf67e0f.js.map": "/thing/static/js/main.edf67e0f.js.map"
   },
   "entrypoints": [
-    "static/css/main.633c1595.css",
-    "static/js/main.84fa5147.js"
+    "static/css/main.f89a2063.css",
+    "static/js/main.edf67e0f.js"
   ]
 }
