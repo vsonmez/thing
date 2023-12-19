@@ -1,4 +1,8 @@
-const Locations = {
+import Location from "./models/location.type";
+
+const Locations: {
+  [key: string]: Location;
+} = {
   eldorath: {
     description: {
       tr: "Efsanevi anıtları ve büyülü atmosferiyle ünlü bir şehir. Burası sihirbazlar ve bilgelerin buluşma noktasıdır, antik büyülerin sırlarını barındırır.",

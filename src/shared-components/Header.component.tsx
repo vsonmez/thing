@@ -9,6 +9,7 @@ import CharacterGoldComponent from "../character/components/CharacterGold.compon
 import CharacterDamageComponent from "../character/components/CharacterDamage.component";
 import CharacterStrengthAndDexterityComponent from "../character/components/CharacterStrengthAndDexterity.component";
 import LanguageComponent from "./Language.component";
+import CharacterLocationComponent from "../character/components/CharacterLocation.component";
 /**
  *
  * It returns a JSX element representing a header section with multiple child components.
@@ -37,6 +38,7 @@ const Header: React.FC = () => {
       <CharacterAttackComponent></CharacterAttackComponent>
       <CharacterDamageComponent></CharacterDamageComponent>
       <CharacterExperienceComponent></CharacterExperienceComponent>
+      <CharacterLocationComponent></CharacterLocationComponent>
       <div className="ml-auto">
         <LanguageComponent></LanguageComponent>
       </div>

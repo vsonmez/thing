@@ -4,7 +4,6 @@ import "./index.css";
 import App from "./App";
 import { Provider } from "react-redux";
 import AppStore from "./store/index.store";
-import "i18next";
 
 const root = ReactDOM.createRoot(document.getElementById("root") as HTMLElement);
 root.render(

@@ -16,3 +16,44 @@ body {
   display: flex;
   flex-direction: column;
 }
+.content {
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.eldorath {
+  background-image: url("assets/images/cities/eldorath.jpeg");
+}
+.aerendir {
+  background-image: url("assets/images/cities/aerendir.jpeg");
+}
+.astradon {
+  background-image: url("assets/images/cities/astradon.jpeg");
+}
+.celestia {
+  background-image: url("assets/images/cities/celestia.jpeg");
+}
+.cephalon {
+  background-image: url("assets/images/cities/cephalon.jpeg");
+}
+.duskmere {
+  background-image: url("assets/images/cities/duskmere.jpeg");
+}
+.luminara {
+  background-image: url("assets/images/cities/luminara.jpeg");
+}
+.nyxhollow {
+  background-image: url("assets/images/cities/nyxhollow.jpeg");
+}
+.seraphim {
+  background-image: url("assets/images/cities/seraphim.jpeg");
+}
+.shadowfen {
+  background-image: url("assets/images/cities/shadowfen.jpeg");
+}
+.solsticeHaven {
+  background-image: url("assets/images/cities/solsticeHaven.jpeg");
+}
+.wyvernsReach {
+  background-image: url("assets/images/cities/wyvernsReach.jpeg");
+}

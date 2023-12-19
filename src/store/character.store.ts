@@ -29,6 +29,7 @@ namespace CharacterStore {
     level: 1,
     experience: 0,
     gold: 100,
+    location: "eldorath",
     stats: {
       attack: 1,
       defense: 10,
@@ -96,6 +97,9 @@ namespace CharacterStore {
       decreaseGold: produce((state: CharacterStoreType, action: PayloadAction<number>) => {
         state.gold = Math.max(state.gold - action.payload, 0);
       }),
+      setLocation: produce((state: CharacterStoreType, action: PayloadAction<string>) => {
+        state.location = action.payload;
+      }),
     },
   });
   export const actions = characterSlice.actions;
@@ -111,6 +115,7 @@ namespace CharacterStore {
     gold: (state: AppStore.RootState) => state.character.gold,
     strength: (state: AppStore.RootState) => state.character.stats.strength,
     dexterity: (state: AppStore.RootState) => state.character.stats.dexterity,
+    location: (state: AppStore.RootState) => state.character.location,
   };
 }
 

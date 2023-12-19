@@ -11,6 +11,7 @@ class Character {
   level: number = 0;
   experience: number = 0;
   gold: number;
+  location: string = "eldorath";
   constructor(name: string) {
     this.name = name;
     this.gold = 100;
