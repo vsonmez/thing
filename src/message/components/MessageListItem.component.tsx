@@ -9,7 +9,7 @@ const MessageListItem = ({ message }: { message: Message }) => {
       <span
         className={`${!message.type && "text-gray-400"} ${message.type === "error" && "text-red-500"} ${
           message.type === "success" && "text-green-500"
-        }`}
+        } ${message.type === "warning" && "text-yellow-500"}`}
       >
         {message.message}
       </span>

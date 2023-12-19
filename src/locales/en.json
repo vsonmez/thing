@@ -30,5 +30,7 @@
   "TravelInfo": "The journey takes 45 seconds and requires 3 hunger points.",
   "Location": "Location",
   "Hunger": "Hunger",
-  "WelcomeTo": "Welcome to"
+  "Not Enouhg Hunger Point": "Not Enouhg Hunger Point!",
+  "You're starting to get hungry": "You're starting to get hungry",
+  "Welcome To": "Welcome to"
 }

@@ -102,7 +102,7 @@ namespace CharacterStore {
         state.location = action.payload;
       }),
       increaseHunger: produce((state: CharacterStoreType, action: PayloadAction<number>) => {
-        state.hunger += action.payload;
+        state.hunger += Math.min(state.hunger + action.payload, 100);
       }),
       decreaseHunger: produce((state: CharacterStoreType, action: PayloadAction<number>) => {
         state.hunger = Math.max(state.hunger - action.payload, 0);

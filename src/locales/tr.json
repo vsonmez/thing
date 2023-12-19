@@ -30,5 +30,7 @@
   "TravelInfo": "Yolculuk 45 saniye sürer ve 3 açlık puanı gerekir.",
   "Location": "Yer",
   "Hunger": "Açlık",
-  "WelcomeTo": "Hosgeldin"
+  "Not Enough Hunger Point": "Yetersiz Açlık Puanı!",
+  "You're starting to get hungry": "Acıkmaya başladın!",
+  "Welcome To": "Hosgeldin"
 }

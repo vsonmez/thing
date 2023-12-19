@@ -1,5 +1,5 @@
 import { PayloadAction, createSlice } from "@reduxjs/toolkit";
-import Message from "../message/models/message.type";
+import Message, { MessageTypes } from "../message/models/message.type";
 import { produce } from "immer";
 import AppStore from "./index.store";
 namespace MessageStore {
@@ -8,7 +8,7 @@ namespace MessageStore {
     initialState,
     name: "messages",
     reducers: {
-      addMessage: (state, action: PayloadAction<{ message: string; type?: "success" | "error" }>) => {
+      addMessage: (state, action: PayloadAction<{ message: string; type?: MessageTypes }>) => {
         return produce(state, (draft) => {
           const date = new Date();
           const hours = date.getHours();

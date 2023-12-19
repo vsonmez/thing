@@ -67,8 +67,8 @@ class Character {
 
     this.stats = {
       health: {
-        current: Math.round(health + consModifier),
-        max: Math.round(health + consModifier),
+        current: Math.round(health < 5 ? 5 : health + consModifier),
+        max: Math.round(health < 5 ? 5 : health + consModifier),
         regen: 1,
       },
       // Calculate the attack value based on the strModifier

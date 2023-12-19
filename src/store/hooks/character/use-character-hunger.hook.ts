@@ -12,13 +12,19 @@ const useCharacterHunger = () => {
   const dispatch = AppStore.useAppDispatch();
   const characterHunger = AppStore.useAppSelector(CharacterStore.select.hunger);
 
-  const increaseCharacterHunger = useCallback(() => {
-    dispatch(CharacterStore.actions.increaseHunger());
-  }, [dispatch]);
+  const increaseCharacterHunger = useCallback(
+    (amount: number) => {
+      dispatch(CharacterStore.actions.increaseHunger(amount));
+    },
+    [dispatch]
+  );
 
-  const decreaseCharacterHunger = useCallback(() => {
-    dispatch(CharacterStore.actions.decreaseHunger());
-  }, [dispatch]);
+  const decreaseCharacterHunger = useCallback(
+    (amount: number) => {
+      dispatch(CharacterStore.actions.decreaseHunger(amount));
+    },
+    [dispatch]
+  );
 
   return {
     /** Character Hunger **/

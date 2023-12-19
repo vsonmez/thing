@@ -7,28 +7,42 @@ import useCharacterLocation from "../../store/hooks/character/use-character-loca
 import useTimer from "../../hooks/use-timer.hook";
 import useIsBusy from "../../store/hooks/global/use-is-busy.hook";
 import useMessagesStore from "../../store/hooks/message/use-message-store";
+import useCharacterHunger from "../../store/hooks/character/use-character-hunger.hook";
 /**
- * This code snippet defines a functional component called CityListItem in TypeScript and React. It takes in a prop called city of type Location. Inside the component, it uses hooks like useTranslation and useCharacterLocation to get access to translation and character location functionality.
+ * This code snippet defines a React functional component called CityListItem. It receives a city object as a prop, which has properties like name, id, and description.
 
-The component renders a list item (li) with some content including an image, city name, description, and a button labeled "Travel". When the "Travel" button is clicked, it calls the onTravel function which sets the character's location to the ID of the city.
+Inside the component, it uses various custom hooks like useCharacterHunger, useMessagesStore, useIsBusy, useTimer, useTranslation, and useCharacterLocation to manage different aspects of the component's state and functionality.
+
+The component renders a list item (<li>) and displays information about the city. It conditionally renders additional UI elements based on the characterLocation, timerIsRunning, and characterHunger states.
+
+When the user clicks on the "Travel" button, it checks if the characterHunger is sufficient and starts a timer. Once the timer reaches 0, it updates the state and displays a success message with the city name.
+
+The component also conditionally renders a black overlay with the current timer value and the name of the city when the timerIsRunning state is true.
  */
 const CityListItem = ({ city }: { city: Location }) => {
+  const { characterHunger, decreaseCharacterHunger } = useCharacterHunger();
   const { addMessage } = useMessagesStore();
   const { setIsBusy } = useIsBusy();
-  const { startTimer, timerTime, timerIsRuning } = useTimer(45);
+  const { startTimer, timerTime, timerIsRuning } = useTimer(3);
   const { i18n, t } = useTranslation();
   const { setCharacterLocation, characterLocation } = useCharacterLocation();
   const onTravel = useCallback(() => {
+    if (characterHunger < 3) {
+      addMessage("Not Enouhg Hunger Point", "error");
+      return;
+    }
     setIsBusy(true);
     startTimer();
-  }, [startTimer, setIsBusy]);
+  }, [setIsBusy, addMessage, startTimer, characterHunger]);
+
   useEffect(() => {
-    if (timerTime === 0) {
-      setCharacterLocation(city.id);
+    if (timerTime <= 0) {
       setIsBusy(false);
-      addMessage(`${t("WelcomeTo")}: ${city.name}`, "success");
+      addMessage(`${t("Welcome To")}: ${city.name}`, "success");
+      setCharacterLocation(city.id, decreaseCharacterHunger(3));
     }
-  }, [timerTime, setCharacterLocation, city, setIsBusy]);
+  }, [timerTime, setIsBusy, addMessage, setCharacterLocation, city, t, decreaseCharacterHunger]);
+
   return (
     <li
       key={city.id}

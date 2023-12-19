@@ -23,7 +23,7 @@ const BuyButton = ({ item }: { item: Item }) => {
   const price = useRef(item.price);
   const onBuy = useCallback(() => {
     if (price.current > characterGold) {
-      addMessage(t("Not enough gold"), "error");
+      addMessage("Not enough gold", "error");
       return;
     }
     decreaseGold(price.current);
