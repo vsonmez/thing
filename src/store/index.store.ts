@@ -7,6 +7,7 @@ import Character from "../character/models/character.class";
 import ItemList from "../items/models/item-list.type";
 import EquipmentStore from "./equipment.store";
 import MessageStore from "./message.store";
+import GlobalStore from "./global.store";
 
 const character = localStorage.getItem("character");
 const characterData: Character = character ? JSON.parse(character) : { ...Helpers.createCharacter("") };
@@ -34,6 +35,7 @@ namespace AppStore {
       inventory: InventoryStore.reducer,
       equipment: EquipmentStore.reducer,
       messages: MessageStore.reducer,
+      global: GlobalStore.reducer,
     },
     preloadedState: {
       character: characterData,

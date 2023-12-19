@@ -1,4 +1,5 @@
 import React, { MouseEventHandler, useCallback } from "react";
+import useIsBusy from "../store/hooks/global/use-is-busy.hook";
 /**
  * It takes in several props: onClick, children, and className. 
  * 
@@ -16,11 +17,14 @@ const Button = ({
   onClick,
   children,
   className,
+  disabled,
 }: {
   onClick: MouseEventHandler<HTMLButtonElement>;
   children: JSX.Element;
   className?: string;
+  disabled?: boolean;
 }) => {
+  const { isBusy } = useIsBusy();
   const classes = `border rounded px-1 ${className}`;
   const onClickHandler: MouseEventHandler<HTMLButtonElement> = useCallback(
     (event) => {
@@ -30,7 +34,7 @@ const Button = ({
   );
 
   return (
-    <button onClick={onClickHandler} className={classes}>
+    <button onClick={onClickHandler} className={classes} disabled={disabled || isBusy}>
       {children}
     </button>
   );
