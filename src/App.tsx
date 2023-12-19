@@ -5,6 +5,7 @@ import useCharacterLocation from "./store/hooks/character/use-character-location
 
 const App = () => {
   const { characterLocation } = useCharacterLocation();
+
   return (
     <>
       <HeaderComponent></HeaderComponent>

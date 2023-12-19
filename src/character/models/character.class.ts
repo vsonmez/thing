@@ -1,5 +1,6 @@
 import CharacterStats from "./character-stats.class";
 import Helpers from "../../helpers/index.helpers";
+import getStatPoint from "../../helpers/get-stat-point.helper";
 /**
  * This class definition represents a character in a game.
  * @constructor
@@ -12,20 +13,36 @@ class Character {
   experience: number = 0;
   gold: number;
   location: string = "eldorath";
+  hunger: number = 100;
   constructor(name: string) {
     this.name = name;
     this.gold = 100;
+    /**
+     * Generate random values for strength (str), dexterity (dex), and constitution (cons)
+     */
+    const stats = [getStatPoint(), getStatPoint(), getStatPoint()];
+    /**
+     * Sort the stats in ascending order
+     */
+    stats.sort((a, b) => {
+      if (a < b) {
+        return -1;
+      }
+      if (a > b) {
+        return 1;
+      }
+      return 0;
+    });
     // Generate a random number between 1 and 10 for the "health" variable
     const health = Helpers.getRandomNumber(1, 10);
+    /**
+     * Assign the sorted stats to the "str", "dex", and "cons" variables
+     */
+    let str = stats[2];
 
-    // Generate a random number between 5 and 18 for the "str" variable
-    let str = Helpers.getRandomNumber(5, 18);
+    let dex = stats[1];
 
-    // Generate a random number between 5 and 18 for the "dex" variable
-    let dex = Helpers.getRandomNumber(5, 18);
-
-    // Generate a random number between 5 and 18 for the "cons" variable
-    let cons = Helpers.getRandomNumber(5, 18);
+    let cons = stats[0];
 
     // Check if str is less than 10
     // If it is, assign 10 to str; otherwise, leave it unchanged

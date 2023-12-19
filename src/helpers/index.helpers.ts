@@ -3,6 +3,7 @@ import createCharacterFN from "./create-character.helper";
 import experienceFNS from "./experience.helper";
 import formatCurrencyFN from "./format-currency.helper";
 import getRandomNumberFN from "./get-random-number.helper";
+import getStatPointFN from "./get-stat-point.helper";
 import isItemArmorFN from "./is-item-armor.helper";
 import isItemWeaponFN from "./is-item-weapon.helper";
 import makeImmutableFN from "./make-immutable";
@@ -42,5 +43,9 @@ namespace Helpers {
    * Experience helper functions
    */
   export const experience = experienceFNS;
+  /**
+   * Get stat point
+   */
+  export const getStatPoint = getStatPointFN;
 }
 export default Helpers;
