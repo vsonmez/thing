@@ -38,6 +38,7 @@ const CityListItem = ({ city }: { city: Location }) => {
       <div className="w-full">
         <span className="block">{city.name}</span>
         <small>{i18n.language === "en" ? city.description.en : city.description.tr}</small>
+        {characterLocation !== city.id && <small className="block my-1 text-orange-300">{t("TravelInfo")}</small>}
         {characterLocation !== city.id && (
           <div className="mt-1">
             <ButtonComponent onClick={onTravel}>
