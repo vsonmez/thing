@@ -477,8 +477,8 @@ const Locations: {
         name: "Dragon Monument",
         id: "dragonMonument",
         description: {
-          tr: "Ejderha uçlarynın bulunduğu, birbirinden farklı bir yer.",
-          en: "A place where dragons are held together, unlike any other place.",
+          tr: "Ejderha heykellerinin bulunduğu, antik ejderha anıtlarının korunduğu bir alan.",
+          en: " An area adorned with dragon sculptures, safeguarding ancient dragon monuments within its confines.",
         },
       },
       infernoCaverns: {
