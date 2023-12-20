@@ -6,10 +6,10 @@ import MarketComponent from "../market/components/Market.component";
 import { useTranslation } from "react-i18next";
 import CityListComponent from "../locations/components/CityList.component";
 import DungeonListComponent from "../dungeons/components/DungeonList.component";
-import marketImage from "../assets/images/menu-icons/market.jpeg";
-import inventoryImage from "../assets/images/menu-icons/inventory.jpeg";
-import citiesImage from "../assets/images/menu-icons/cityList.jpeg";
-import dungeonsImage from "../assets/images/menu-icons/dungeonList.jpeg";
+import marketImage from "../assets/images/footer-icons/market.jpeg";
+import inventoryImage from "../assets/images/footer-icons/inventory.jpeg";
+import citiesImage from "../assets/images/footer-icons/cityList.jpeg";
+import dungeonsImage from "../assets/images/footer-icons/dungeonList.jpeg";
 /**
  * This code is defining a functional component called Footer. It uses the useTranslation hook from a translation library to get the t function for translating text. It also uses the useState hook to manage the state of showModal and selectedTab variables.
 

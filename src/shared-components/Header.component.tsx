@@ -11,7 +11,6 @@ import CharacterStrengthAndDexterityComponent from "../character/components/Char
 import LanguageComponent from "./Language.component";
 import CharacterLocationComponent from "../character/components/CharacterLocation.component";
 import CharacterHungerComponent from "../character/components/CharacterHunger.component";
-import IconMenuComponent from "../assets/images/svg-icons/IconMenu.component";
 import HeaderResponsiveMenuComponent from "./HeaderResponsiveMenu.component";
 /**
  *
