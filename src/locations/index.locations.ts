@@ -16,7 +16,7 @@ const Locations: {
         id: "zephyrionLabyrinth",
         description: {
           tr: "Büyülü koridorlar ve tuzaklarla dolu labirent, sihirli kristallerle aydınlatılmış.",
-          en: "Her odada farklı bir elementin egemen olduğu, elementlere dayalı bulmacaların ve sınavların olduğu tapınak.",
+          en: "A maze filled with magical corridors and traps, illuminated by enchanted crystals.",
         },
       },
       templeOfTheElements: {
@@ -24,7 +24,7 @@ const Locations: {
         id: "templeOfTheElements",
         description: {
           tr: "Her odada farklı bir elementin egemen olduğu, elementlere dayalı bulmacaların ve sınavların olduğu tapınak.",
-          en: "",
+          en: "A temple where each room is dominated by a different element, featuring puzzles and trials based on these elements.",
         },
       },
       magicalLibrary: {
@@ -32,7 +32,7 @@ const Locations: {
         id: "magicalLibrary",
         description: {
           tr: "Kaybolmuş büyüleri içeren, gizemli kitaplar ve sihirli engellerle korunan büyük bir kütüphane.",
-          en: "",
+          en: "A vast library safeguarded by mysterious books and magical barriers, containing lost enchantments.",
         },
       },
       corridorOfSpirits: {
@@ -40,7 +40,7 @@ const Locations: {
         id: "corridorOfSpirits",
         description: {
           tr: "Hayaletlerin dolaştığı, ruhları barındıran koridorlarla dolu bir labirent.",
-          en: "",
+          en: "A labyrinth filled with corridors harboring wandering ghosts and lingering spirits.",
         },
       },
     },
