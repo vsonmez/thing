@@ -8,9 +8,10 @@ const CharacterLevel: React.FC = () => {
   const { t } = useTranslation();
   const { characterLevel } = useCharacterLevel();
   return (
-    <div className="flex">
+    <div className="flex items-center">
       <span> {t("Level")}</span>
-      <span className="ml-1">{characterLevel}/100</span>
+      <span className="ml-1">{characterLevel}</span>
+      <small>/100</small>
     </div>
   );
 };
