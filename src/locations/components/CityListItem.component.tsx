@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import Location from "../models/location.type";
 import CityImageComponent from "./CityImage.component";
 import { useTranslation } from "react-i18next";
@@ -8,6 +8,7 @@ import useTimer from "../../hooks/use-timer.hook";
 import useMessagesStore from "../../store/hooks/message/use-message-store";
 import useCharacterHunger from "../../store/hooks/character/use-character-hunger.hook";
 import Constants from "../../constants/index.constants";
+import IconInfoComponent from "../../assets/images/svg-icons/IconInfo.component";
 /**
  * This code snippet defines a React functional component called CityListItem. It receives a city object as a prop, which has properties like name, id, and description.
 
@@ -20,6 +21,7 @@ When the user clicks on the "Travel" button, it checks if the characterHunger is
 The component also conditionally renders a black overlay with the current timer value and the name of the city when the timerIsRunning state is true.
  */
 const CityListItem = ({ city }: { city: Location }) => {
+  const [isShowDetail, setIsShowDetail] = useState<boolean>(false);
   const { characterHunger, decreaseCharacterHunger } = useCharacterHunger();
   const { addMessage } = useMessagesStore();
   const { startTimer, timerTime, timerIsRuning, setTime } = useTimer(Constants.travelTime);
@@ -32,6 +34,9 @@ const CityListItem = ({ city }: { city: Location }) => {
     }
     startTimer();
   }, [addMessage, startTimer, characterHunger]);
+  const toggleShowDetail = useCallback(() => {
+    setIsShowDetail(!isShowDetail);
+  }, [isShowDetail, setIsShowDetail]);
 
   useEffect(() => {
     if (timerTime <= 0) {
@@ -48,11 +53,20 @@ const CityListItem = ({ city }: { city: Location }) => {
     <li key={city.id} className="relative flex items-center justify-center">
       <CityImageComponent cityID={city.id}></CityImageComponent>
       <div
-        className={`w-full absolute bg-black/50 p-2 ${characterLocation === city.id ? "bg-green-900/50 rounded" : ""}`}
+        className={`w-full absolute bg-black/50 p-2 bottom-0 ${
+          characterLocation === city.id ? "bg-green-900/50 rounded" : ""
+        }`}
       >
-        <span className="block">{city.name}</span>
-        <small>{i18n.language === "en" ? city.description.en : city.description.tr}</small>
-        {characterLocation !== city.id && <small className="block my-1 text-orange-300">{t("Travel Info")}</small>}
+        <div className="flex items-center">
+          <span className="block">{city.name}</span>
+          <ButtonComponent className="ml-auto border-0" onClick={toggleShowDetail}>
+            <IconInfoComponent></IconInfoComponent>
+          </ButtonComponent>
+        </div>
+        {isShowDetail && <small>{i18n.language === "en" ? city.description.en : city.description.tr}</small>}
+        {characterLocation !== city.id && isShowDetail && (
+          <small className="block my-1 text-orange-300">{t("Travel Info")}</small>
+        )}
         {characterLocation !== city.id && (
           <div className="mt-1">
             <ButtonComponent onClick={onTravel}>
