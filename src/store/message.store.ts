@@ -2,6 +2,7 @@ import { PayloadAction, createSlice } from "@reduxjs/toolkit";
 import Message, { MessageTypes } from "../message/models/message.type";
 import { produce } from "immer";
 import AppStore from "./index.store";
+import Helpers from "../helpers/index.helpers";
 namespace MessageStore {
   const initialState: Message[] = [];
   const messageSlice = createSlice({
@@ -15,7 +16,7 @@ namespace MessageStore {
           const minutes = date.getMinutes();
           const seconds = date.getSeconds();
           const newMessage: Message = {
-            id: Date.now().toString(),
+            id: Helpers.getID(),
             message: action.payload.message,
             created_at: `${String(hours).padStart(2, "0")}:${String(minutes).padStart(2, "0")}:${String(
               seconds

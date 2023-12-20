@@ -23,7 +23,7 @@ const useTimer = (initialTime: number) => {
     }
   }, [isRunning, timerTime, setTime]);
 
-  return { timerTime, startTimer, timerIsRuning: isRunning };
+  return { timerTime, startTimer, timerIsRuning: isRunning, setTime };
 };
 
 export default useTimer;

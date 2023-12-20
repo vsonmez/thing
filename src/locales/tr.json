@@ -27,10 +27,15 @@
   "Cities": "Şehirler",
   "Travel": "Yolculuk Et",
   "Traveling": "Yolculuk Ediliyor",
-  "TravelInfo": "Yolculuk 45 saniye sürer ve 3 açlık puanı gerekir.",
+  "Travel Info": "Yolculuk 45 saniye sürer ve 3 açlık puanı gerekir.",
+  "Dungeon Travel Info": "Yolculuk 30 saniye sürer ve 75 açlık puanı gerekir.",
   "Location": "Yer",
   "Hunger": "Açlık",
   "Not Enough Hunger Point": "Yetersiz Açlık Puanı!",
   "You're starting to get hungry": "Acıkmaya başladın!",
-  "Welcome To": "Hosgeldin"
+  "Hunger point decreased": "Açlık puanı azaldı!",
+  "Welcome To": "Hosgeldin",
+  "Dungeons": "Zindanlar",
+  "No dungeons found": "Zindan bulunamadı!",
+  "Enter the dungeon": "Zindana Gir"
 }

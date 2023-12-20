@@ -5,9 +5,9 @@ import { useTranslation } from "react-i18next";
 import ButtonComponent from "../../shared-components/Button.component";
 import useCharacterLocation from "../../store/hooks/character/use-character-location.hook";
 import useTimer from "../../hooks/use-timer.hook";
-import useIsBusy from "../../store/hooks/global/use-is-busy.hook";
 import useMessagesStore from "../../store/hooks/message/use-message-store";
 import useCharacterHunger from "../../store/hooks/character/use-character-hunger.hook";
+import Constants from "../../constants/index.constants";
 /**
  * This code snippet defines a React functional component called CityListItem. It receives a city object as a prop, which has properties like name, id, and description.
 
@@ -22,26 +22,27 @@ The component also conditionally renders a black overlay with the current timer 
 const CityListItem = ({ city }: { city: Location }) => {
   const { characterHunger, decreaseCharacterHunger } = useCharacterHunger();
   const { addMessage } = useMessagesStore();
-  const { setIsBusy } = useIsBusy();
-  const { startTimer, timerTime, timerIsRuning } = useTimer(3);
+  const { startTimer, timerTime, timerIsRuning, setTime } = useTimer(Constants.travelTime);
   const { i18n, t } = useTranslation();
   const { setCharacterLocation, characterLocation } = useCharacterLocation();
   const onTravel = useCallback(() => {
-    if (characterHunger < 3) {
+    if (characterHunger < Constants.travelHungerPoint) {
       addMessage("Not Enouhg Hunger Point", "error");
       return;
     }
-    setIsBusy(true);
     startTimer();
-  }, [setIsBusy, addMessage, startTimer, characterHunger]);
+  }, [addMessage, startTimer, characterHunger]);
 
   useEffect(() => {
     if (timerTime <= 0) {
-      setIsBusy(false);
-      addMessage(`${t("Welcome To")}: ${city.name}`, "success");
-      setCharacterLocation(city.id, decreaseCharacterHunger(3));
+      setCharacterLocation(city.id, () => {
+        decreaseCharacterHunger(Constants.travelHungerPoint);
+        setTime(Constants.travelTime);
+        addMessage("Hunger point decreased");
+        addMessage(`${t("Welcome To")}: ${city.name}`, "success");
+      });
     }
-  }, [timerTime, setIsBusy, addMessage, setCharacterLocation, city, t, decreaseCharacterHunger]);
+  }, [timerTime, addMessage, setCharacterLocation, city, t, decreaseCharacterHunger, setTime]);
 
   return (
     <li
@@ -52,7 +53,7 @@ const CityListItem = ({ city }: { city: Location }) => {
       <div className="w-full">
         <span className="block">{city.name}</span>
         <small>{i18n.language === "en" ? city.description.en : city.description.tr}</small>
-        {characterLocation !== city.id && <small className="block my-1 text-orange-300">{t("TravelInfo")}</small>}
+        {characterLocation !== city.id && <small className="block my-1 text-orange-300">{t("Travel Info")}</small>}
         {characterLocation !== city.id && (
           <div className="mt-1">
             <ButtonComponent onClick={onTravel}>

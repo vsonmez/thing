@@ -11,8 +11,8 @@ const useCharacterLocation = () => {
   const characterLocation = AppStore.useAppSelector(CharacterStore.select.location);
 
   const setCharacterLocation = useCallback(
-    (location: string, callback?: void) => {
-      dispatch(CharacterStore.actions.setLocation(location), callback);
+    (location: string, callback?: Function) => {
+      dispatch(CharacterStore.actions.setLocation(location), callback && callback());
     },
     [dispatch]
   );

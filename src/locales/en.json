@@ -27,10 +27,15 @@
   "Cities": "Cities",
   "Travel": "Travel",
   "Traveling": "Traveling",
-  "TravelInfo": "The journey takes 45 seconds and requires 3 hunger points.",
+  "Travel Info": "The journey takes 45 seconds and requires 3 hunger points.",
+  "Dungeon Travel Info": "The journey takes 30 seconds and requires 75 hunger points.",
   "Location": "Location",
   "Hunger": "Hunger",
   "Not Enouhg Hunger Point": "Not Enouhg Hunger Point!",
   "You're starting to get hungry": "You're starting to get hungry",
-  "Welcome To": "Welcome to"
+  "Hunger point decreased": "Hunger point decreased!",
+  "Welcome To": "Welcome to",
+  "Dungeons": "Dungeons",
+  "No dungeons found": "No dungeons found!",
+  "Enter the dungeon": "Enter the dungeon"
 }

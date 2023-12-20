@@ -5,6 +5,7 @@ import InventoryComponent from "../inventory/components/Inventory.component";
 import MarketComponent from "../market/components/Market.component";
 import { useTranslation } from "react-i18next";
 import CityListComponent from "../locations/components/CityList.component";
+import DungeonListComponent from "../dungeons/components/DungeonList.component";
 /**
  * This code is defining a functional component called Footer. It uses the useTranslation hook from a translation library to get the t function for translating text. It also uses the useState hook to manage the state of showModal and selectedTab variables.
 
@@ -17,9 +18,9 @@ If showModal is true, the component renders a ModalComponent with a title based 
 const Footer = () => {
   const { t } = useTranslation();
   const [showModal, setShowModal] = useState(false);
-  const [selectedTab, setSelectedTab] = useState<"Inventory" | "Market" | "Cities">();
+  const [selectedTab, setSelectedTab] = useState<"Inventory" | "Market" | "Cities" | "Dungeons">();
 
-  const onChangeTab = useCallback((selectedTab: "Inventory" | "Market" | "Cities") => {
+  const onChangeTab = useCallback((selectedTab: "Inventory" | "Market" | "Cities" | "Dungeons") => {
     setSelectedTab(selectedTab);
     setShowModal(true);
   }, []);
@@ -53,6 +54,14 @@ const Footer = () => {
         >
           <span>{t("Cities")}</span>
         </ButtonComponent>
+        <ButtonComponent
+          onClick={() => {
+            onChangeTab("Dungeons");
+          }}
+          className="p-2 border-0"
+        >
+          <span>{t("Dungeons")}</span>
+        </ButtonComponent>
       </footer>
       {showModal && (
         <ModalComponent
@@ -63,6 +72,7 @@ const Footer = () => {
             {selectedTab === "Inventory" && <InventoryComponent></InventoryComponent>}
             {selectedTab === "Market" && <MarketComponent></MarketComponent>}
             {selectedTab === "Cities" && <CityListComponent></CityListComponent>}
+            {selectedTab === "Dungeons" && <DungeonListComponent></DungeonListComponent>}
           </>
         </ModalComponent>
       )}
