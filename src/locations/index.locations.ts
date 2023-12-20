@@ -338,6 +338,48 @@ const Locations: {
     },
     name: "Shadowfen",
     id: "shadowfen",
+    dungeons: {
+      "Phantom Moors": {
+        name: "Phantom Moors",
+        id: "phantomMoors",
+        description: {
+          tr: "Hayaletlerin dolaştığı, sislerle örtülü bir bataklık alanı.",
+          en: "A marshland veiled in mists where phantoms roam, creating an eerie and mysterious atmosphere.",
+        },
+      },
+      shadowcraftShrine: {
+        name: "Shadowcraft Shrine",
+        id: "shadowcraftShrine",
+        description: {
+          tr: "Lanetli büyülerin ve karanlık ritüellerin yapıldığı bir tapınak.",
+          en: "A temple where cursed sorcery and dark rituals are practiced, shrouded in ominous energy and enigmatic ceremonies.",
+        },
+      },
+      umbralLabyrinth: {
+        name: "Umbral Labyrinth",
+        id: "umbralLabyrinth",
+        description: {
+          tr: "Karanlık gölgelerle dolu, karanlık büyülerin bulunduğu bir labirent.",
+          en: "A maze filled with dark shadows and imbued with the essence of sinister sorcery, concealing arcane and mysterious powers within its depths.",
+        },
+      },
+      accursedHollows: {
+        name: "Accursed Hollows",
+        id: "accursedHollows",
+        description: {
+          tr: "Hayaletlerin ve lanetli ruhların barındığı, karanlık ve tehlikeli bir mağara sistemi.",
+          en: "A perilous cave system harboring phantoms and cursed spirits, immersed in darkness and inherent danger.",
+        },
+      },
+      abyssOfSorrow: {
+        name: "Abyss of Sorrow",
+        id: "abyssOfSorrow",
+        description: {
+          tr: "Üzüntü ve karanlığın hakim olduğu, mistik bir bölge.",
+          en: "A mystical realm where sadness and darkness reign supreme, shrouded in an aura of melancholy and mystique.",
+        },
+      },
+    },
   },
   luminara: {
     description: {
@@ -346,6 +388,40 @@ const Locations: {
     },
     name: "Luminara",
     id: "luminara",
+    dungeons: {
+      cascadeOfLight: {
+        name: "Cascade of Light",
+        id: "cascadeOfLight",
+        description: {
+          tr: " Işığın akan bir şelaleyle temsil edildiği, aydınlık ve büyülü bir yer.",
+          en: "A luminous and enchanting place represented by a cascading waterfall of light, radiating brightness and enchantment.",
+        },
+      },
+      radiantSpire: {
+        name: "Radiant Spire",
+        id: "radiantSpire",
+        description: {
+          tr: " Işık büyüsünün öğretildiği ve kullanıldığı bir kule.",
+          en: "A tower where light magic is taught and practiced, serving as a hub for the mastery and utilization of luminous enchantments.",
+        },
+      },
+      skyMirrors: {
+        name: "Sky Mirrors",
+        id: "skyMirrors",
+        description: {
+          tr: "Yıldızların yansıtıldığı ve ışığın oyunlarının izlenebildiği bir alan.",
+          en: "A space where stars are reflected, allowing the observation of the playful dance of light in the celestial expanse.",
+        },
+      },
+      tracesOfTheStars: {
+        name: "Traces of the Stars",
+        id: "tracesOfTheStars",
+        description: {
+          tr: "Aydınlık yolların bulunduğu, yıldızların izlerini takip eden bir alan.",
+          en: "An area adorned with illuminated pathways, where one follows the trails left by the stars, guiding travelers through their celestial journey.",
+        },
+      },
+    },
   },
   nyxhollow: {
     description: {
@@ -354,6 +430,40 @@ const Locations: {
     },
     name: "Nyxhollow",
     id: "nyxhollow",
+    dungeons: {
+      obsidianDreamCavern: {
+        name: "Obsidian Dream Cavern",
+        id: "obsidianDreamCavern",
+        description: {
+          tr: "Karanlık rüyaların ve kabusların yaşandığı, karanlıkla dolu bir mağara.",
+          en: "A cave shrouded in darkness where dark dreams and nightmares take form, embodying an abyss of unsettling visions.",
+        },
+      },
+      nocturnalPassage: {
+        name: "Nocturnal Passage",
+        id: "nocturnalPassage",
+        description: {
+          tr: " Karanlıkta yolunu bulmaya çalışanların karşılaştığı bir alan.",
+          en: "A domain where travelers navigate through darkness, encountering challenges as they seek their path amidst the shroud of night.",
+        },
+      },
+      dreadHollow: {
+        name: "Dread Hollow",
+        id: "dreadHollow",
+        description: {
+          tr: "Korkuların ve karanlığın en derin olduğu, gizemli bir bölge.",
+          en: "A mysterious realm where fears and darkness reach their deepest depths, shrouded in enigma and foreboding ambiance.",
+        },
+      },
+      midnightPathway: {
+        name: "Midnight Pathway",
+        id: "midnightPathway",
+        description: {
+          tr: "Ay ışığının en güçlü olduğu, gecenin yolları.",
+          en: " The pathways illuminated by the strongest moonlight, traversing through the essence of the night.",
+        },
+      },
+    },
   },
   wyvernsReach: {
     description: {
@@ -362,6 +472,40 @@ const Locations: {
     },
     name: "Wyvern's Reach",
     id: "wyvernsReach",
+    dungeons: {
+      dragonMonument: {
+        name: "Dragon Monument",
+        id: "dragonMonument",
+        description: {
+          tr: "Ejderha uçlarynın bulunduğu, birbirinden farklı bir yer.",
+          en: "A place where dragons are held together, unlike any other place.",
+        },
+      },
+      infernoCaverns: {
+        name: "Inferno Caverns",
+        id: "infernoCaverns",
+        description: {
+          tr: "Alev kusabilen yaratıkların ve lav akıntılarının bulunduğu, tehlikeli bir mağara.",
+          en: "A perilous cave inhabited by creatures capable of spewing flames and featuring streams of lava, creating a hazardous environment.",
+        },
+      },
+      scaleboundDungeons: {
+        name: "Scalebound Dungeons",
+        id: "scaleboundDungeons",
+        description: {
+          tr: "Ejderhaların pullarını taşıyan, ejderha koruması altındaki zindanlar.",
+          en: "Dungeons protected by dragons and adorned with the scales of these majestic creatures.",
+        },
+      },
+      scaleCollectorsDungeon: {
+        name: "Scale Collector's Dungeon",
+        id: "scaleCollectorsDungeon",
+        description: {
+          tr: "Ejderhaların izlerini takip eden bir macera boyunca pulları toplamaya odaklanılan bir zindan.",
+          en: "A dungeon adventure centered around tracking the traces of dragons to collect their scales along the way.",
+        },
+      },
+    },
   },
 };
 
