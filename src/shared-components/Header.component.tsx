@@ -30,7 +30,7 @@ import HeaderResponsiveMenuComponent from "./HeaderResponsiveMenu.component";
  */
 const Header: React.FC = () => {
   return (
-    <header className="p-2 border-b border-gray-700 flex gap-2 items-center ">
+    <header className="p-1 border-b border-gray-700 flex gap-2 items-center ">
       <div className="hidden xl:flex">
         <CharacterNameComponent></CharacterNameComponent>
       </div>
