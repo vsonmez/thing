@@ -25,7 +25,6 @@ const CharacterHunger = () => {
     <div className="flex items-center">
       <span> {t("Hunger")}:</span>
       <span className="ml-1">{characterHunger}</span>
-      <small>/100</small>
     </div>
   );
 };
