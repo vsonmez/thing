@@ -36,15 +36,15 @@ const Header: React.FC = () => {
       </div>
       <CharacterLevelComponent></CharacterLevelComponent>
       <CharacterGoldComponent></CharacterGoldComponent>
-      <CharacterHealthComponent></CharacterHealthComponent>
+      <CharacterHungerComponent></CharacterHungerComponent>
       <div className="gap-2 items-center hidden xl:flex">
+        <CharacterHealthComponent></CharacterHealthComponent>
         <CharacterStrengthAndDexterityComponent></CharacterStrengthAndDexterityComponent>
         <CharacterDefenseComponent></CharacterDefenseComponent>
         <CharacterAttackComponent></CharacterAttackComponent>
         <CharacterDamageComponent></CharacterDamageComponent>
         <CharacterExperienceComponent></CharacterExperienceComponent>
         <CharacterLocationComponent></CharacterLocationComponent>
-        <CharacterHungerComponent></CharacterHungerComponent>
       </div>
       <div className="ml-auto hidden xl:flex">
         <LanguageComponent></LanguageComponent>
