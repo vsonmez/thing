@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/thing/static/css/main.303f592e.css",
-    "main.js": "/thing/static/js/main.9f61ab68.js",
+    "main.js": "/thing/static/js/main.f28ba34c.js",
     "static/media/astradon.jpeg": "/thing/static/media/astradon.0195d9b241e083750034.jpeg",
     "static/media/magicalLibrary.jpeg": "/thing/static/media/magicalLibrary.26416081594581a0c565.jpeg",
     "static/media/solsticeHaven.jpeg": "/thing/static/media/solsticeHaven.5314207811789a54abc0.jpeg",
@@ -55,10 +55,10 @@
     "static/media/sword.jpeg": "/thing/static/media/sword.45ee235f7127808696dc.jpeg",
     "index.html": "/thing/index.html",
     "main.303f592e.css.map": "/thing/static/css/main.303f592e.css.map",
-    "main.9f61ab68.js.map": "/thing/static/js/main.9f61ab68.js.map"
+    "main.f28ba34c.js.map": "/thing/static/js/main.f28ba34c.js.map"
   },
   "entrypoints": [
     "static/css/main.303f592e.css",
-    "static/js/main.9f61ab68.js"
+    "static/js/main.f28ba34c.js"
   ]
 }
