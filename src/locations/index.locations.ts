@@ -94,6 +94,48 @@ const Locations: {
     },
     name: "Cephalon",
     id: "cephalon",
+    dungeons: {
+      gigantiaShrine: {
+        name: "Gigantia Shrine",
+        id: "gigantiaShrine",
+        description: {
+          tr: "Dev antik yapıların içinde, kayıp bir tanrıya adanmış tapınaklar.",
+          en: "Inside colossal ancient structures, temples dedicated to a lost god.",
+        },
+      },
+      mythicMazeCitadel: {
+        name: "Mythic Maze Citadel",
+        id: "mythicMazeCitadel",
+        description: {
+          tr: "Eski efsaneler ve mitolojik yaratıkların labirenti, her bölüm farklı bir efsaneyle ilişkilendirilmiş.",
+          en: "A labyrinthine complex intertwined with ancient legends and mythical creatures, each section intertwined with a distinct myth.",
+        },
+      },
+      legendariadSpire: {
+        name: "Legendariad Spire",
+        id: "legendariadSpire",
+        description: {
+          tr: " Farklı efsanelerin anlatıldığı, kuleler arası geçişler gerektiren bir bölge.",
+          en: "A region where towers stand, each narrating different legends, requiring passage between them to explore the diverse tales.",
+        },
+      },
+      forgottenDivinityGrotto: {
+        name: "Forgotten Divinity Grotto",
+        id: "forgottenDivinityGrotto",
+        description: {
+          tr: " Unutulmuş tanrıların heykelleri ve gizli geçitlerle dolu gizemli bir mağara.",
+          en: "A mysterious cave filled with statues of forgotten gods and concealed passages, shrouded in secrecy and ancient lore.",
+        },
+      },
+      timeNexusObservatory: {
+        name: "Time Nexus Observatory",
+        id: "timeNexusObservatory",
+        description: {
+          tr: "Zamanla ilgili eski bir mekan, zamanla oynayabilen tuhaf mekanizmalar içerir.",
+          en: "An ancient location intricately designed with peculiar mechanisms capable of manipulating time, serving as a hub for temporal exploration and understanding.",
+        },
+      },
+    },
   },
   solsticeHaven: {
     description: {
@@ -102,6 +144,32 @@ const Locations: {
     },
     name: "Solstice Haven",
     id: "solsticeHaven",
+    dungeons: {
+      solarSanctum: {
+        name: "Solar Sanctum",
+        id: "solarSanctum",
+        description: {
+          tr: "Güneşin dönüm noktalarına adanmış, ışıkla dolu bir tapınak.",
+          en: "A temple dedicated to the pivotal moments of the sun, brimming with radiant light and celestial symbolism.",
+        },
+      },
+      chronoGate: {
+        name: "Chrono Gate",
+        id: "chronoGate",
+        description: {
+          tr: "Geçmiş ve geleceği manipüle edebilen gizemli bir portal.",
+          en: "A mysterious portal capable of manipulating the past and the future, shrouded in enigmatic powers over time.",
+        },
+      },
+      shiftwoodGrove: {
+        name: "Shiftwood Grove",
+        id: "shiftwoodGrove",
+        description: {
+          tr: "Mevsimlerin değişimlerini yansıtan, büyülü bitkiler ve gizemli yaratıklarla dolu bir orman.",
+          en: "A forest teeming with enchanted flora and mystical creatures, reflecting the transitions of seasons and harboring a sense of magical transformation.",
+        },
+      },
+    },
   },
   duskmere: {
     description: {
@@ -110,6 +178,32 @@ const Locations: {
     },
     name: "Duskmere",
     id: "duskmere",
+    dungeons: {
+      oraclesSanctum: {
+        name: "Oracle's Sanctum",
+        id: "oraclesSanctum",
+        description: {
+          tr: "Geleceği gören kahinlerin ziyaret ettiği, gizemli bir mağara.",
+          en: "Mysterious cave visited by seers and prophets, revered for its enigmatic ability to glimpse into the future.",
+        },
+      },
+      spectralEnclave: {
+        name: "Spectral Enclave",
+        id: "spectralEnclave",
+        description: {
+          tr: "Gizemli hayaletlerin ve ruhların dolaştığı terk edilmiş bir şehir alanı.",
+          en: "Abandoned urban area haunted by mysterious phantoms and wandering spirits, shrouded in an eerie, ghostly ambiance.",
+        },
+      },
+      obscuriaArchives: {
+        name: "Obscuria Archives",
+        id: "obscuriaArchives",
+        description: {
+          tr: "Korkunç efsanelerin ve lanetli kitapların bulunduğu bir kütüphane.",
+          en: "A library housing chilling legends and cursed tomes, containing a collection of terrifying tales and forbidden knowledge.",
+        },
+      },
+    },
   },
   celestia: {
     description: {
@@ -118,6 +212,32 @@ const Locations: {
     },
     name: "Celestia",
     id: "celestia",
+    dungeons: {
+      stellarLuminaryShrine: {
+        name: "Stellar Luminary Shrine",
+        id: "stellarLuminaryShrine",
+        description: {
+          tr: "Yıldızların gücünün adanmış olduğu, astral enerjilerle dolu bir tapınak.",
+          en: "A temple dedicated to the power of the stars, infused with astral energies and celestial forces.",
+        },
+      },
+      highSkyreachMonastery: {
+        name: "High Skyreach Monastery",
+        id: "highSkyreachMonastery",
+        description: {
+          tr: "Uzaklara doğru yükselen, bulutların üstünde bir manastır.",
+          en: "A monastery soaring high above, resting atop the clouds, reaching toward distant horizons.",
+        },
+      },
+      galesPassage: {
+        name: "Gale's Passage",
+        id: "galesPassage",
+        description: {
+          tr: " Hızlı geçişler ve rüzgarın gücüyle oluşturulan bir mağara.",
+          en: "A cavern crafted for swift traversal, utilizing the power of wind currents to create rapid transitions within its confines.",
+        },
+      },
+    },
   },
   astradon: {
     description: {
@@ -126,6 +246,40 @@ const Locations: {
     },
     name: "Astradon",
     id: "astradon",
+    dungeons: {
+      dimensionalTraverseArchway: {
+        name: "Dimensional Traverse Archway",
+        id: "dimensionalTraverseArchway",
+        description: {
+          tr: "Farklı boyutlara geçiş sağlayan, mistik bir geçit sistemine sahip bir geçit.",
+          en: "A mystical gateway system allowing passage into various dimensions and realms.",
+        },
+      },
+      starstoneCaverns: {
+        name: "Starstone Caverns",
+        id: "starstoneCaverns",
+        description: {
+          tr: "Astral enerjilerle dolu, mistik bir şehir. Burası farklı boyutlar arasında geçiş noktası olarak kabul edilir, mistik varlıkların izlerini taşır.",
+          en: "An mystical city brimming with astral energies. It's considered a gateway between different dimensions, bearing traces of mystical beings.",
+        },
+      },
+      eternalSoulwood: {
+        name: "Eternal Soulwood",
+        id: "eternalSoulwood",
+        description: {
+          tr: "Ruhların dolaştığı, mistik ağaçların bulunduğu gizemli bir ormanlık alan.",
+          en: "A mystical wooded area where spirits wander among ancient, mystical trees, carrying an ethereal ambiance and ancient wisdom.",
+        },
+      },
+      infinityVoidNexus: {
+        name: "Infinity Void Nexus",
+        id: "infinityVoidNexus",
+        description: {
+          tr: "Astral enerjinin yüksek olduğu, göz alıcı ve sıra dışı bir alana açılan bir geçit.",
+          en: "A dazzling and extraordinary gateway leading to an area of heightened astral energy, captivating in its boundless expanse and brilliance.",
+        },
+      },
+    },
   },
   seraphim: {
     description: {
@@ -134,6 +288,48 @@ const Locations: {
     },
     name: "Seraphim",
     id: "seraphim",
+    dungeons: {
+      seraphsAscent: {
+        name: "Seraph's Ascent",
+        id: "seraphsAscent",
+        description: {
+          tr: "Meleklerin izlerini taşıyan, bulutlar arasında yükselen bir labirent.",
+          en: "A labyrinth soaring amidst the clouds, bearing traces of celestial beings and their ethereal presence.",
+        },
+      },
+      chapelOfRadianceCaverns: {
+        name: "Chapel of Radiance Caverns",
+        id: "chapelOfRadianceCaverns",
+        description: {
+          tr: "Işıkla dolu, meleklerin ve ışığın gücünü yansıtan bir mağara sistem.",
+          en: "A system of caves brimming with light, reflecting the power of angels and the brilliance of illumination.",
+        },
+      },
+      elevationOfVirtueTemple: {
+        name: "Elevation of Virtue Temple",
+        id: "elevationOfVirtueTemple",
+        description: {
+          tr: " İyilik ve barışın sembolü, meleklerin adandığı bir tapınak.",
+          en: "A sanctuary dedicated to goodness and peace, revered by angels as a symbol of benevolence.",
+        },
+      },
+      purityRamparts: {
+        name: "Purity Ramparts",
+        id: "purityRamparts",
+        description: {
+          tr: "Koruyucu büyülerle güçlendirilmiş, ışıkla dolu bir surlar sistemi.",
+          en: "Fortifications strengthened by protective enchantments, bathed in radiant light forming an illuminated barrier system.",
+        },
+      },
+      sacredLamentPeak: {
+        name: "Sacred Lament Peak",
+        id: "sacredLamentPeak",
+        description: {
+          tr: "Meleklerin dualarının yükseldiği, yüksek bir dağ zirvesi.",
+          en: "A lofty mountain summit where the prayers of angels ascend, echoing through the celestial heights.",
+        },
+      },
+    },
   },
   shadowfen: {
     description: {
