@@ -1,15 +1,23 @@
 {
   "files": {
-    "main.css": "/thing/static/css/main.14468c61.css",
-    "main.js": "/thing/static/js/main.b0710d9b.js",
+    "main.css": "/thing/static/css/main.a76c689c.css",
+    "main.js": "/thing/static/js/main.6d67a873.js",
     "static/media/astradon.jpeg": "/thing/static/media/astradon.0195d9b241e083750034.jpeg",
+    "static/media/magicalLibrary.jpeg": "/thing/static/media/magicalLibrary.26416081594581a0c565.jpeg",
     "static/media/solsticeHaven.jpeg": "/thing/static/media/solsticeHaven.5314207811789a54abc0.jpeg",
+    "static/media/heartOfNature.jpeg": "/thing/static/media/heartOfNature.64260b207d65786f9494.jpeg",
+    "static/media/templeOfTheElements.jpeg": "/thing/static/media/templeOfTheElements.82a116386e30cbdfe1fc.jpeg",
+    "static/media/acaciaTemple.jpeg": "/thing/static/media/acaciaTemple.2d84e40856ebed9c339f.jpeg",
     "static/media/nyxhollow.jpeg": "/thing/static/media/nyxhollow.123c1b9e615afa82f937.jpeg",
     "static/media/eldorath.jpeg": "/thing/static/media/eldorath.8cec81ba6ca9688bf865.jpeg",
     "static/media/seraphim.jpeg": "/thing/static/media/seraphim.14581325b54b463149cb.jpeg",
+    "static/media/fairyCave.jpeg": "/thing/static/media/fairyCave.fd4384d6063776c84a06.jpeg",
     "static/media/wyvernsReach.jpeg": "/thing/static/media/wyvernsReach.1fbade799020c31b9b8b.jpeg",
     "static/media/aerendir.jpeg": "/thing/static/media/aerendir.d1128648ec0057cd1759.jpeg",
     "static/media/cephalon.jpeg": "/thing/static/media/cephalon.e8cbf4e5287d05d7b182.jpeg",
+    "static/media/zephyrionLabyrinth.jpeg": "/thing/static/media/zephyrionLabyrinth.dac9185b85bc29d414e0.jpeg",
+    "static/media/corridorOfSpirits.jpeg": "/thing/static/media/corridorOfSpirits.7cf0bed07c641bbeba56.jpeg",
+    "static/media/elvenShadows.jpeg": "/thing/static/media/elvenShadows.eb8f6b7d2367d0a13c25.jpeg",
     "static/media/celestia.jpeg": "/thing/static/media/celestia.e15213a4e269b2177c97.jpeg",
     "static/media/luminara.jpeg": "/thing/static/media/luminara.f505c388c44ed85cbda9.jpeg",
     "static/media/chainShirt.jpeg": "/thing/static/media/chainShirt.7c3cf71b216714c7fcab.jpeg",
@@ -42,11 +50,11 @@
     "static/media/dagger.jpeg": "/thing/static/media/dagger.5c9d1a16ad313651e683.jpeg",
     "static/media/sword.jpeg": "/thing/static/media/sword.45ee235f7127808696dc.jpeg",
     "index.html": "/thing/index.html",
-    "main.14468c61.css.map": "/thing/static/css/main.14468c61.css.map",
-    "main.b0710d9b.js.map": "/thing/static/js/main.b0710d9b.js.map"
+    "main.a76c689c.css.map": "/thing/static/css/main.a76c689c.css.map",
+    "main.6d67a873.js.map": "/thing/static/js/main.6d67a873.js.map"
   },
   "entrypoints": [
-    "static/css/main.14468c61.css",
-    "static/js/main.b0710d9b.js"
+    "static/css/main.a76c689c.css",
+    "static/js/main.6d67a873.js"
   ]
 }
