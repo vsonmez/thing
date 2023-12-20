@@ -19,8 +19,8 @@ const HeaderResponsiveMenu = () => {
   }, [showMenu, setShowMenu]);
 
   return (
-    <div className="ml-auto xl:hidden relative" onMouseEnter={toggleMenu} onMouseLeave={toggleMenu}>
-      <ButtonComponent className="border-0 p-0" onClick={() => {}}>
+    <div className="ml-auto xl:hidden relative">
+      <ButtonComponent className="border-0 p-0" onClick={toggleMenu}>
         <IconMenuComponent></IconMenuComponent>
       </ButtonComponent>
       {showMenu && (
