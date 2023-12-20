@@ -53,7 +53,7 @@ const CityListItem = ({ city }: { city: Location }) => {
     <li key={city.id} className="relative flex items-center justify-center">
       <CityImageComponent cityID={city.id}></CityImageComponent>
       <div
-        className={`w-full absolute bg-black/50 p-2 bottom-0 ${
+        className={`absolute bg-black/50 p-2 bottom-[1px] left-[1px] right-[1px] rounded overflow-hidden ${
           characterLocation === city.id ? "bg-green-900/50 rounded" : ""
         }`}
       >

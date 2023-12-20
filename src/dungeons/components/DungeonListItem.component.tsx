@@ -13,9 +13,9 @@ const DungeonListItem = ({ dungeon }: { dungeon: Dungeon }) => {
     setIsShowDetail(!isShowDetail);
   }, [isShowDetail, setIsShowDetail]);
   return (
-    <li key={dungeon.id} className="relative flex">
+    <li key={dungeon.id} className="relative flex overflow-hidden">
       <DungeonImageComponent dungeonID={dungeon.id}></DungeonImageComponent>
-      <div className={`w-full absolute bg-black/50 p-2 bottom-0`}>
+      <div className={`absolute right-[1px] bottom-[1px] left-[1px] bg-black/50 p-2`}>
         <div className="flex items-center">
           <span className="block">{dungeon.name}</span>
           <ButtonComponent className="ml-auto border-0" onClick={toggleShowDetail}>
