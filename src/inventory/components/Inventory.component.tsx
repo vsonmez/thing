@@ -20,7 +20,7 @@ const Inventory = () => {
       <EquipmentComponent></EquipmentComponent>
       <div>
         <h1>{t("Inventory")}</h1>
-        <ul className="flex gap-4">
+        <ul className="sm:flex gap-4 flex-wrap">
           {Object.values(inventory).map((item) => (
             <li key={item.defname}>
               <span>

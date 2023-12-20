@@ -11,6 +11,8 @@ import CharacterStrengthAndDexterityComponent from "../character/components/Char
 import LanguageComponent from "./Language.component";
 import CharacterLocationComponent from "../character/components/CharacterLocation.component";
 import CharacterHungerComponent from "../character/components/CharacterHunger.component";
+import IconMenuComponent from "../assets/images/svg-icons/IconMenu.component";
+import HeaderResponsiveMenuComponent from "./HeaderResponsiveMenu.component";
 /**
  *
  * It returns a JSX element representing a header section with multiple child components.
@@ -29,21 +31,26 @@ import CharacterHungerComponent from "../character/components/CharacterHunger.co
  */
 const Header: React.FC = () => {
   return (
-    <header className="flex gap-2 items-center p-2 border-b border-gray-700">
-      <CharacterNameComponent></CharacterNameComponent>
+    <header className="p-2 border-b border-gray-700 flex gap-2 items-center ">
+      <div className="hidden xl:flex">
+        <CharacterNameComponent></CharacterNameComponent>
+      </div>
       <CharacterLevelComponent></CharacterLevelComponent>
       <CharacterGoldComponent></CharacterGoldComponent>
       <CharacterHealthComponent></CharacterHealthComponent>
-      <CharacterStrengthAndDexterityComponent></CharacterStrengthAndDexterityComponent>
-      <CharacterDefenseComponent></CharacterDefenseComponent>
-      <CharacterAttackComponent></CharacterAttackComponent>
-      <CharacterDamageComponent></CharacterDamageComponent>
-      <CharacterExperienceComponent></CharacterExperienceComponent>
-      <CharacterLocationComponent></CharacterLocationComponent>
-      <CharacterHungerComponent></CharacterHungerComponent>
-      <div className="ml-auto">
+      <div className="gap-2 items-center hidden xl:flex">
+        <CharacterStrengthAndDexterityComponent></CharacterStrengthAndDexterityComponent>
+        <CharacterDefenseComponent></CharacterDefenseComponent>
+        <CharacterAttackComponent></CharacterAttackComponent>
+        <CharacterDamageComponent></CharacterDamageComponent>
+        <CharacterExperienceComponent></CharacterExperienceComponent>
+        <CharacterLocationComponent></CharacterLocationComponent>
+        <CharacterHungerComponent></CharacterHungerComponent>
+      </div>
+      <div className="ml-auto hidden xl:flex">
         <LanguageComponent></LanguageComponent>
       </div>
+      <HeaderResponsiveMenuComponent></HeaderResponsiveMenuComponent>
     </header>
   );
 };

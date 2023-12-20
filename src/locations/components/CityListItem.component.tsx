@@ -45,12 +45,11 @@ const CityListItem = ({ city }: { city: Location }) => {
   }, [timerTime, addMessage, setCharacterLocation, city, t, decreaseCharacterHunger, setTime]);
 
   return (
-    <li
-      key={city.id}
-      className={`flex gap-2 items-center ${characterLocation === city.id ? "bg-green-700 rounded" : ""}`}
-    >
-      <CityImageComponent cityID={city.id} width={128}></CityImageComponent>
-      <div className="w-full">
+    <li key={city.id} className="relative flex items-center justify-center">
+      <CityImageComponent cityID={city.id}></CityImageComponent>
+      <div
+        className={`w-full absolute bg-black/50 p-2 ${characterLocation === city.id ? "bg-green-900/50 rounded" : ""}`}
+      >
         <span className="block">{city.name}</span>
         <small>{i18n.language === "en" ? city.description.en : city.description.tr}</small>
         {characterLocation !== city.id && <small className="block my-1 text-orange-300">{t("Travel Info")}</small>}

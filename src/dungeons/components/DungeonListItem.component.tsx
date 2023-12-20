@@ -6,13 +6,10 @@ import { useTranslation } from "react-i18next";
 
 const DungeonListItem = ({ dungeon }: { dungeon: Dungeon }) => {
   const { t, i18n } = useTranslation();
-  console.log(i18n.language);
-  console.log(dungeon.name);
-  console.log(dungeon.description[i18n.language]);
   return (
-    <li key={dungeon.id} className="flex gap-2 items-center">
+    <li key={dungeon.id} className="relative flex items-center justify-center">
       <DungeonImageComponent dungeonID={dungeon.id}></DungeonImageComponent>
-      <div className="w-full">
+      <div className={`w-full absolute bg-black/50 p-2 `}>
         <span className="block">{dungeon.name}</span>
         <small>{i18n.language === "en" ? dungeon.description.en : dungeon.description.tr}</small>
         <small className="block my-1 text-orange-300">{t("Dungeon Travel Info")}</small>

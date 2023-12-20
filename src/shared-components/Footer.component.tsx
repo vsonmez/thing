@@ -6,6 +6,10 @@ import MarketComponent from "../market/components/Market.component";
 import { useTranslation } from "react-i18next";
 import CityListComponent from "../locations/components/CityList.component";
 import DungeonListComponent from "../dungeons/components/DungeonList.component";
+import marketImage from "../assets/images/menu-icons/market.jpeg";
+import inventoryImage from "../assets/images/menu-icons/inventory.jpeg";
+import citiesImage from "../assets/images/menu-icons/cityList.jpeg";
+import dungeonsImage from "../assets/images/menu-icons/dungeonList.jpeg";
 /**
  * This code is defining a functional component called Footer. It uses the useTranslation hook from a translation library to get the t function for translating text. It also uses the useState hook to manage the state of showModal and selectedTab variables.
 
@@ -29,38 +33,50 @@ const Footer = () => {
   }, []);
   return (
     <>
-      <footer className="flex gap-2 border-t border-gray-700 p-2">
+      <footer className="flex sm:gap-2 border-t border-gray-700 py-1 sm:p-2">
         <ButtonComponent
           onClick={() => {
             onChangeTab("Market");
           }}
-          className="p-2 border-0"
+          className="sm:p-2 border-0"
         >
-          <span>{t("Market")}</span>
+          <>
+            <span className="hidden sm:block">{t("Market")}</span>
+            <img alt="" width={48} src={marketImage} className="sm:hidden" />
+          </>
         </ButtonComponent>
         <ButtonComponent
           onClick={() => {
             onChangeTab("Inventory");
           }}
-          className="p-2 border-0"
+          className="sm:p-2 border-0"
         >
-          <span>{t("Inventory And Equipments")}</span>
+          <>
+            <span className="hidden sm:block">{t("Inventory And Equipments")}</span>
+            <img alt="" width={48} src={inventoryImage} className="sm:hidden" />
+          </>
         </ButtonComponent>
         <ButtonComponent
           onClick={() => {
             onChangeTab("Cities");
           }}
-          className="p-2 border-0"
+          className="sm:p-2 border-0"
         >
-          <span>{t("Cities")}</span>
+          <>
+            <span className="hidden sm:block">{t("Cities")}</span>
+            <img alt="" width={48} src={citiesImage} className="sm:hidden" />
+          </>
         </ButtonComponent>
         <ButtonComponent
           onClick={() => {
             onChangeTab("Dungeons");
           }}
-          className="p-2 border-0"
+          className="sm:p-2 border-0"
         >
-          <span>{t("Dungeons")}</span>
+          <>
+            <span className="hidden sm:block">{t("Dungeons")}</span>
+            <img alt="" width={48} src={dungeonsImage} className="sm:hidden" />
+          </>
         </ButtonComponent>
       </footer>
       {showModal && (
