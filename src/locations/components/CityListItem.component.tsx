@@ -9,6 +9,7 @@ import useMessagesStore from "../../store/hooks/message/use-message-store";
 import useCharacterHunger from "../../store/hooks/character/use-character-hunger.hook";
 import Constants from "../../constants/index.constants";
 import IconInfoComponent from "../../assets/images/svg-icons/IconInfo.component";
+import useIsBusy from "../../store/hooks/global/use-is-busy.hook";
 /**
  * This code snippet defines a React functional component called CityListItem. It receives a city object as a prop, which has properties like name, id, and description.
 
@@ -21,6 +22,7 @@ When the user clicks on the "Travel" button, it checks if the characterHunger is
 The component also conditionally renders a black overlay with the current timer value and the name of the city when the timerIsRunning state is true.
  */
 const CityListItem = ({ city }: { city: Location }) => {
+  const { setIsBusy } = useIsBusy();
   const [isShowDetail, setIsShowDetail] = useState<boolean>(false);
   const { characterHunger, decreaseCharacterHunger } = useCharacterHunger();
   const { addMessage } = useMessagesStore();
@@ -49,6 +51,10 @@ const CityListItem = ({ city }: { city: Location }) => {
     }
   }, [timerTime, addMessage, setCharacterLocation, city, t, decreaseCharacterHunger, setTime]);
 
+  useEffect(() => {
+    setIsBusy(timerIsRuning);
+  }, [timerIsRuning, setIsBusy]);
+
   return (
     <li key={city.id} className="relative flex items-center justify-center">
       <CityImageComponent cityID={city.id}></CityImageComponent>
@@ -76,7 +82,7 @@ const CityListItem = ({ city }: { city: Location }) => {
         )}
       </div>
       {timerIsRuning && (
-        <div className="fixed top-0 left-0 w-full h-full bg-black/50 flex items-center justify-center flex-col">
+        <div className="fixed top-0 left-0 w-full h-full bg-black/50 flex items-center justify-center flex-col z-1">
           <span className="text-[24px]">{timerTime}</span>
           <div>{`${t("Traveling")}: ${city.name}`}</div>
         </div>

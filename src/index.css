@@ -57,3 +57,6 @@ body {
 .wyvernsReach {
   background-image: url("assets/images/cities/wyvernsReach.jpeg");
 }
+.z-1 {
+  z-index: 1;
+}
