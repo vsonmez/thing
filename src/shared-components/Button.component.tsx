@@ -25,7 +25,7 @@ const Button = ({
   disabled?: boolean;
 }) => {
   const { isBusy } = useIsBusy();
-  const classes = `border rounded px-1 ${className}`;
+  const classes = `border rounded px-1 disabled:bg-gray-300 disabled:text-gray-800 ${className}`;
   const onClickHandler: MouseEventHandler<HTMLButtonElement> = useCallback(
     (event) => {
       onClick(event);

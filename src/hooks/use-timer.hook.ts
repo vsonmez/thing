@@ -17,11 +17,12 @@ const useTimer = (initialTime: number) => {
       if (timerTime <= 0) {
         setIsRunning(false);
         clearInterval(timer);
+        setTime(initialTime);
       }
 
       return () => clearInterval(timer);
     }
-  }, [isRunning, timerTime, setTime]);
+  }, [isRunning, timerTime, setTime, initialTime]);
 
   return { timerTime, startTimer, timerIsRuning: isRunning, setTime };
 };

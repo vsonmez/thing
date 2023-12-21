@@ -1,6 +1,6 @@
 import React, { useRef } from "react";
-import useCharacterLocation from "../../store/hooks/character/use-character-location.hook";
-import Locations from "../../locations/index.locations";
+import useCharacterLocation from "../../../store/hooks/character/use-character-location.hook";
+import Locations from "../../../locations/index.locations";
 import { useTranslation } from "react-i18next";
 import DungeonListItemComponent from "./DungeonListItem.component";
 

@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useState } from "react";
+import React, { useCallback, useEffect } from "react";
 import Location from "../models/location.type";
 import CityImageComponent from "./CityImage.component";
 import { useTranslation } from "react-i18next";
@@ -8,8 +8,8 @@ import useTimer from "../../hooks/use-timer.hook";
 import useMessagesStore from "../../store/hooks/message/use-message-store";
 import useCharacterHunger from "../../store/hooks/character/use-character-hunger.hook";
 import Constants from "../../constants/index.constants";
-import IconInfoComponent from "../../assets/images/svg-icons/IconInfo.component";
 import useIsBusy from "../../store/hooks/global/use-is-busy.hook";
+import CityDetailComponent from "./CityDetail.component";
 /**
  * This code snippet defines a React functional component called CityListItem. It receives a city object as a prop, which has properties like name, id, and description.
 
@@ -23,12 +23,12 @@ The component also conditionally renders a black overlay with the current timer 
  */
 const CityListItem = ({ city }: { city: Location }) => {
   const { setIsBusy } = useIsBusy();
-  const [isShowDetail, setIsShowDetail] = useState<boolean>(false);
   const { characterHunger, decreaseCharacterHunger } = useCharacterHunger();
   const { addMessage } = useMessagesStore();
   const { startTimer, timerTime, timerIsRuning, setTime } = useTimer(Constants.travelTime);
-  const { i18n, t } = useTranslation();
+  const { t } = useTranslation();
   const { setCharacterLocation, characterLocation } = useCharacterLocation();
+
   const onTravel = useCallback(() => {
     if (characterHunger < Constants.travelHungerPoint) {
       addMessage("Not Enouhg Hunger Point", "error");
@@ -36,9 +36,6 @@ const CityListItem = ({ city }: { city: Location }) => {
     }
     startTimer();
   }, [addMessage, startTimer, characterHunger]);
-  const toggleShowDetail = useCallback(() => {
-    setIsShowDetail(!isShowDetail);
-  }, [isShowDetail, setIsShowDetail]);
 
   useEffect(() => {
     if (timerTime <= 0) {
@@ -63,16 +60,7 @@ const CityListItem = ({ city }: { city: Location }) => {
           characterLocation === city.id ? "bg-green-900/50 rounded" : ""
         }`}
       >
-        <div className="flex items-center">
-          <span className="block">{city.name}</span>
-          <ButtonComponent className="ml-auto border-0" onClick={toggleShowDetail}>
-            <IconInfoComponent></IconInfoComponent>
-          </ButtonComponent>
-        </div>
-        {isShowDetail && <small>{i18n.language === "en" ? city.description.en : city.description.tr}</small>}
-        {characterLocation !== city.id && isShowDetail && (
-          <small className="block my-1 text-orange-300">{t("Travel Info")}</small>
-        )}
+        <CityDetailComponent city={city}></CityDetailComponent>
         {characterLocation !== city.id && (
           <div className="mt-1">
             <ButtonComponent onClick={onTravel}>

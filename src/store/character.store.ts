@@ -31,6 +31,8 @@ namespace CharacterStore {
     gold: 100,
     location: "eldorath",
     hunger: 100,
+    isInDungeon: false,
+    currentDungeon: "",
     stats: {
       attack: 1,
       defense: 10,
@@ -107,6 +109,12 @@ namespace CharacterStore {
       decreaseHunger: produce((state: CharacterStoreType, action: PayloadAction<number>) => {
         state.hunger = Math.max(state.hunger - action.payload, 0);
       }),
+      setIsInDungeon: produce((state: CharacterStoreType, action: PayloadAction<boolean>) => {
+        state.isInDungeon = action.payload;
+      }),
+      setCurrentDungeon: produce((state: CharacterStoreType, action: PayloadAction<string>) => {
+        state.currentDungeon = action.payload;
+      }),
     },
   });
   export const actions = characterSlice.actions;
@@ -124,6 +132,8 @@ namespace CharacterStore {
     dexterity: (state: AppStore.RootState) => state.character.stats.dexterity,
     location: (state: AppStore.RootState) => state.character.location,
     hunger: (state: AppStore.RootState) => state.character.hunger,
+    isInDungeon: (state: AppStore.RootState) => state.character.isInDungeon,
+    currentDungeon: (state: AppStore.RootState) => state.character.currentDungeon,
   };
 }
 

@@ -14,6 +14,8 @@ class Character {
   gold: number;
   location: string = "eldorath";
   hunger: number = 100;
+  isInDungeon: boolean = false;
+  currentDungeon: string;
   constructor(name: string) {
     this.name = name;
     this.gold = 100;

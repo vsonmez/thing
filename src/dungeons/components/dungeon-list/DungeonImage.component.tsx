@@ -6,7 +6,7 @@ const DungeonImage = ({ dungeonID }: { dungeonID: string }) => {
   return (
     <img
       className={`rounded border border-gray-400 overflow-hidden w-full`}
-      src={require(`../../assets/images/dungeons/${dungeonID}.jpeg`)}
+      src={require(`../../../assets/images/dungeons/${dungeonID}.jpeg`)}
       alt=""
     />
   );
