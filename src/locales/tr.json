@@ -39,5 +39,9 @@
   "Dungeon": "Zindan",
   "No dungeons found": "Zindan bulunamadı!",
   "Enter the dungeon": "Zindana Gir",
-  "You are progressing through the dungeon": "Zindanda ilerliyorsun..."
+  "You are progressing through the dungeon": "Zindanda ilerliyorsun...",
+  "Monster": "Canavar",
+  "Event": "Hareketlilik",
+  "Trap": "Tuzak",
+  "Secret": "Gizli"
 }

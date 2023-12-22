@@ -29,7 +29,7 @@ const useDungeon = () => {
     dispatch(DungeonStore.actions.decreaseMonsterAmount());
   }, [dispatch]);
 
-  const decreaseSecretPassageAmount = useCallback(() => {
+  const decreaseSecretAmount = useCallback(() => {
     dispatch(DungeonStore.actions.decreaseSecretAmount());
   }, [dispatch]);
 
@@ -67,9 +67,9 @@ const useDungeon = () => {
      */
     decreaseMonsterAmount,
     /**
-     * The decreaseSecretPassageAmount method is a function that sets the amount of secret passages in the dungeon.
+     * The decreaseSecretAmount method is a function that sets the amount of secret passages in the dungeon.
      */
-    decreaseSecretPassageAmount,
+    decreaseSecretAmount,
     /**
      * The resetDungeon method is a function that resets the dungeon.
      */

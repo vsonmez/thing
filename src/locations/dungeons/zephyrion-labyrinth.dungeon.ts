@@ -26,7 +26,8 @@ const zephyrionLabyrinth: Dungeon = {
     possibility: 6,
     amount: 5,
   },
-  secret: {
+  secrets: {
+    list: [],
     amount: 3,
     possibility: 4,
   },

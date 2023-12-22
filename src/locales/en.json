@@ -39,5 +39,9 @@
   "Dungeon": "Dungeon",
   "No dungeons found": "No dungeons found!",
   "Enter the dungeon": "Enter the dungeon",
-  "You are progressing through the dungeon": "You are progressing through the dungeon..."
+  "You are progressing through the dungeon": "You are progressing through the dungeon...",
+  "Monster": "Monster",
+  "Event": "Event",
+  "Trap": "Trap ",
+  "Secret": "Secret"
 }

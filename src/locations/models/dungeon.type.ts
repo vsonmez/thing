@@ -1,4 +1,5 @@
 import DungeonEventReturn from "../../dungeons/models/dungeon-event-return.type";
+import DungeonSecretReturn from "../../dungeons/models/dungeon-secret-return.type";
 import Trap from "../../dungeons/traps/models/trap.type";
 
 type Dungeon = {
@@ -25,7 +26,8 @@ type Dungeon = {
     amount: number;
     possibility: number;
   };
-  secret?: {
+  secrets?: {
+    list: DungeonSecretReturn[];
     amount: number;
     possibility: number;
   };

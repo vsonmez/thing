@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useRef } from "react";
+import React, { useCallback, useEffect, useRef, useState } from "react";
 import ButtonComponent from "../../../shared-components/Button.component";
 import useTimer from "../../../hooks/use-timer.hook";
 import { useTranslation } from "react-i18next";
@@ -12,55 +12,23 @@ import useDungeon from "../../../store/hooks/dungeon/use-dungeon.store";
 import DungeonExploringResultKeys from "../../models/dungeon-exploring-result-keys.type";
 import DungeonStaticsComponent from "./DungeonStatics.component";
 import DungeonExitCombatButtonComponent from "./DungeonExitCombatButton.component";
+import DungeonResultComponent from "./DungeonResult.component";
 
 const Dungeon = () => {
-  const {
-    eventAmount,
-    monsterAmount,
-    secretAmount,
-    trapAmount,
-    decreaseEventAmount,
-    decreaseMonsterAmount,
-    decreaseSecretPassageAmount,
-    decreaseTrapAmount,
-  } = useDungeon();
+  const { eventAmount, monsterAmount, secretAmount, trapAmount } = useDungeon();
   const { addDungeonLog } = useDungeonLog();
   const { characterLocation } = useCharacterLocation();
   const { t } = useTranslation();
   const { startTimer, timerIsRuning, timerTime } = useTimer(3);
   const { currentDungeon } = useCharacterCurrentDungeon();
   const dungeon = useRef(Locations[characterLocation]?.dungeons[currentDungeon]);
+  const [dungeonExploringResult, setDungeonExploringResult] = useState<DungeonExploringResultKeys>();
 
   const onMoveForward = useCallback(() => {
     addDungeonLog("You are progressing through the dungeon");
+    setDungeonExploringResult(undefined);
     startTimer();
   }, [startTimer, addDungeonLog]);
-
-  const handleDungeonResult = useCallback(
-    (exploringResult: DungeonExploringResultKeys) => {
-      switch (exploringResult) {
-        case "trap":
-          decreaseTrapAmount();
-          // console.log("traps", dungeon.current.traps);
-          break;
-        case "event":
-          decreaseEventAmount();
-          // console.log("events", dungeon.current.events);
-          break;
-        case "monster":
-          decreaseMonsterAmount();
-          // console.log("monsters", dungeon.current.monsters);
-          break;
-        case "secret":
-          decreaseSecretPassageAmount();
-          // console.log("secret", dungeon.current.monsters);
-          break;
-        default:
-          break;
-      }
-    },
-    [decreaseEventAmount, decreaseMonsterAmount, decreaseSecretPassageAmount, decreaseTrapAmount]
-  );
 
   useEffect(() => {
     if (timerTime <= 0) {
@@ -74,10 +42,10 @@ const Dungeon = () => {
         },
         dungeon.current
       );
-      addDungeonLog(exploringResult);
-      handleDungeonResult(exploringResult);
+      setDungeonExploringResult(exploringResult);
     }
-  }, [timerTime, addDungeonLog, handleDungeonResult]);
+    // eslint-disable-next-line
+  }, [timerTime, addDungeonLog]);
 
   return (
     <div className="h-full flex flex-col">
@@ -94,6 +62,9 @@ const Dungeon = () => {
         </ButtonComponent>
         <DungeonExitCombatButtonComponent timerIsRuning={timerIsRuning}></DungeonExitCombatButtonComponent>
       </div>
+      {dungeonExploringResult && (
+        <DungeonResultComponent resultKey={dungeonExploringResult} dungeon={dungeon.current}></DungeonResultComponent>
+      )}
     </div>
   );
 };

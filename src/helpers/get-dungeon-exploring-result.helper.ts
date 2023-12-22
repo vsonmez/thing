@@ -28,7 +28,7 @@ const getDungeonExploringResult = (amounts: DungeonStore.DungeonStoreType, dunge
     },
     {
       key: "secret",
-      value: secretValue > 0 ? dungeon.secret.possibility : 0,
+      value: secretValue > 0 ? dungeon.secrets.possibility : 0,
     },
   ];
   possibilities.sort((a, b) => {

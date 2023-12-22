@@ -4,6 +4,7 @@ import experienceFNS from "./experience.helper";
 import formatCurrencyFN from "./format-currency.helper";
 import getDungeonExploringResultFN from "./get-dungeon-exploring-result.helper";
 import getIDFN from "./get-id.helper";
+import getRandomElementFromArrayFN from "./get-random-element-from-array.helper";
 import getRandomNumberFN from "./get-random-number.helper";
 import getStatPointFN from "./get-stat-point.helper";
 import isItemArmorFN from "./is-item-armor.helper";
@@ -57,5 +58,9 @@ namespace Helpers {
    * Get dungeon exploring result
    */
   export const getDungeonExploringResult = getDungeonExploringResultFN;
+  /**
+   * Get random element from array
+   */
+  export const getRandomElementFromArray = getRandomElementFromArrayFN;
 }
 export default Helpers;

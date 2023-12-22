@@ -14,7 +14,7 @@ const DungeonStatics = () => {
     resetDungeon({
       eventAmount: dungeon.current.events.amount,
       monsterAmount: dungeon.current.monsters.amount,
-      secretAmount: dungeon.current.secret.amount,
+      secretAmount: dungeon.current.secrets.amount,
       trapAmount: dungeon.current.traps.amount,
       bossAmount: 1,
     });
