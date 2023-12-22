@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/thing/static/css/main.06f8098a.css",
-    "main.js": "/thing/static/js/main.99484b97.js",
+    "main.css": "/thing/static/css/main.30514936.css",
+    "main.js": "/thing/static/js/main.b8866f3b.js",
     "static/media/astradon.jpeg": "/thing/static/media/astradon.0195d9b241e083750034.jpeg",
     "static/media/timeNexusObservatory.jpeg": "/thing/static/media/timeNexusObservatory.d3f641554eb7a50361b7.jpeg",
     "static/media/magicalLibrary.jpeg": "/thing/static/media/magicalLibrary.26416081594581a0c565.jpeg",
@@ -94,11 +94,11 @@
     "static/media/dagger.jpeg": "/thing/static/media/dagger.5c9d1a16ad313651e683.jpeg",
     "static/media/sword.jpeg": "/thing/static/media/sword.45ee235f7127808696dc.jpeg",
     "index.html": "/thing/index.html",
-    "main.06f8098a.css.map": "/thing/static/css/main.06f8098a.css.map",
-    "main.99484b97.js.map": "/thing/static/js/main.99484b97.js.map"
+    "main.30514936.css.map": "/thing/static/css/main.30514936.css.map",
+    "main.b8866f3b.js.map": "/thing/static/js/main.b8866f3b.js.map"
   },
   "entrypoints": [
-    "static/css/main.06f8098a.css",
-    "static/js/main.99484b97.js"
+    "static/css/main.30514936.css",
+    "static/js/main.b8866f3b.js"
   ]
 }
