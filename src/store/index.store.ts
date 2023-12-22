@@ -8,9 +8,17 @@ import ItemList from "../items/models/item-list.type";
 import EquipmentStore from "./equipment.store";
 import MessageStore from "./message.store";
 import GlobalStore from "./global.store";
+import DungeonLogStore from "./dungeon-log.store";
+import DungeonStore from "./dungeon.store";
 
 const character = localStorage.getItem("character");
-const characterData: Character = character ? JSON.parse(character) : { ...Helpers.createCharacter("") };
+const characterData: Character = character
+  ? {
+      ...(JSON.parse(character) as Character),
+      isInDungeon: false,
+      currentDungeon: "",
+    }
+  : { ...Helpers.createCharacter("") };
 
 const inventory = localStorage.getItem("inventory");
 const inventoryData: ItemList = inventory ? JSON.parse(inventory) : {};
@@ -35,10 +43,14 @@ namespace AppStore {
       inventory: InventoryStore.reducer,
       equipment: EquipmentStore.reducer,
       messages: MessageStore.reducer,
+      dungeonLog: DungeonLogStore.reducer,
+      dungeon: DungeonStore.reducer,
       global: GlobalStore.reducer,
     },
     preloadedState: {
-      character: characterData,
+      character: {
+        ...characterData,
+      },
       inventory: inventoryData,
       equipment: equipmentData,
     },

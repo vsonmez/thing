@@ -1,3 +1,4 @@
+import zephyrionLabyrinth from "./dungeons/zephyrion-labyrinth.dungeon";
 import Location from "./models/location.type";
 
 const Locations: {
@@ -12,14 +13,7 @@ const Locations: {
     id: "eldorath",
     dungeons: {
       zephyrionLabyrinth: {
-        name: "Zephyrion Labyrinth",
-        id: "zephyrionLabyrinth",
-        description: {
-          tr: "Büyülü koridorlar ve tuzaklarla dolu labirent, sihirli kristallerle aydınlatılmış.",
-          en: "A maze filled with magical corridors and traps, illuminated by enchanted crystals.",
-        },
-        monsters: ["voiletCrystalFungus", "poisonousCrystalMiniDragon"],
-        traps: ["crystalArrow", "movingWalls", "secretPassages"],
+        ...zephyrionLabyrinth,
       },
       templeOfTheElements: {
         name: "Temple of the Elements",

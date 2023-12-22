@@ -2,6 +2,7 @@ import calculateStatModifierFN from "./calculate-stat-modifier.helper";
 import createCharacterFN from "./create-character.helper";
 import experienceFNS from "./experience.helper";
 import formatCurrencyFN from "./format-currency.helper";
+import getDungeonExploringResultFN from "./get-dungeon-exploring-result.helper";
 import getIDFN from "./get-id.helper";
 import getRandomNumberFN from "./get-random-number.helper";
 import getStatPointFN from "./get-stat-point.helper";
@@ -48,6 +49,13 @@ namespace Helpers {
    * Get stat point
    */
   export const getStatPoint = getStatPointFN;
+  /**
+   * Get ID
+   */
   export const getID = getIDFN;
+  /**
+   * Get dungeon exploring result
+   */
+  export const getDungeonExploringResult = getDungeonExploringResultFN;
 }
 export default Helpers;

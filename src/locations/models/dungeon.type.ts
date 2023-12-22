@@ -1,3 +1,6 @@
+import DungeonEventReturn from "../../dungeons/models/dungeon-event-return.type";
+import Trap from "../../dungeons/traps/models/trap.type";
+
 type Dungeon = {
   name: string;
   id: string;
@@ -5,7 +8,26 @@ type Dungeon = {
     tr: string;
     en: string;
   };
-  monsters?: string[];
-  traps?: string[];
+  monsters?: {
+    list: any[];
+    amount: number;
+    possibility: number;
+    boss: any[];
+  };
+  traps?: {
+    list: Trap[];
+    amount: number;
+    possibility: number;
+  };
+
+  events?: {
+    list: DungeonEventReturn[];
+    amount: number;
+    possibility: number;
+  };
+  secret?: {
+    amount: number;
+    possibility: number;
+  };
 };
 export default Dungeon;

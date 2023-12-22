@@ -5,7 +5,7 @@ import Message from "../models/message.type";
  */
 const MessageListItem = ({ message }: { message: Message }) => {
   return (
-    <li key={message.id} className={`border-b border-black p-1 text-[14px] last:border-0 flex items-center `}>
+    <li key={message.id} className="border-b border-black p-1 text-[14px] last:border-0 flex items-center">
       <span
         className={`${!message.type && "text-gray-400"} ${message.type === "error" && "text-red-500"} ${
           message.type === "success" && "text-green-500"

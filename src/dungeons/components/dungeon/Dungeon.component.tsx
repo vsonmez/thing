@@ -1,45 +1,99 @@
-import React, { useCallback, useRef } from "react";
-import useCurrentScreen from "../../../store/hooks/global/use-current-screen.hook";
+import React, { useCallback, useEffect, useRef } from "react";
 import ButtonComponent from "../../../shared-components/Button.component";
-import useCharacterIsInDungeon from "../../../store/hooks/character/use-character-is-in-dungeon.hook";
 import useTimer from "../../../hooks/use-timer.hook";
 import { useTranslation } from "react-i18next";
 import useCharacterCurrentDungeon from "../../../store/hooks/character/use-character-current-dungeon.hook";
 import useCharacterLocation from "../../../store/hooks/character/use-character-location.hook";
 import Locations from "../../../locations/index.locations";
+import DungeonLogListComponent from "../dungeon-log/DungeonLogList.component";
+import useDungeonLog from "../../../store/hooks/dungeon/use-dungeon-log.hook";
+import Helpers from "../../../helpers/index.helpers";
+import useDungeon from "../../../store/hooks/dungeon/use-dungeon.store";
+import DungeonExploringResultKeys from "../../models/dungeon-exploring-result-keys.type";
+import DungeonStaticsComponent from "./DungeonStatics.component";
+import DungeonExitCombatButtonComponent from "./DungeonExitCombatButton.component";
 
 const Dungeon = () => {
+  const {
+    eventAmount,
+    monsterAmount,
+    secretAmount,
+    trapAmount,
+    decreaseEventAmount,
+    decreaseMonsterAmount,
+    decreaseSecretPassageAmount,
+    decreaseTrapAmount,
+  } = useDungeon();
+  const { addDungeonLog } = useDungeonLog();
   const { characterLocation } = useCharacterLocation();
   const { t } = useTranslation();
-  const { startTimer, timerIsRuning } = useTimer(3);
-  const { setCharacterIsInDungeon } = useCharacterIsInDungeon();
-  const { setCurrentDungeon, currentDungeon } = useCharacterCurrentDungeon();
+  const { startTimer, timerIsRuning, timerTime } = useTimer(3);
+  const { currentDungeon } = useCharacterCurrentDungeon();
   const dungeon = useRef(Locations[characterLocation]?.dungeons[currentDungeon]);
-  const { setCurrentScreen } = useCurrentScreen();
 
-  const onAttack = useCallback(() => {
-    console.log("attacking");
+  const onMoveForward = useCallback(() => {
+    addDungeonLog("You are progressing through the dungeon");
     startTimer();
-  }, [startTimer]);
+  }, [startTimer, addDungeonLog]);
 
-  const onExitCombat = useCallback(() => {
-    setCurrentScreen("message");
-    setCharacterIsInDungeon(false);
-    setCurrentDungeon("");
-  }, [setCurrentScreen, setCharacterIsInDungeon, setCurrentDungeon]);
+  const handleDungeonResult = useCallback(
+    (exploringResult: DungeonExploringResultKeys) => {
+      switch (exploringResult) {
+        case "trap":
+          decreaseTrapAmount();
+          // console.log("traps", dungeon.current.traps);
+          break;
+        case "event":
+          decreaseEventAmount();
+          // console.log("events", dungeon.current.events);
+          break;
+        case "monster":
+          decreaseMonsterAmount();
+          // console.log("monsters", dungeon.current.monsters);
+          break;
+        case "secret":
+          decreaseSecretPassageAmount();
+          // console.log("secret", dungeon.current.monsters);
+          break;
+        default:
+          break;
+      }
+    },
+    [decreaseEventAmount, decreaseMonsterAmount, decreaseSecretPassageAmount, decreaseTrapAmount]
+  );
+
+  useEffect(() => {
+    if (timerTime <= 0) {
+      const exploringResult = Helpers.getDungeonExploringResult(
+        {
+          eventAmount,
+          monsterAmount,
+          secretAmount,
+          trapAmount,
+          bossAmount: 1,
+        },
+        dungeon.current
+      );
+      addDungeonLog(exploringResult);
+      handleDungeonResult(exploringResult);
+    }
+  }, [timerTime, addDungeonLog, handleDungeonResult]);
 
   return (
-    <div className="h-full -2">
-      <h1>
-        {t("Dungeon")}: {dungeon.current?.name}
+    <div className="h-full flex flex-col">
+      <h1 className="bg-black/80">
+        <span>
+          {t("Dungeon")}: {dungeon.current?.name}
+        </span>
+        <DungeonStaticsComponent></DungeonStaticsComponent>
       </h1>
-      {timerIsRuning && <div>You are progressing through the dungeon....</div>}
-      <ButtonComponent disabled={timerIsRuning} onClick={onAttack}>
-        <>Attack</>
-      </ButtonComponent>
-      <ButtonComponent disabled={timerIsRuning} onClick={onExitCombat}>
-        <>Exit</>
-      </ButtonComponent>
+      <DungeonLogListComponent></DungeonLogListComponent>
+      <div className="bg-black/80 p-1 flex gap-2">
+        <ButtonComponent disabled={timerIsRuning} onClick={onMoveForward}>
+          <>Move Forward</>
+        </ButtonComponent>
+        <DungeonExitCombatButtonComponent timerIsRuning={timerIsRuning}></DungeonExitCombatButtonComponent>
+      </div>
     </div>
   );
 };
