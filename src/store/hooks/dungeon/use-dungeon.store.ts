@@ -11,7 +11,7 @@ const useDungeon = () => {
   const bossAmount = AppStore.useAppSelector(DungeonStore.select.bossAmount);
 
   const resetDungeon = useCallback(
-    (payload?: DungeonStore.DungeonStoreType) => {
+    (payload: DungeonStore.DungeonStoreType) => {
       dispatch(DungeonStore.actions.reset(payload));
     },
     [dispatch]

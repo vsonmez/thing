@@ -2,7 +2,7 @@ import DungeonEventReturn from "../models/dungeon-event-return.type";
 
 const movingWalls = (): DungeonEventReturn => {
   return {
-    message: "Reset Dungeon",
+    message: "Dungeon has been reset",
     event: "resetDungeon",
   };
 };

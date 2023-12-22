@@ -1,8 +1,8 @@
 import React, { useEffect, useRef } from "react";
-import Dungeon from "../../../locations/models/dungeon.type";
-import Helpers from "../../../helpers/index.helpers";
-import useDungeon from "../../../store/hooks/dungeon/use-dungeon.store";
-import useDungeonLog from "../../../store/hooks/dungeon/use-dungeon-log.hook";
+import Dungeon from "../../../../locations/models/dungeon.type";
+import Helpers from "../../../../helpers/index.helpers";
+import useDungeon from "../../../../store/hooks/dungeon/use-dungeon.store";
+import useDungeonLog from "../../../../store/hooks/dungeon/use-dungeon-log.hook";
 import { useTranslation } from "react-i18next";
 
 const DungeonSecret = ({ dungeon }: { dungeon: Dungeon }) => {

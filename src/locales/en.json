@@ -43,5 +43,6 @@
   "Monster": "Monster",
   "Event": "Event",
   "Trap": "Trap ",
-  "Secret": "Secret"
+  "Secret": "Secret",
+  "Dungeon has been reset": "Dungeon has been reset. All secrets have been deleted."
 }

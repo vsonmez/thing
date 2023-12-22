@@ -43,5 +43,6 @@
   "Monster": "Canavar",
   "Event": "Hareketlilik",
   "Trap": "Tuzak",
-  "Secret": "Gizli"
+  "Secret": "Gizli",
+  "Dungeon has been reset": "Zindan yeniden başlatıldı. Tüm gizliler silindi."
 }

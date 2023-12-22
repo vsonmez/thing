@@ -12,7 +12,7 @@ import useDungeon from "../../../store/hooks/dungeon/use-dungeon.store";
 import DungeonExploringResultKeys from "../../models/dungeon-exploring-result-keys.type";
 import DungeonStaticsComponent from "./DungeonStatics.component";
 import DungeonExitCombatButtonComponent from "./DungeonExitCombatButton.component";
-import DungeonResultComponent from "./DungeonResult.component";
+import DungeonResultComponent from "./result/DungeonResult.component";
 
 const Dungeon = () => {
   const { eventAmount, monsterAmount, secretAmount, trapAmount } = useDungeon();

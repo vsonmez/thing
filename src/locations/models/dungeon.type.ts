@@ -14,6 +14,7 @@ type Dungeon = {
     amount: number;
     possibility: number;
     boss: any[];
+    bossAmount: number;
   };
   traps?: {
     list: Trap[];

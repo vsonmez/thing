@@ -16,14 +16,32 @@ const DungeonStatics = () => {
       monsterAmount: dungeon.current.monsters.amount,
       secretAmount: dungeon.current.secrets.amount,
       trapAmount: dungeon.current.traps.amount,
-      bossAmount: 1,
+      bossAmount: dungeon.current.monsters.bossAmount,
     });
   }, [dungeon, resetDungeon]);
 
   return (
     <div className="flex gap-2">
-      <span>Event: {eventAmount}</span> <span>Monster: {monsterAmount}</span> <span>Secret: {secretAmount}</span>
-      <span>Trap: {trapAmount}</span> <span>Boss: {bossAmount}</span>
+      <div className="flex flex-col items-center">
+        <span>Event</span>
+        <span>{eventAmount}</span>
+      </div>
+      <div className="flex flex-col items-center">
+        <span>Monster</span>
+        <span>{monsterAmount}</span>
+      </div>
+      <div className="flex flex-col items-center">
+        <span>Secret</span>
+        <span>{secretAmount}</span>
+      </div>
+      <div className="flex flex-col items-center">
+        <span>Trap</span>
+        <span>{trapAmount}</span>
+      </div>
+      <div className="flex flex-col items-center">
+        <span>Boss</span>
+        <span>{bossAmount}</span>
+      </div>
     </div>
   );
 };

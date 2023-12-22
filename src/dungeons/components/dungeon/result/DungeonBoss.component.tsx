@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from "react";
-import Dungeon from "../../../locations/models/dungeon.type";
-import Helpers from "../../../helpers/index.helpers";
-import useDungeonLog from "../../../store/hooks/dungeon/use-dungeon-log.hook";
+import Dungeon from "../../../../locations/models/dungeon.type";
+import Helpers from "../../../../helpers/index.helpers";
+import useDungeonLog from "../../../../store/hooks/dungeon/use-dungeon-log.hook";
 
 const DungeonBoss = ({ dungeon }: { dungeon: Dungeon }) => {
   const { addDungeonLog } = useDungeonLog();

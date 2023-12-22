@@ -6,12 +6,14 @@ const Traps: {
   [key in TrapKeys]: Trap;
 } = {
   crystalArrow: {
+    name: "Crystal Arrow",
     difficulty: 12,
-    damage: 2,
+    damage: 1,
   },
   flameSpray: {
+    name: "Flame Spray",
     difficulty: 11,
-    damage: 4,
+    damage: 2,
   },
 };
 export default Traps;

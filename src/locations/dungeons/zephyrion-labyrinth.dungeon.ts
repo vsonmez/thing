@@ -15,6 +15,7 @@ const zephyrionLabyrinth: Dungeon = {
     amount: 32,
     possibility: 100,
     boss: [{ ...monsters.crystalisJunior }, { ...monsters.prismara }, { ...monsters.zephyra }, { ...monsters.aerin }],
+    bossAmount: 1,
   },
   traps: {
     list: [Traps.crystalArrow, Traps.flameSpray],
@@ -24,7 +25,7 @@ const zephyrionLabyrinth: Dungeon = {
   events: {
     list: [movingWalls()],
     possibility: 6,
-    amount: 5,
+    amount: 12,
   },
   secrets: {
     list: [],
