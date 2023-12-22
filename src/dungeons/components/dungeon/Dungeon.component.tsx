@@ -22,11 +22,11 @@ const Dungeon = () => {
   const { startTimer, timerIsRuning, timerTime } = useTimer(3);
   const { currentDungeon } = useCharacterCurrentDungeon();
   const dungeon = useRef(Locations[characterLocation]?.dungeons[currentDungeon]);
-  const [dungeonExploringResult, setDungeonExploringResult] = useState<DungeonExploringResultKeys>();
+  const [dungeonExploringResultKey, setDungeonExploringResultKey] = useState<DungeonExploringResultKeys>();
 
   const onMoveForward = useCallback(() => {
     addDungeonLog("You are progressing through the dungeon");
-    setDungeonExploringResult(undefined);
+    setDungeonExploringResultKey(undefined);
     startTimer();
   }, [startTimer, addDungeonLog]);
 
@@ -42,7 +42,7 @@ const Dungeon = () => {
         },
         dungeon.current
       );
-      setDungeonExploringResult(exploringResult);
+      setDungeonExploringResultKey(exploringResult);
     }
     // eslint-disable-next-line
   }, [timerTime, addDungeonLog]);
@@ -53,17 +53,23 @@ const Dungeon = () => {
         <span>
           {t("Dungeon")}: {dungeon.current?.name}
         </span>
-        <DungeonStaticsComponent></DungeonStaticsComponent>
+        {dungeon.current.monsters && <DungeonStaticsComponent></DungeonStaticsComponent>}
+        {!dungeon.current.monsters && <div>Under Construction</div>}
       </h1>
       <DungeonLogListComponent></DungeonLogListComponent>
       <div className="bg-black/80 p-1 flex gap-2">
-        <ButtonComponent disabled={timerIsRuning} onClick={onMoveForward}>
-          <>Move Forward</>
-        </ButtonComponent>
+        {dungeon.current.monsters && (
+          <ButtonComponent disabled={timerIsRuning} onClick={onMoveForward}>
+            <>Move Forward</>
+          </ButtonComponent>
+        )}
         <DungeonExitCombatButtonComponent timerIsRuning={timerIsRuning}></DungeonExitCombatButtonComponent>
       </div>
-      {dungeonExploringResult && (
-        <DungeonResultComponent resultKey={dungeonExploringResult} dungeon={dungeon.current}></DungeonResultComponent>
+      {dungeonExploringResultKey && (
+        <DungeonResultComponent
+          resultKey={dungeonExploringResultKey}
+          dungeon={dungeon.current}
+        ></DungeonResultComponent>
       )}
     </div>
   );
