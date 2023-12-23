@@ -12,6 +12,7 @@
   "Inventory And Equipments": "Inventory & Equipments",
   "Armors": "Armors",
   "Weapons": "Weapons",
+  "Consumables": "Consumables",
   "Equipments": "Equipments",
   "Buy": "Buy",
   "Sell": "Sell",
@@ -28,12 +29,14 @@
   "Travel": "Travel",
   "Traveling": "Traveling",
   "Travel Info": "The journey takes 45 seconds and requires 3 hunger points.",
-  "Dungeon Travel Info": "The journey takes 30 seconds and requires 75 hunger points.",
+  "Dungeon Travel Info": "Entering a dungeon reduces hunger points.",
   "Location": "Location",
   "Hunger": "Hunger",
   "Not Enouhg Hunger Point": "Not Enouhg Hunger Point!",
   "You're starting to get hungry": "You're starting to get hungry",
   "Hunger point decreased": "Hunger point decreased!",
+  "You are not hungry": "You are not hungry!",
+  "You ate something": "You ate something.",
   "Welcome To": "Welcome to",
   "Dungeons": "Dungeons",
   "Dungeon": "Dungeon",
@@ -44,5 +47,8 @@
   "Event": "Event",
   "Trap": "Trap ",
   "Secret": "Secret",
-  "Dungeon has been reset": "Dungeon has been reset. All secrets have been deleted."
+  "Dungeon has been reset": "The walls of the maze have changed, the dungeon has been reset. All secrets have been deleted.",
+  "Move Forward": "Move Forward",
+  "Exit": "Exit",
+  "You found": "You found"
 }

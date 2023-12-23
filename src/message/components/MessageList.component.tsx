@@ -5,7 +5,7 @@ import MessageListItemComponent from "./MessageListItem.component";
 const MessageList = () => {
   const { messagesList } = useMessagesStore();
   return (
-    <ul className="bg-black/70 h-full">
+    <ul className="bg-black/70 h-full bg-fixed overflow-auto">
       {messagesList.map((message) => (
         <MessageListItemComponent key={message.id} message={message}></MessageListItemComponent>
       ))}

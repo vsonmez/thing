@@ -2,6 +2,7 @@ import { useCallback } from "react";
 import DungeonLogStore from "../../dungeon-log.store";
 import AppStore from "../../index.store";
 import { useTranslation } from "react-i18next";
+import { MessageTypes } from "../../../message/models/message.type";
 /**
  * This code defines a custom hook called useDungeonLog. It uses the useAppDispatch and useAppSelector hooks from the AppStore to get the Redux dispatch function and select the dungeonLog state from the store.
 
@@ -15,8 +16,8 @@ const useDungeonLog = () => {
   const dungeonLogList = AppStore.useAppSelector(DungeonLogStore.select.getDungeonLog);
 
   const addDungeonLog = useCallback(
-    (dungeonLog: string) => {
-      dispatch(DungeonLogStore.actions.addDungeonLog(t(dungeonLog)));
+    (dungeonLog: string, type?: MessageTypes) => {
+      dispatch(DungeonLogStore.actions.addDungeonLog({ message: t(dungeonLog), type }));
     },
     [dispatch, t]
   );

@@ -6,7 +6,7 @@ import { useTranslation } from "react-i18next";
  * It renders a div element with a flex layout and displays some information about the item. If the item is an armor, it displays the defense value. If the item is a weapon, it displays the damage range and critical damage multiplier.
  */
 const ItemDetail = ({ item }: { item: Item }) => {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
   return (
     <div className="flex flex-col items-start">
       {Helpers.isItemArmor(item) && (
@@ -24,6 +24,7 @@ const ItemDetail = ({ item }: { item: Item }) => {
           </small>
         </>
       )}
+      {Helpers.isItemConsumable(item) && <small>{item.description[i18n.language]}</small>}
     </div>
   );
 };

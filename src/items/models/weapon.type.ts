@@ -4,7 +4,6 @@ import ItemBase from "./item-base.type";
  */
 type Weapon = {
   damage: number;
-  isEquipped: boolean;
   critical: number;
 } & ItemBase;
 export default Weapon;

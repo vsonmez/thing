@@ -14,7 +14,7 @@ const weapons: ItemList = {
   dagger: {
     defname: "dagger",
     name: "Dagger",
-    price: 20,
+    price: 2012341.2,
     damage: 4,
     quantity: 0,
     isConsumable: false,
@@ -24,6 +24,7 @@ const weapons: ItemList = {
     isUsable: true,
     isEquipped: false,
     critical: 2,
+    type: "weapon",
   },
   axe: {
     defname: "axe",
@@ -38,6 +39,7 @@ const weapons: ItemList = {
     isUsable: true,
     isEquipped: false,
     critical: 2,
+    type: "weapon",
   },
   mace: {
     defname: "mace",
@@ -52,6 +54,7 @@ const weapons: ItemList = {
     isUsable: true,
     isEquipped: false,
     critical: 2,
+    type: "weapon",
   },
   sword: {
     defname: "sword",
@@ -66,6 +69,7 @@ const weapons: ItemList = {
     isUsable: true,
     isEquipped: false,
     critical: 2,
+    type: "weapon",
   },
   battleaxe: {
     defname: "battleaxe",
@@ -80,6 +84,7 @@ const weapons: ItemList = {
     isUsable: true,
     isEquipped: false,
     critical: 3,
+    type: "weapon",
   },
   warhammer: {
     defname: "warhammer",
@@ -94,6 +99,7 @@ const weapons: ItemList = {
     isUsable: true,
     isEquipped: false,
     critical: 3,
+    type: "weapon",
   },
   longsword: {
     defname: "longsword",
@@ -108,6 +114,7 @@ const weapons: ItemList = {
     isUsable: true,
     isEquipped: false,
     critical: 3,
+    type: "weapon",
   },
 };
 export default weapons;

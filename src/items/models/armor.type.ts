@@ -4,6 +4,5 @@ import ItemBase from "./item-base.type";
  */
 type Armor = {
   defense: number;
-  isEquipped: boolean;
 } & ItemBase;
 export default Armor;

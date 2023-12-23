@@ -25,12 +25,22 @@ const zephyrionLabyrinth: Dungeon = {
   events: {
     list: [movingWalls()],
     possibility: 6,
-    amount: 12,
+    amount: 3,
   },
   secrets: {
     list: [],
     amount: 3,
     possibility: 4,
+  },
+  rewards: {
+    common: {
+      gold: 2,
+    },
+    uncommon: {},
+    rare: {},
+    legendary: {},
+    epic: {},
+    mythic: {},
   },
 };
 

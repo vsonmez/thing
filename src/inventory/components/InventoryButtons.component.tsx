@@ -2,6 +2,7 @@ import React from "react";
 import Item from "../../items/models/item-global.type";
 import SellButtonComponent from "./SellButton.component";
 import EquipButtonComponent from "./EquipButton.component";
+import UseButtonComponent from "./UseButton.component";
 /**
  * This code snippet defines a functional component called InventoryButtons, which takes an item object as a prop.
  *
@@ -16,6 +17,7 @@ const InventoryButtons = ({ item }: { item: Item }) => {
     <div className="flex gap-1 mt-1">
       {item.isEquippable && item.isEquipped === false && <EquipButtonComponent item={item}></EquipButtonComponent>}
       {item.isSellable && item.isEquipped === false && <SellButtonComponent item={item}></SellButtonComponent>}
+      {item.isConsumable && <UseButtonComponent item={item}></UseButtonComponent>}
     </div>
   );
 };

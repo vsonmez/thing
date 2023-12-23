@@ -13,8 +13,10 @@ import DungeonExploringResultKeys from "../../models/dungeon-exploring-result-ke
 import DungeonStaticsComponent from "./DungeonStatics.component";
 import DungeonExitCombatButtonComponent from "./DungeonExitCombatButton.component";
 import DungeonResultComponent from "./result/DungeonResult.component";
+import useCharacterHunger from "../../../store/hooks/character/use-character-hunger.hook";
 
 const Dungeon = () => {
+  const { characterHunger, decreaseCharacterHunger } = useCharacterHunger();
   const { eventAmount, monsterAmount, secretAmount, trapAmount } = useDungeon();
   const { addDungeonLog } = useDungeonLog();
   const { characterLocation } = useCharacterLocation();
@@ -25,10 +27,15 @@ const Dungeon = () => {
   const [dungeonExploringResultKey, setDungeonExploringResultKey] = useState<DungeonExploringResultKeys>();
 
   const onMoveForward = useCallback(() => {
-    addDungeonLog("You are progressing through the dungeon");
-    setDungeonExploringResultKey(undefined);
-    startTimer();
-  }, [startTimer, addDungeonLog]);
+    if (characterHunger > 1) {
+      addDungeonLog("You are progressing through the dungeon");
+      setDungeonExploringResultKey(undefined);
+      decreaseCharacterHunger(1);
+      startTimer();
+    } else {
+      addDungeonLog("Not Enough Hunger Point", "error");
+    }
+  }, [startTimer, addDungeonLog, characterHunger, decreaseCharacterHunger]);
 
   useEffect(() => {
     if (timerTime <= 0) {
@@ -45,7 +52,7 @@ const Dungeon = () => {
       setDungeonExploringResultKey(exploringResult);
     }
     // eslint-disable-next-line
-  }, [timerTime, addDungeonLog]);
+  }, [timerTime]);
 
   return (
     <div className="h-full flex flex-col">
@@ -60,7 +67,7 @@ const Dungeon = () => {
       <div className="bg-black/80 p-1 flex gap-2">
         {dungeon.current.monsters && (
           <ButtonComponent disabled={timerIsRuning} onClick={onMoveForward}>
-            <>Move Forward</>
+            <>{t("Move Forward")}</>
           </ButtonComponent>
         )}
         <DungeonExitCombatButtonComponent timerIsRuning={timerIsRuning}></DungeonExitCombatButtonComponent>

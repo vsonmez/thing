@@ -2,6 +2,8 @@ import React, { useCallback, useState } from "react";
 import MarketArmorListComponent from "./MarketArmorList.component";
 import MarketWeaponListComponent from "./MarketWeaponList.component";
 import { useTranslation } from "react-i18next";
+import ButtonComponent from "../../shared-components/Button.component";
+import MarketConsumableListComponent from "./MarketConsumableList.component";
 /**
  * It renders a header with the title "Market" and two buttons for selecting between "Armors" and "Weapons".
  *
@@ -11,30 +13,37 @@ import { useTranslation } from "react-i18next";
  */
 const Market: React.FC = () => {
   const { t } = useTranslation();
-  const [selectedTab, setSelectedTab] = useState<"armors" | "weapons">("armors");
+  const [selectedTab, setSelectedTab] = useState<"armors" | "weapons" | "consumables">("armors");
 
-  const onChangeTab = useCallback((selectedTab: "armors" | "weapons") => {
+  const onChangeTab = useCallback((selectedTab: "armors" | "weapons" | "consumables") => {
     setSelectedTab(selectedTab);
   }, []);
 
   return (
     <div>
       <div className="flex gap-2">
-        <button
-          className={`border rounded-lg px-2 py-1 ${selectedTab === "armors" ? "bg-gray-300 text-black" : ""}`}
+        <ButtonComponent
           onClick={() => onChangeTab("armors")}
+          className={`px-2 py-1 ${selectedTab === "armors" ? "bg-gray-300 text-black" : ""}`}
         >
-          {t("Armors")}
-        </button>
-        <button
-          className={`border rounded-lg px-2 py-1 ${selectedTab === "weapons" ? "bg-gray-300 text-black" : ""}`}
+          <>{t("Armors")}</>
+        </ButtonComponent>
+        <ButtonComponent
           onClick={() => onChangeTab("weapons")}
+          className={`px-2 py-1 ${selectedTab === "weapons" ? "bg-gray-300 text-black" : ""}`}
         >
-          {t("Weapons")}
-        </button>
+          <>{t("Weapons")}</>
+        </ButtonComponent>
+        <ButtonComponent
+          onClick={() => onChangeTab("consumables")}
+          className={`px-2 py-1 ${selectedTab === "consumables" ? "bg-gray-300 text-black" : ""}`}
+        >
+          <>{t("Consumables")}</>
+        </ButtonComponent>
       </div>
       {selectedTab === "armors" && <MarketArmorListComponent></MarketArmorListComponent>}
       {selectedTab === "weapons" && <MarketWeaponListComponent></MarketWeaponListComponent>}
+      {selectedTab === "consumables" && <MarketConsumableListComponent></MarketConsumableListComponent>}
     </div>
   );
 };

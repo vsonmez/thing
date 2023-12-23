@@ -12,7 +12,7 @@ const DungeonTrap = ({ dungeon }: { dungeon: Dungeon }) => {
   const trap = useRef(Helpers.getRandomElementFromArray(dungeon.traps.list));
   useEffect(() => {
     decreaseTrapAmount();
-    addDungeonLog(`${t("Trap")}: ${trap.current.name} ${trap.current.damage} ${t("Damage")}`);
+    addDungeonLog(`${t("Trap")}: ${trap.current.name} ${trap.current.damage} ${t("Damage")}`, "warning");
     // eslint-disable-next-line
   }, []);
   return <></>;

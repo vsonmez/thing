@@ -8,6 +8,7 @@ import getRandomElementFromArrayFN from "./get-random-element-from-array.helper"
 import getRandomNumberFN from "./get-random-number.helper";
 import getStatPointFN from "./get-stat-point.helper";
 import isItemArmorFN from "./is-item-armor.helper";
+import isItemConsumableFN from "./is-item-consumable.helper";
 import isItemWeaponFN from "./is-item-weapon.helper";
 import makeImmutableFN from "./make-immutable";
 
@@ -62,5 +63,9 @@ namespace Helpers {
    * Get random element from array
    */
   export const getRandomElementFromArray = getRandomElementFromArrayFN;
+  /**
+   * Determines if an item is consumable
+   */
+  export const isItemConsumable = isItemConsumableFN;
 }
 export default Helpers;

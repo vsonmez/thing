@@ -7,8 +7,11 @@ import IconInfoComponent from "../../../assets/images/svg-icons/IconInfo.compone
 import useCurrentScreen from "../../../store/hooks/global/use-current-screen.hook";
 import useCharacterIsInDungeon from "../../../store/hooks/character/use-character-is-in-dungeon.hook";
 import useCharacterCurrentDungeon from "../../../store/hooks/character/use-character-current-dungeon.hook";
+import useCharacterHunger from "../../../store/hooks/character/use-character-hunger.hook";
+import Constants from "../../../constants/index.constants";
 
 const DungeonListItem = ({ dungeon }: { dungeon: Dungeon }) => {
+  const { decreaseCharacterHunger } = useCharacterHunger();
   const { setCharacterIsInDungeon } = useCharacterIsInDungeon();
   const { setCurrentDungeon } = useCharacterCurrentDungeon();
   const { setCurrentScreen } = useCurrentScreen();
@@ -23,6 +26,7 @@ const DungeonListItem = ({ dungeon }: { dungeon: Dungeon }) => {
     setCurrentScreen("dungeon");
     setCharacterIsInDungeon(true);
     setCurrentDungeon(dungeon.id);
+    decreaseCharacterHunger(Constants.dungeonEnterHungerPoint);
   }, [setCurrentScreen, setCharacterIsInDungeon, setCurrentDungeon, dungeon]);
   return (
     <li key={dungeon.id} className="relative flex overflow-hidden">

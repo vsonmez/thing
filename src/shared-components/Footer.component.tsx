@@ -56,7 +56,7 @@ const Footer = () => {
         >
           <>
             <span className="hidden sm:block">{t("Market")}</span>
-            <img alt="" width={48} src={marketImage} className="sm:hidden" />
+            <img alt="" width={48} src={marketImage} className={`sm:hidden ${characterIsInDungeon && "grayscale"}`} />
           </>
         </ButtonComponent>
         <ButtonComponent
@@ -79,7 +79,7 @@ const Footer = () => {
         >
           <>
             <span className="hidden sm:block">{t("Cities")}</span>
-            <img alt="" width={48} src={citiesImage} className="sm:hidden" />
+            <img alt="" width={48} src={citiesImage} className={`sm:hidden ${characterIsInDungeon && "grayscale"}`} />
           </>
         </ButtonComponent>
         <ButtonComponent
@@ -91,7 +91,7 @@ const Footer = () => {
         >
           <>
             <span className="hidden sm:block">{t("Dungeons")}</span>
-            <img alt="" width={48} src={dungeonsImage} className="sm:hidden" />
+            <img alt="" width={48} src={dungeonsImage} className={`sm:hidden ${characterIsInDungeon && "grayscale"}`} />
           </>
         </ButtonComponent>
       </footer>

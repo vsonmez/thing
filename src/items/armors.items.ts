@@ -3,6 +3,7 @@ import ItemList from "./models/item-list.type";
  * The armors object contains various armor items, each represented as a key-value pair. The keys are the names of the armor items, and the values are objects that define the properties of each armor item.
 
 Each armor item object has properties such as 
+type: "armor",
 - defname, 
 - name, 
 - price, 
@@ -20,6 +21,7 @@ These properties provide information about the armor item such as its name, pric
  */
 const armors: ItemList = {
   paddedArmor: {
+    type: "armor",
     defname: "paddedArmor",
     name: "Padded Armor",
     price: 50,
@@ -33,6 +35,7 @@ const armors: ItemList = {
     isEquipped: false,
   },
   lightLeatherArmor: {
+    type: "armor",
     defname: "lightLeatherArmor",
     name: "Light Leather Armor",
     price: 100,
@@ -46,6 +49,7 @@ const armors: ItemList = {
     isEquipped: false,
   },
   leatherArmor: {
+    type: "armor",
     defname: "leatherArmor",
     name: "Leather Armor",
     price: 250,
@@ -59,6 +63,7 @@ const armors: ItemList = {
     isEquipped: false,
   },
   studdedLeatherArmor: {
+    type: "armor",
     defname: "studdedLeatherArmor",
     name: "Studded Leather Armor",
     price: 400,
@@ -72,6 +77,7 @@ const armors: ItemList = {
     isEquipped: false,
   },
   chainShirt: {
+    type: "armor",
     defname: "chainShirt",
     name: "Chain Shirt",
     price: 1000,
@@ -85,6 +91,7 @@ const armors: ItemList = {
     isEquipped: false,
   },
   scaleMail: {
+    type: "armor",
     defname: "scaleMail",
     name: "Scale Mail",
     price: 1500,
@@ -98,6 +105,7 @@ const armors: ItemList = {
     isEquipped: false,
   },
   halfPlate: {
+    type: "armor",
     defname: "halfPlate",
     name: "Half Plate",
     price: 2750,
@@ -111,6 +119,7 @@ const armors: ItemList = {
     isEquipped: false,
   },
   fullPlate: {
+    type: "armor",
     defname: "fullPlate",
     name: "Full Plate",
     price: 6000,
@@ -124,6 +133,7 @@ const armors: ItemList = {
     isEquipped: false,
   },
   plateArmorOfProtection: {
+    type: "armor",
     defname: "plateArmorOfProtection",
     name: "Plate Armor of Protection",
     price: 10000,
@@ -137,6 +147,7 @@ const armors: ItemList = {
     isEquipped: false,
   },
   mithrilPlateArmor: {
+    type: "armor",
     defname: "mithrilPlateArmor",
     name: "Mithril Plate Armor",
     price: 18000,
@@ -150,6 +161,7 @@ const armors: ItemList = {
     isEquipped: false,
   },
   adamantinePlateArmor: {
+    type: "armor",
     defname: "adamantinePlateArmor",
     name: "Adamantine Plate Armor",
     price: 26000,
@@ -163,6 +175,7 @@ const armors: ItemList = {
     isEquipped: false,
   },
   dragonScaleArmor: {
+    type: "armor",
     defname: "dragonScaleArmor",
     name: "Dragon Scale Armor",
     price: 40000,
@@ -176,6 +189,7 @@ const armors: ItemList = {
     isEquipped: false,
   },
   plateArmorOfGolem: {
+    type: "armor",
     defname: "plateArmorOfGolem",
     name: "Plate Armor of Golem",
     price: 63000,
@@ -189,6 +203,7 @@ const armors: ItemList = {
     isEquipped: false,
   },
   plateArmorOfEtherealness: {
+    type: "armor",
     defname: "plateArmorOfEtherealness",
     name: "Plate Armor of Etherealness",
     price: 100000,
@@ -202,6 +217,7 @@ const armors: ItemList = {
     isEquipped: false,
   },
   plateArmorOfInvincibility: {
+    type: "armor",
     defname: "plateArmorOfInvincibility",
     name: "Plate Armor of Invincibility",
     price: 173000,
@@ -215,6 +231,7 @@ const armors: ItemList = {
     isEquipped: false,
   },
   plateArmorOfMirroring: {
+    type: "armor",
     defname: "plateArmorOfMirroring",
     name: "Plate Armor of Mirroring",
     price: 280000,
@@ -228,6 +245,7 @@ const armors: ItemList = {
     isEquipped: false,
   },
   plateArmorOfPower: {
+    type: "armor",
     defname: "plateArmorOfPower",
     name: "Plate Armor of Power",
     price: 500000,
