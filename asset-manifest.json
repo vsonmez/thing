@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/thing/static/css/main.30514936.css",
-    "main.js": "/thing/static/js/main.4c20ecb8.js",
+    "main.css": "/thing/static/css/main.ffe56d8c.css",
+    "main.js": "/thing/static/js/main.483aed85.js",
     "static/media/astradon.jpeg": "/thing/static/media/astradon.0195d9b241e083750034.jpeg",
     "static/media/timeNexusObservatory.jpeg": "/thing/static/media/timeNexusObservatory.d3f641554eb7a50361b7.jpeg",
     "static/media/magicalLibrary.jpeg": "/thing/static/media/magicalLibrary.26416081594581a0c565.jpeg",
@@ -85,6 +85,7 @@
     "static/media/paddedArmor.jpeg": "/thing/static/media/paddedArmor.41d558e8544528ce71d8.jpeg",
     "static/media/mithrilPlateArmor.jpeg": "/thing/static/media/mithrilPlateArmor.67507ebb770737768e7e.jpeg",
     "static/media/warhammer.jpeg": "/thing/static/media/warhammer.6d95585609cc94e4f593.jpeg",
+    "static/media/bread.jpeg": "/thing/static/media/bread.bda55d8678188f2a3baa.jpeg",
     "static/media/battleaxe.jpeg": "/thing/static/media/battleaxe.7caed7cf4f1fd35cc23d.jpeg",
     "static/media/halfPlate.jpeg": "/thing/static/media/halfPlate.5854275a32af0d94b308.jpeg",
     "static/media/mace.jpeg": "/thing/static/media/mace.497599b7540177d2af51.jpeg",
@@ -94,11 +95,11 @@
     "static/media/dagger.jpeg": "/thing/static/media/dagger.5c9d1a16ad313651e683.jpeg",
     "static/media/sword.jpeg": "/thing/static/media/sword.45ee235f7127808696dc.jpeg",
     "index.html": "/thing/index.html",
-    "main.30514936.css.map": "/thing/static/css/main.30514936.css.map",
-    "main.4c20ecb8.js.map": "/thing/static/js/main.4c20ecb8.js.map"
+    "main.ffe56d8c.css.map": "/thing/static/css/main.ffe56d8c.css.map",
+    "main.483aed85.js.map": "/thing/static/js/main.483aed85.js.map"
   },
   "entrypoints": [
-    "static/css/main.30514936.css",
-    "static/js/main.4c20ecb8.js"
+    "static/css/main.ffe56d8c.css",
+    "static/js/main.483aed85.js"
   ]
 }
