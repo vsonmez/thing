@@ -14,6 +14,7 @@ const App = () => {
 
   useEffect(() => {
     addMessage("Welcome message", "success");
+    addMessage("Welcome warning", "warning");
   }, []);
 
   return (
