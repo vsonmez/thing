@@ -23,7 +23,7 @@
   "Unequipped": "Çıkartıldı",
   "Armor Empty": "Zırh Boş",
   "Weapon Empty": "Silah Boş",
-  "Not Enough Gold": "Yetersiz Altın!",
+  "Not enough gold": "Yetersiz Altın!",
   "Bought": "Satın Aldın.",
   "Cities": "Şehirler",
   "Travel": "Yolculuk Et",
@@ -56,5 +56,6 @@
   "No need": "İhtiyacn yok!",
   "Earned exprience": "Kazanılan deneyim",
   "Welcome message": "Hoş geldin. Her hareketinde açlık puanın en az 1 puan azalır. Canın her 20 saniyede 1 puan atar. İyi eğlenceler.",
-  "Welcome warning": "Şimdilik sadece 1. şehrin (Eldorath), 1. zindanı (Zephyrion Labyrinth) açıktır. Zindan yapım aşamasındadır. Sadece 'hareketlilik' ve 'tuzak' aksiyonları çalışmaktadır."
+  "Welcome warning": "Şimdilik sadece 1. şehrin (Eldorath), 1. zindanı (Zephyrion Labyrinth) açıktır. Zindan yapım aşamasındadır. Sadece 'hareketlilik' ve 'tuzak' aksiyonları çalışmaktadır.",
+  "Use": "Kullan"
 }

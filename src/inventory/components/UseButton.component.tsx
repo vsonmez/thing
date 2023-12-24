@@ -92,7 +92,7 @@ const UseButton = ({ item }: { item: Item }) => {
   }, [item, consumeFood, consumePotion]);
   return (
     <ButtonComponent onClick={onUse}>
-      <>Use</>
+      <>{t("Use")}</>
     </ButtonComponent>
   );
 };

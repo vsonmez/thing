@@ -14,7 +14,7 @@ const weapons: ItemList = {
   dagger: {
     defname: "dagger",
     name: "Dagger",
-    price: 2012341.2,
+    price: 20,
     damage: 4,
     quantity: 0,
     isConsumable: false,

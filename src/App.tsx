@@ -7,16 +7,20 @@ import useCharacterLocation from "./store/hooks/character/use-character-location
 import useCurrentScreen from "./store/hooks/global/use-current-screen.hook";
 import useMessagesStore from "./store/hooks/message/use-message-store";
 import useCharacterCurrentDungeon from "./store/hooks/character/use-character-current-dungeon.hook";
+import { useTranslation } from "react-i18next";
 
 const App = () => {
   const { currentScreen } = useCurrentScreen();
   const { characterLocation } = useCharacterLocation();
   const { currentDungeon } = useCharacterCurrentDungeon();
   const { addMessage } = useMessagesStore();
+  const { i18n } = useTranslation();
 
   useEffect(() => {
-    addMessage("Welcome message", "success");
-    addMessage("Welcome warning", "warning");
+    i18n.changeLanguage(navigator.language, () => {
+      addMessage("Welcome message", "success");
+      addMessage("Welcome warning", "warning");
+    });
   }, []);
 
   return (
