@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/thing/static/css/main.ffe56d8c.css",
-    "main.js": "/thing/static/js/main.483aed85.js",
+    "main.js": "/thing/static/js/main.fd8bbcdc.js",
     "static/media/astradon.jpeg": "/thing/static/media/astradon.0195d9b241e083750034.jpeg",
     "static/media/timeNexusObservatory.jpeg": "/thing/static/media/timeNexusObservatory.d3f641554eb7a50361b7.jpeg",
     "static/media/magicalLibrary.jpeg": "/thing/static/media/magicalLibrary.26416081594581a0c565.jpeg",
@@ -75,6 +75,7 @@
     "static/media/plateArmorOfEtherealness.jpeg": "/thing/static/media/plateArmorOfEtherealness.d2ea54ebc8548658f26d.jpeg",
     "static/media/plateArmorOfGolem.jpeg": "/thing/static/media/plateArmorOfGolem.ee43644962670d97c344.jpeg",
     "static/media/fullPlate.jpeg": "/thing/static/media/fullPlate.d13495bc4317045bd216.jpeg",
+    "static/media/greaterHealPoition.jpeg": "/thing/static/media/greaterHealPoition.f68bee6aa169628f18dc.jpeg",
     "static/media/lightLeatherArmor.jpeg": "/thing/static/media/lightLeatherArmor.8cb14431f8adeff82d67.jpeg",
     "static/media/katana.jpeg": "/thing/static/media/katana.174e7b013034f7b95bb4.jpeg",
     "static/media/adamantinePlateArmor.jpeg": "/thing/static/media/adamantinePlateArmor.55a2e8eca48de8efe02f.jpeg",
@@ -87,19 +88,21 @@
     "static/media/warhammer.jpeg": "/thing/static/media/warhammer.6d95585609cc94e4f593.jpeg",
     "static/media/bread.jpeg": "/thing/static/media/bread.bda55d8678188f2a3baa.jpeg",
     "static/media/battleaxe.jpeg": "/thing/static/media/battleaxe.7caed7cf4f1fd35cc23d.jpeg",
+    "static/media/healPotion.jpeg": "/thing/static/media/healPotion.7cb852813fae31e0d06e.jpeg",
     "static/media/halfPlate.jpeg": "/thing/static/media/halfPlate.5854275a32af0d94b308.jpeg",
     "static/media/mace.jpeg": "/thing/static/media/mace.497599b7540177d2af51.jpeg",
     "static/media/longsword.jpeg": "/thing/static/media/longsword.9f7ff046159ccec650be.jpeg",
     "static/media/rapier.jpeg": "/thing/static/media/rapier.d7eb7dadd092ad364a8e.jpeg",
     "static/media/axe.jpeg": "/thing/static/media/axe.d4322f916175c829677b.jpeg",
+    "static/media/lesserHealPotion.jpeg": "/thing/static/media/lesserHealPotion.719959910ac07bb97851.jpeg",
     "static/media/dagger.jpeg": "/thing/static/media/dagger.5c9d1a16ad313651e683.jpeg",
     "static/media/sword.jpeg": "/thing/static/media/sword.45ee235f7127808696dc.jpeg",
     "index.html": "/thing/index.html",
     "main.ffe56d8c.css.map": "/thing/static/css/main.ffe56d8c.css.map",
-    "main.483aed85.js.map": "/thing/static/js/main.483aed85.js.map"
+    "main.fd8bbcdc.js.map": "/thing/static/js/main.fd8bbcdc.js.map"
   },
   "entrypoints": [
     "static/css/main.ffe56d8c.css",
-    "static/js/main.483aed85.js"
+    "static/js/main.fd8bbcdc.js"
   ]
 }
