@@ -5,6 +5,7 @@ import SelectComponent from "./inputs/Select.component";
  * This code snippet defines a functional component called Language. It uses the useRef hook to create an array of language options. When the language is changed in the SelectComponent, the onLanguageChange function is called. This function updates the language using i18n.changeLanguage and also sets the selected language in the local storage. The SelectComponent is rendered with the initial value set to the current language.
  */
 const Language = () => {
+  const initialValue = useRef(localStorage.getItem("language") || navigator.language);
   const options = useRef([
     {
       key: "Türkçe",
@@ -23,7 +24,7 @@ const Language = () => {
     <SelectComponent
       options={options.current}
       onChange={onLanguageChange}
-      initialValue={i18n.language}
+      initialValue={initialValue.current}
     ></SelectComponent>
   );
 };

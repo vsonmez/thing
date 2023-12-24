@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import DungeonComponent from "./dungeons/components/dungeon/Dungeon.component";
 import MessageListComponent from "./message/components/MessageList.component";
 import FooterComponent from "./shared-components/Footer.component";
@@ -11,6 +11,7 @@ import { useTranslation } from "react-i18next";
 import ModalComponent from "./shared-components/modal/Modal.component";
 
 const App = () => {
+  const initialLanguage = useRef(localStorage.getItem("language") || navigator.language);
   const [isShowWarning, setIsShowWarning] = useState(true);
   const { currentScreen } = useCurrentScreen();
   const { characterLocation } = useCharacterLocation();
@@ -22,7 +23,7 @@ const App = () => {
     setIsShowWarning(!isShowWarning);
   }, [isShowWarning, setIsShowWarning]);
   useEffect(() => {
-    i18n.changeLanguage(navigator.language, () => {
+    i18n.changeLanguage(initialLanguage.current, () => {
       addMessage("Welcome message", "success");
       addMessage("Welcome warning", "warning");
     });
