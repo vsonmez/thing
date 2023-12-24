@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-const useTimer = (initialTime: number) => {
+const useTimer = (initialTime: number, isLoop?: boolean) => {
   const [timerTime, setTime] = useState(initialTime);
   const [isRunning, setIsRunning] = useState(false);
 
@@ -17,7 +17,10 @@ const useTimer = (initialTime: number) => {
       if (timerTime <= 0) {
         setIsRunning(false);
         clearInterval(timer);
-        setTime(initialTime);
+        if (isLoop) {
+          setTime(initialTime);
+          setIsRunning(true);
+        }
       }
 
       return () => clearInterval(timer);

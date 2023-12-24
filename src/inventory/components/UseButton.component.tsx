@@ -64,7 +64,17 @@ const UseButton = ({ item }: { item: Item }) => {
         addMessage("No need");
       }
     }
-  }, []);
+  }, [
+    addDungeonLog,
+    addMessage,
+    characterCurrentHealth,
+    characterMaxHealth,
+    increaseCharacterHealth,
+    removeItemFromInventory,
+    item,
+    currentScreen,
+    t,
+  ]);
 
   const onUse = useCallback(() => {
     if (Helpers.isItemConsumable(item)) {
@@ -79,7 +89,7 @@ const UseButton = ({ item }: { item: Item }) => {
           break;
       }
     }
-  }, [item, consumeFood]);
+  }, [item, consumeFood, consumePotion]);
   return (
     <ButtonComponent onClick={onUse}>
       <>Use</>

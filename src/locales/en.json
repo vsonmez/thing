@@ -54,5 +54,6 @@
   "You spot": "You spot",
   "Healed": "You are healed",
   "No need": "You dont need!",
-  "Earned exprience": "Earned exprience"
+  "Earned exprience": "Earned exprience",
+  "Welcome message": "Welcome. With each move, your hunger score decreases by at least 1 point. Your health loses 1 point every 20 seconds. Enjoy."
 }

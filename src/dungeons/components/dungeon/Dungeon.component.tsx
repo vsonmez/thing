@@ -21,7 +21,7 @@ const Dungeon = () => {
   const { addDungeonLog, clearDungeonLog } = useDungeonLog();
   const { characterLocation } = useCharacterLocation();
   const { t } = useTranslation();
-  const { startTimer, timerIsRuning, timerTime } = useTimer(3);
+  const { startTimer, timerIsRuning, timerTime, setTime } = useTimer(3);
   const { currentDungeon } = useCharacterCurrentDungeon();
   const dungeon = useRef(Locations[characterLocation]?.dungeons[currentDungeon]);
   const [dungeonExploringResultKey, setDungeonExploringResultKey] = useState<DungeonExploringResultKeys>();
@@ -31,6 +31,7 @@ const Dungeon = () => {
       addDungeonLog("You are progressing through the dungeon");
       setDungeonExploringResultKey(undefined);
       decreaseCharacterHunger(1);
+      setTime(3);
       startTimer();
     } else {
       addDungeonLog("Not Enough Hunger Point", "error");
