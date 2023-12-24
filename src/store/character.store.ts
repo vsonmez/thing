@@ -1,7 +1,7 @@
 import { PayloadAction, createSlice } from "@reduxjs/toolkit";
 import AppStore from "./index.store";
 import Character from "../character/models/character.class";
-import { produce } from "immer";
+import Helpers from "../helpers/index.helpers";
 /**
  * This code snippet defines a namespace called CharacterStore in TypeScript. It declares a type CharacterStoreType which is an alias for the Character type. 
  * 
@@ -60,61 +60,86 @@ namespace CharacterStore {
     initialState,
     name: "character",
     reducers: {
-      setCharacterName: produce((state: CharacterStoreType, action: PayloadAction<string>) => {
+      setCharacterName: (state: CharacterStoreType, action: PayloadAction<string>) => {
         state.name = action.payload;
-      }),
-      increaseDefense: produce((state: CharacterStoreType, action: PayloadAction<number>) => {
+      },
+      increaseDefense: (state: CharacterStoreType, action: PayloadAction<number>) => {
         state.stats.defense += action.payload;
-      }),
-      decreaseDefense: produce((state: CharacterStoreType, action: PayloadAction<number>) => {
+      },
+      decreaseDefense: (state: CharacterStoreType, action: PayloadAction<number>) => {
         state.stats.defense = Math.max(state.stats.defense - action.payload, 0);
-      }),
-      increaseHealth: produce((state: CharacterStoreType, action: PayloadAction<number>) => {
+      },
+      increaseHealth: (state: CharacterStoreType, action: PayloadAction<number>) => {
         const { current, max } = state.stats.health;
         state.stats.health.current = Math.min(current + action.payload, max);
-      }),
-      decreaseHealth: produce((state: CharacterStoreType, action: PayloadAction<number>) => {
+      },
+      decreaseHealth: (state: CharacterStoreType, action: PayloadAction<number>) => {
         state.stats.health.current = Math.max(state.stats.health.current - action.payload, 0);
-      }),
-      increaseAttack: produce((state: CharacterStoreType, action: PayloadAction<number>) => {
+      },
+      increaseAttack: (state: CharacterStoreType, action: PayloadAction<number>) => {
         state.stats.attack += action.payload;
-      }),
-      increaseDamage: produce((state: CharacterStoreType, action: PayloadAction<number>) => {
+      },
+      increaseDamage: (state: CharacterStoreType, action: PayloadAction<number>) => {
         state.stats.damage += action.payload;
-      }),
-      decreaseDamage: produce((state: CharacterStoreType, action: PayloadAction<number>) => {
+      },
+      decreaseDamage: (state: CharacterStoreType, action: PayloadAction<number>) => {
         state.stats.damage = Math.max(state.stats.damage - action.payload, 0);
-      }),
-      decreaseAttack: produce((state: CharacterStoreType, action: PayloadAction<number>) => {
+      },
+      decreaseAttack: (state: CharacterStoreType, action: PayloadAction<number>) => {
         state.stats.attack = Math.max(state.stats.attack - action.payload, 0);
-      }),
-      increaseLevel: produce((state: CharacterStoreType) => {
+      },
+      increaseLevel: (state: CharacterStoreType) => {
         state.level++;
-      }),
-      increaseExperience: produce((state: CharacterStoreType, action: PayloadAction<number>) => {
+      },
+      increaseExperience: (state: CharacterStoreType, action: PayloadAction<number>) => {
         state.experience += action.payload;
-      }),
-      increaseGold: produce((state: CharacterStoreType, action: PayloadAction<number>) => {
+      },
+      increaseGold: (state: CharacterStoreType, action: PayloadAction<number>) => {
         state.gold += action.payload;
-      }),
-      decreaseGold: produce((state: CharacterStoreType, action: PayloadAction<number>) => {
+      },
+      decreaseGold: (state: CharacterStoreType, action: PayloadAction<number>) => {
         state.gold = Math.max(state.gold - action.payload, 0);
-      }),
-      setLocation: produce((state: CharacterStoreType, action: PayloadAction<string>) => {
+      },
+      setLocation: (state: CharacterStoreType, action: PayloadAction<string>) => {
         state.location = action.payload;
-      }),
-      increaseHunger: produce((state: CharacterStoreType, action: PayloadAction<number>) => {
+      },
+      increaseHunger: (state: CharacterStoreType, action: PayloadAction<number>) => {
         state.hunger = Math.min(state.hunger + action.payload, 100);
-      }),
-      decreaseHunger: produce((state: CharacterStoreType, action: PayloadAction<number>) => {
+      },
+      decreaseHunger: (state: CharacterStoreType, action: PayloadAction<number>) => {
         state.hunger = Math.max(state.hunger - action.payload, 0);
-      }),
-      setIsInDungeon: produce((state: CharacterStoreType, action: PayloadAction<boolean>) => {
+      },
+      setIsInDungeon: (state: CharacterStoreType, action: PayloadAction<boolean>) => {
         state.isInDungeon = action.payload;
-      }),
-      setCurrentDungeon: produce((state: CharacterStoreType, action: PayloadAction<string>) => {
+      },
+      setCurrentDungeon: (state: CharacterStoreType, action: PayloadAction<string>) => {
         state.currentDungeon = action.payload;
-      }),
+      },
+      renewCharacter: (state: CharacterStoreType) => {
+        localStorage.removeItem("character");
+        debugger;
+        const character = {
+          ...Helpers.createCharacter(state.name, {
+            cons: state.stats.constitution.value,
+            dex: state.stats.dexterity.value,
+            hp: state.stats.health.max,
+            str: state.stats.strength.value,
+          }),
+        };
+        return {
+          ...state,
+          gold: state.gold,
+          level: state.level,
+          experience: state.experience,
+          location: state.location,
+          hunger: state.hunger,
+          currentDungeon: "",
+          isInDungeon: false,
+          stats: {
+            ...character.stats,
+          },
+        };
+      },
     },
   });
   export const actions = characterSlice.actions;

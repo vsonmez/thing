@@ -16,7 +16,15 @@ class Character {
   hunger: number = 100;
   isInDungeon: boolean = false;
   currentDungeon: string;
-  constructor(name: string) {
+  constructor(
+    name: string,
+    renew?: {
+      dex: number;
+      str: number;
+      cons: number;
+      hp: number;
+    }
+  ) {
     this.name = name;
     this.gold = 100;
     /**
@@ -58,6 +66,12 @@ class Character {
     // If it is, assign 10 to cons; otherwise, leave it unchanged
     cons = cons < 10 ? 10 : cons;
 
+    if (renew) {
+      dex = renew.dex;
+      str = renew.str;
+      cons = renew.cons;
+    }
+
     // Calculate the stat modifier for strength
     const strModifier = Math.round(Helpers.calculateStatModifier(str));
 
@@ -67,10 +81,12 @@ class Character {
     // Calculate the stat modifier for constitution
     const consModifier = Math.round(Helpers.calculateStatModifier(cons));
 
+    const currentHealth = Math.round(health < 5 ? 5 : health + consModifier);
+
     this.stats = {
       health: {
-        current: Math.round(health < 5 ? 5 : health + consModifier),
-        max: Math.round(health < 5 ? 5 : health + consModifier),
+        current: renew ? Math.ceil(renew.hp / 2) : currentHealth,
+        max: renew ? renew.hp : currentHealth,
         regen: 1,
       },
       // Calculate the attack value based on the strModifier

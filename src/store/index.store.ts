@@ -57,7 +57,8 @@ namespace AppStore {
   });
 
   store.subscribe(() => {
-    localStorage.setItem("character", JSON.stringify(store.getState().character));
+    const character = store.getState().character;
+    localStorage.setItem("character", JSON.stringify(character));
     localStorage.setItem("inventory", JSON.stringify(store.getState().inventory));
     localStorage.setItem("equipment", JSON.stringify(store.getState().equipment));
   });

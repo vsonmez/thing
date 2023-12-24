@@ -1,6 +1,10 @@
 import { useCallback } from "react";
 import CharacterStore from "../../character.store";
 import AppStore from "../../index.store";
+import EquipmentStore from "../../equipment.store";
+import useIsBusy from "../global/use-is-busy.hook";
+import useCurrentScreen from "../global/use-current-screen.hook";
+import InventoryStore from "../../inventory.store";
 /**
  * This code snippet is a custom React hook called useCharacterHealth that provides methods and properties related to a character's health. It returns an object with the following properties and methods:
 
@@ -13,6 +17,8 @@ import AppStore from "../../index.store";
 The hook internally uses the useAppDispatch and useAppSelector hooks from the AppStore and CharacterStore contexts to dispatch actions and select the character's health state.
  */
 const useCharacterHealth = () => {
+  const { setCurrentScreen } = useCurrentScreen();
+  const { setIsBusy } = useIsBusy();
   const dispatch = AppStore.useAppDispatch();
   const { current, max, regen } = AppStore.useAppSelector(CharacterStore.select.health);
 
@@ -24,6 +30,13 @@ const useCharacterHealth = () => {
     (amount: number) => dispatch(CharacterStore.actions.decreaseHealth(amount)),
     [dispatch]
   );
+  const renewCharacter = useCallback(() => {
+    dispatch(InventoryStore.actions.reset());
+    dispatch(EquipmentStore.actions.reset());
+    dispatch(CharacterStore.actions.renewCharacter());
+    setIsBusy(false);
+    setCurrentScreen("message");
+  }, [dispatch, setIsBusy, setCurrentScreen]);
 
   return {
     /**
@@ -51,6 +64,10 @@ const useCharacterHealth = () => {
      * @param {number} amount - number - The amount of health to decrease the character's health by.
      */
     decreaseCharacterHealth: decreaseHealth,
+    /**
+     * The renewCharacter function dispatches an action to renew the character's health.
+     */
+    renewCharacter,
   };
 };
 

@@ -1,6 +1,5 @@
 import { PayloadAction, createSlice } from "@reduxjs/toolkit";
 import Message, { MessageTypes } from "../message/models/message.type";
-import { produce } from "immer";
 import AppStore from "./index.store";
 import Helpers from "../helpers/index.helpers";
 namespace MessageStore {
@@ -10,21 +9,20 @@ namespace MessageStore {
     name: "messages",
     reducers: {
       addMessage: (state, action: PayloadAction<{ message: string; type?: MessageTypes }>) => {
-        return produce(state, (draft) => {
-          const date = new Date();
-          const hours = date.getHours();
-          const minutes = date.getMinutes();
-          const seconds = date.getSeconds();
-          const newMessage: Message = {
-            id: Helpers.getID(),
-            message: action.payload.message,
-            created_at: `${String(hours).padStart(2, "0")}:${String(minutes).padStart(2, "0")}:${String(
-              seconds
-            ).padStart(2, "0")}`,
-            type: action.payload.type,
-          };
-          draft.unshift(newMessage);
-        });
+        const date = new Date();
+        const hours = date.getHours();
+        const minutes = date.getMinutes();
+        const seconds = date.getSeconds();
+        const newMessage: Message = {
+          id: Helpers.getID(),
+          message: action.payload.message,
+          created_at: `${String(hours).padStart(2, "0")}:${String(minutes).padStart(2, "0")}:${String(seconds).padStart(
+            2,
+            "0"
+          )}`,
+          type: action.payload.type,
+        };
+        state.unshift(newMessage);
       },
     },
   });

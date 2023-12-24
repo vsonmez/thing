@@ -2,7 +2,6 @@ import { PayloadAction, createSlice } from "@reduxjs/toolkit";
 import ItemList from "../items/models/item-list.type";
 import AppStore from "./index.store";
 import Item from "../items/models/item-global.type";
-import { Draft, produce } from "immer";
 /**
  * This code snippet defines a namespace called InventoryStore in TypeScript. It exports an actions object, a reducer function, and a select object.
 
@@ -24,38 +23,36 @@ namespace InventoryStore {
     name: "inventory",
     reducers: {
       addItemToInventory: (state: ItemList, { payload }: PayloadAction<Item>) => {
-        return produce(state, (draftState: Draft<ItemList>) => {
-          const itemInInventory = draftState[payload.defname];
-          if (itemInInventory) {
-            itemInInventory.quantity += 1;
-          } else {
-            const itemToBeAdded = {
-              ...payload,
-              quantity: 1,
-            };
-            draftState[payload.defname] = itemToBeAdded;
-          }
-        });
+        const itemInInventory = state[payload.defname];
+        if (itemInInventory) {
+          itemInInventory.quantity += 1;
+        } else {
+          const itemToBeAdded = {
+            ...payload,
+            quantity: 1,
+          };
+          state[payload.defname] = itemToBeAdded;
+        }
       },
       removeItemFromInventory: (state: ItemList, { payload }: PayloadAction<string>) => {
-        return produce(state, (draftState: Draft<ItemList>) => {
-          const itemInInventory = draftState[payload];
-          if (itemInInventory) {
-            if (itemInInventory.quantity > 1) {
-              itemInInventory.quantity -= 1;
-            } else {
-              delete draftState[payload];
-            }
+        const itemInInventory = state[payload];
+        if (itemInInventory) {
+          if (itemInInventory.quantity > 1) {
+            itemInInventory.quantity -= 1;
+          } else {
+            delete state[payload];
           }
-        });
+        }
       },
       setIsEquipped: (state: ItemList, { payload }: PayloadAction<{ defname: string; isEquipped: boolean }>) => {
-        return produce(state, (draftState: Draft<ItemList>) => {
-          const itemInInventory = draftState[payload.defname];
-          if (itemInInventory) {
-            itemInInventory.isEquipped = payload.isEquipped;
-          }
-        });
+        const itemInInventory = state[payload.defname];
+        if (itemInInventory) {
+          itemInInventory.isEquipped = payload.isEquipped;
+        }
+      },
+      reset: () => {
+        localStorage.removeItem("inventory");
+        return initialState;
       },
     },
   });

@@ -36,6 +36,10 @@ namespace EquipmentStore {
       unEquipArmor(state) {
         state.armor = undefined;
       },
+      reset: () => {
+        localStorage.removeItem("equipment");
+        return initialState;
+      },
     },
   });
   export const actions = equipmentSlice.actions;

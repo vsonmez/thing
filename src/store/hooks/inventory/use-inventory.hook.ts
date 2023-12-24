@@ -37,6 +37,10 @@ const useInventory = () => {
     [dispatch]
   );
 
+  const reset = useCallback(() => {
+    dispatch(InventoryStore.actions.reset());
+  }, [dispatch]);
+
   return {
     /**
      * The inventory of the player.
@@ -56,6 +60,10 @@ const useInventory = () => {
      * Sets the isEquipped property of an item in the inventory.
      */
     setIsEquipped,
+    /**
+     * Resets the inventory.
+     */
+    reset,
   };
 };
 
