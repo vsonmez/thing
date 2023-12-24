@@ -22,11 +22,17 @@ const useDungeonLog = () => {
     [dispatch, t]
   );
 
+  const clearDungeonLog = useCallback(() => {
+    dispatch(DungeonLogStore.actions.clearDungeonLog());
+  }, [dispatch]);
+
   return {
     /** list of dungeon logs */
     dungeonLogList,
     /** add dungeon log */
     addDungeonLog,
+    /** clear dungeon log */
+    clearDungeonLog,
   };
 };
 

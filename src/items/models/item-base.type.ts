@@ -12,6 +12,7 @@
  */
 type ItemBase = {
   type: "weapon" | "armor" | "consumable";
+  subType?: "food" | "potion";
   defname: string;
   name: string;
   price: number;

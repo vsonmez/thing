@@ -3,6 +3,7 @@ import ItemList from "./models/item-list.type";
 const foods: ItemList = {
   bread: {
     type: "consumable",
+    subType: "food",
     defname: "bread",
     name: "Bread",
     price: 1.5,
@@ -12,6 +13,7 @@ const foods: ItemList = {
     isPurchasable: true,
     isSellable: true,
     isUsable: false,
+    isEquipped: false,
     description: {
       tr: "Yemek. +5 açlık puanı kazandırır.",
       en: "Food. Provides +5 hunger points.",

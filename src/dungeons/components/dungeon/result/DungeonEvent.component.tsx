@@ -21,13 +21,12 @@ const DungeonEvent = ({ dungeon }: { dungeon: Dungeon }) => {
           monsterAmount: dungeon.monsters.amount,
           secretAmount: 0,
           trapAmount: dungeon.traps.amount,
-          eventAmount,
+          eventAmount: eventAmount - 1,
         });
         break;
       default:
         break;
     }
-
     // eslint-disable-next-line
   }, []);
 

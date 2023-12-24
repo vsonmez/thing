@@ -3,6 +3,7 @@ import Helpers from "../helpers/index.helpers";
 import armors from "./armors.items";
 import weapons from "./weapon.items";
 import foods from "./foods.items";
+import potions from "./potions.items";
 /**
  * This code snippet defines a constant variable Items that has two properties:
  * - weapons,
@@ -23,6 +24,7 @@ const Items: {
   },
   consumables: {
     ...Helpers.makeImmutable(foods),
+    ...Helpers.makeImmutable(potions),
   },
 };
 export default Items;

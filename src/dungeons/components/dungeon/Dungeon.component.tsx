@@ -18,7 +18,7 @@ import useCharacterHunger from "../../../store/hooks/character/use-character-hun
 const Dungeon = () => {
   const { characterHunger, decreaseCharacterHunger } = useCharacterHunger();
   const { eventAmount, monsterAmount, secretAmount, trapAmount } = useDungeon();
-  const { addDungeonLog } = useDungeonLog();
+  const { addDungeonLog, clearDungeonLog } = useDungeonLog();
   const { characterLocation } = useCharacterLocation();
   const { t } = useTranslation();
   const { startTimer, timerIsRuning, timerTime } = useTimer(3);
@@ -53,6 +53,10 @@ const Dungeon = () => {
     }
     // eslint-disable-next-line
   }, [timerTime]);
+
+  useEffect(() => {
+    clearDungeonLog();
+  }, [clearDungeonLog]);
 
   return (
     <div className="h-full flex flex-col">

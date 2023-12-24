@@ -50,5 +50,8 @@
   "Dungeon has been reset": "The walls of the maze have changed, the dungeon has been reset. All secrets have been deleted.",
   "Move Forward": "Move Forward",
   "Exit": "Exit",
-  "You found": "You found"
+  "You found": "You found",
+  "You spot": "You spot",
+  "Healed": "You are healed",
+  "No need": "You dont need!"
 }

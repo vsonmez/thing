@@ -26,6 +26,9 @@ namespace DungeonLogStore {
         };
         draft.unshift(newLog);
       }),
+      clearDungeonLog: produce((draft) => {
+        draft.splice(0, draft.length);
+      }),
     },
   });
   export const actions = dungeonLogSlice.actions;

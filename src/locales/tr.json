@@ -50,5 +50,8 @@
   "Dungeon has been reset": "Labirent duvarları değişti, zidan sıfırlandı. Tüm gizliler silindi.",
   "Move Forward": "Ilerle",
   "Exit": "Cıkış",
-  "You found": "Bulundun"
+  "You found": "Bulundun",
+  "You spot": "Farkettin",
+  "Healed": "İyileştin",
+  "No need": "İhtiyacn yok!"
 }
