@@ -1,4 +1,5 @@
 import ItemList from "./models/item-list.type";
+import Weapon from "./models/weapon.type";
 /**
  * This code defines an object called weapons that represents a list of items.
  *
@@ -10,7 +11,7 @@ import ItemList from "./models/item-list.type";
  *
  * The object is initialized with several weapons, each represented as a key-value pair, where the key is the weapon name and the value is an object containing the weapon's properties.
  */
-const weapons: ItemList = {
+const weapons: ItemList<Weapon> = {
   dagger: {
     defname: "dagger",
     name: "Dagger",
@@ -25,6 +26,7 @@ const weapons: ItemList = {
     isEquipped: false,
     critical: 2,
     type: "weapon",
+    rarity: "common",
   },
   axe: {
     defname: "axe",
@@ -40,6 +42,7 @@ const weapons: ItemList = {
     isEquipped: false,
     critical: 2,
     type: "weapon",
+    rarity: "common",
   },
   mace: {
     defname: "mace",
@@ -55,6 +58,7 @@ const weapons: ItemList = {
     isEquipped: false,
     critical: 2,
     type: "weapon",
+    rarity: "common",
   },
   sword: {
     defname: "sword",
@@ -70,6 +74,7 @@ const weapons: ItemList = {
     isEquipped: false,
     critical: 2,
     type: "weapon",
+    rarity: "common",
   },
   battleaxe: {
     defname: "battleaxe",
@@ -85,6 +90,7 @@ const weapons: ItemList = {
     isEquipped: false,
     critical: 3,
     type: "weapon",
+    rarity: "common",
   },
   warhammer: {
     defname: "warhammer",
@@ -100,6 +106,7 @@ const weapons: ItemList = {
     isEquipped: false,
     critical: 3,
     type: "weapon",
+    rarity: "common",
   },
   longsword: {
     defname: "longsword",
@@ -115,6 +122,7 @@ const weapons: ItemList = {
     isEquipped: false,
     critical: 3,
     type: "weapon",
+    rarity: "common",
   },
 };
 export default weapons;

@@ -11,8 +11,9 @@
  * - isUsable: Indicates whether the item is usable.
  */
 type ItemBase = {
-  type: "weapon" | "armor" | "consumable";
+  type: "weapon" | "armor" | "consumable" | "container";
   subType?: "food" | "potion";
+  rarity: "common" | "uncommon" | "rare" | "epic" | "legendary" | "mythic";
   defname: string;
   name: string;
   price: number;
@@ -22,6 +23,6 @@ type ItemBase = {
   isEquippable: boolean;
   isConsumable: boolean;
   isUsable: boolean;
-  isEquipped?: boolean;
+  isEquipped: boolean;
 };
 export default ItemBase;

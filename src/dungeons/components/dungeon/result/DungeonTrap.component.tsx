@@ -17,7 +17,8 @@ const DungeonTrap = ({ dungeon }: { dungeon: Dungeon }) => {
   useEffect(() => {
     decreaseTrapAmount();
 
-    const isFoundTrap = Helpers.trapDifficultyCheck(trap.current);
+    const isFoundTrap = Helpers.difficultyCheck(trap.current);
+
     if (isFoundTrap) {
       addDungeonLog(`${t("You spot")}: ${trap.current.name}`, "success");
       increaseExperience(trap.current.damage);

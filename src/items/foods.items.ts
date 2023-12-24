@@ -1,9 +1,11 @@
+import Consumable from "./models/consumable.type";
 import ItemList from "./models/item-list.type";
 
-const foods: ItemList = {
+const foods: ItemList<Consumable> = {
   bread: {
     type: "consumable",
     subType: "food",
+    rarity: "common",
     defname: "bread",
     name: "Bread",
     price: 1.5,
