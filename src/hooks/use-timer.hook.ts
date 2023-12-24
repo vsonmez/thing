@@ -25,7 +25,7 @@ const useTimer = (initialTime: number, isLoop?: boolean) => {
 
       return () => clearInterval(timer);
     }
-  }, [isRunning, timerTime, setTime, initialTime]);
+  }, [isRunning, timerTime, setTime, initialTime, isLoop]);
 
   return { timerTime, startTimer, timerIsRuning: isRunning, setTime };
 };
