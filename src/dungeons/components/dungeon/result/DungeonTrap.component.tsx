@@ -21,6 +21,7 @@ const DungeonTrap = ({ dungeon }: { dungeon: Dungeon }) => {
     if (isFoundTrap) {
       addDungeonLog(`${t("You spot")}: ${trap.current.name}`, "success");
       increaseExperience(trap.current.damage);
+      addDungeonLog(`${t("Earned exprience")}: ${trap.current.damage}`, "success");
     } else {
       const damage = Helpers.getRandomNumber(1, trap.current.damage);
       addDungeonLog(`${t("Trap")}: ${trap.current.name} ${damage} ${t("Damage")}`, "warning");

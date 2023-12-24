@@ -33,17 +33,17 @@ const DungeonListItem = ({ dungeon }: { dungeon: Dungeon }) => {
       <DungeonImageComponent dungeonID={dungeon.id}></DungeonImageComponent>
       <div className={`absolute right-[1px] bottom-[1px] left-[1px] bg-black/50 p-2`}>
         <div className="flex items-center">
-          <span className="block">{dungeon.name}</span>
-          <ButtonComponent className="ml-auto border-0" onClick={toggleShowDetail}>
-            <IconInfoComponent></IconInfoComponent>
-          </ButtonComponent>
+          <details>
+            <summary className="flex items-baseline gap-2">
+              <IconInfoComponent></IconInfoComponent>
+              <span>{dungeon.name}</span>
+            </summary>
+            <div>
+              <small>{i18n.language === "en" ? dungeon.description.en : dungeon.description.tr}</small>
+              <small className="block my-1 text-orange-300">{t("Dungeon Travel Info")}</small>
+            </div>
+          </details>
         </div>
-        {isShowDetail && (
-          <>
-            <small>{i18n.language === "en" ? dungeon.description.en : dungeon.description.tr}</small>
-            <small className="block my-1 text-orange-300">{t("Dungeon Travel Info")}</small>
-          </>
-        )}
         <div className="mt-1">
           <ButtonComponent onClick={onEnterDungeon}>
             <span>{t("Enter the dungeon")}</span>

@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useMemo } from "react";
 import useCharacterHunger from "../../store/hooks/character/use-character-hunger.hook";
 import { useTranslation } from "react-i18next";
 import useMessagesStore from "../../store/hooks/message/use-message-store";
@@ -16,13 +16,22 @@ const CharacterHunger = () => {
   const { addMessage } = useMessagesStore();
   const { characterHunger } = useCharacterHunger();
 
+  const cssClass = useMemo(() => {
+    if (characterHunger <= 50 && characterHunger > 20) {
+      return `flex items-center text-yellow-500`;
+    }
+    if (characterHunger <= 20) {
+      return `flex items-center text-red-500`;
+    }
+  }, [characterHunger]);
+
   useEffect(() => {
     if (characterHunger <= 50) {
       addMessage(`You're starting to get hungry`, "warning");
     }
   }, [characterHunger, addMessage]);
   return (
-    <div className="flex items-center">
+    <div className={cssClass}>
       <span> {t("Hunger")}:</span>
       <span className="ml-1">{characterHunger}</span>
     </div>
