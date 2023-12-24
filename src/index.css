@@ -57,6 +57,9 @@ body {
 .wyvernsReach {
   background-image: url("assets/images/cities/wyvernsReach.jpeg");
 }
+.zephyrionLabyrinth {
+  background-image: url("assets/images/dungeons/zephyrionLabyrinth.jpeg");
+}
 .z-1 {
   z-index: 1;
 }

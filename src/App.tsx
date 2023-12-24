@@ -6,10 +6,12 @@ import HeaderComponent from "./shared-components/Header.component";
 import useCharacterLocation from "./store/hooks/character/use-character-location.hook";
 import useCurrentScreen from "./store/hooks/global/use-current-screen.hook";
 import useMessagesStore from "./store/hooks/message/use-message-store";
+import useCharacterCurrentDungeon from "./store/hooks/character/use-character-current-dungeon.hook";
 
 const App = () => {
   const { currentScreen } = useCurrentScreen();
   const { characterLocation } = useCharacterLocation();
+  const { currentDungeon } = useCharacterCurrentDungeon();
   const { addMessage } = useMessagesStore();
 
   useEffect(() => {
@@ -20,7 +22,7 @@ const App = () => {
   return (
     <>
       <HeaderComponent></HeaderComponent>
-      <div className={`overflow-auto h-full content ${characterLocation}`}>
+      <div className={`overflow-auto h-full content ${currentDungeon || characterLocation}`}>
         {currentScreen === "message" && <MessageListComponent></MessageListComponent>}
         {currentScreen === "dungeon" && <DungeonComponent></DungeonComponent>}
       </div>
