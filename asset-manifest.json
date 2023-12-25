@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/thing/static/css/main.9734da75.css",
-    "main.js": "/thing/static/js/main.f95867b3.js",
+    "main.css": "/thing/static/css/main.a6c0d793.css",
+    "main.js": "/thing/static/js/main.fb22a2ba.js",
     "static/media/astradon.jpeg": "/thing/static/media/astradon.0195d9b241e083750034.jpeg",
     "static/media/timeNexusObservatory.jpeg": "/thing/static/media/timeNexusObservatory.d3f641554eb7a50361b7.jpeg",
     "static/media/magicalLibrary.jpeg": "/thing/static/media/magicalLibrary.26416081594581a0c565.jpeg",
@@ -79,6 +79,7 @@
     "static/media/voiletCrystalFungus.jpeg": "/thing/static/media/voiletCrystalFungus.3babab2cc0c0d24ecd90.jpeg",
     "static/media/lightLeatherArmor.jpeg": "/thing/static/media/lightLeatherArmor.8cb14431f8adeff82d67.jpeg",
     "static/media/poisonousCrystalMiniDragon.jpeg": "/thing/static/media/poisonousCrystalMiniDragon.ae02e5d975f794aa13b0.jpeg",
+    "static/media/healingHerb.jpeg": "/thing/static/media/healingHerb.b47e25772b17f2fd50fa.jpeg",
     "static/media/katana.jpeg": "/thing/static/media/katana.174e7b013034f7b95bb4.jpeg",
     "static/media/adamantinePlateArmor.jpeg": "/thing/static/media/adamantinePlateArmor.55a2e8eca48de8efe02f.jpeg",
     "static/media/studdedLeatherArmor.jpeg": "/thing/static/media/studdedLeatherArmor.c76a43d1fc3bbc774f12.jpeg",
@@ -100,11 +101,11 @@
     "static/media/dagger.jpeg": "/thing/static/media/dagger.5c9d1a16ad313651e683.jpeg",
     "static/media/sword.jpeg": "/thing/static/media/sword.45ee235f7127808696dc.jpeg",
     "index.html": "/thing/index.html",
-    "main.9734da75.css.map": "/thing/static/css/main.9734da75.css.map",
-    "main.f95867b3.js.map": "/thing/static/js/main.f95867b3.js.map"
+    "main.a6c0d793.css.map": "/thing/static/css/main.a6c0d793.css.map",
+    "main.fb22a2ba.js.map": "/thing/static/js/main.fb22a2ba.js.map"
   },
   "entrypoints": [
-    "static/css/main.9734da75.css",
-    "static/js/main.f95867b3.js"
+    "static/css/main.a6c0d793.css",
+    "static/js/main.fb22a2ba.js"
   ]
 }
