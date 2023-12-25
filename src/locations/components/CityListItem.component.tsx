@@ -68,13 +68,13 @@ const CityListItem = ({ city }: { city: Location }) => {
             </ButtonComponent>
           </div>
         )}
+        {timerIsRuning && (
+          <>
+            <span className="text-[24px]">{timerTime}</span>
+            <div>{`${t("Traveling")}: ${city.name}`}</div>
+          </>
+        )}
       </div>
-      {timerIsRuning && (
-        <div className="fixed top-0 left-0 w-full h-full bg-black/50 flex items-center justify-center flex-col z-1">
-          <span className="text-[24px]">{timerTime}</span>
-          <div>{`${t("Traveling")}: ${city.name}`}</div>
-        </div>
-      )}
     </li>
   );
 };
