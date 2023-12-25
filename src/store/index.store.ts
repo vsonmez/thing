@@ -10,6 +10,10 @@ import MessageStore from "./message.store";
 import GlobalStore from "./global.store";
 import DungeonLogStore from "./dungeon-log.store";
 import DungeonStore from "./dungeon.store";
+import CombatLogStore from "./combat-log.store";
+import potions from "../items/potions.items";
+import armors from "../items/armors.items";
+import weapons from "../items/weapon.items";
 
 const character = localStorage.getItem("character");
 const characterData: Character = character
@@ -21,7 +25,26 @@ const characterData: Character = character
   : { ...Helpers.createCharacter("") };
 
 const inventory = localStorage.getItem("inventory");
-const inventoryData: ItemList = inventory ? JSON.parse(inventory) : {};
+const inventoryData: ItemList = inventory
+  ? JSON.parse(inventory)
+  : {
+      healingHerb: {
+        ...potions.healingHerb,
+        quantity: 20,
+      },
+      lesserHealPotion: {
+        ...potions.lesserHealPotion,
+        quantity: 3,
+      },
+      paddedArmor: {
+        ...armors.paddedArmor,
+        quantity: 1,
+      },
+      dagger: {
+        ...weapons.dagger,
+        quantity: 1,
+      },
+    };
 
 const equipment = localStorage.getItem("equipment");
 const equipmentData = equipment ? JSON.parse(equipment) : {};
@@ -44,6 +67,7 @@ namespace AppStore {
       equipment: EquipmentStore.reducer,
       messages: MessageStore.reducer,
       dungeonLog: DungeonLogStore.reducer,
+      combatLog: CombatLogStore.reducer,
       dungeon: DungeonStore.reducer,
       global: GlobalStore.reducer,
     },

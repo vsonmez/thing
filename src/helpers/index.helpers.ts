@@ -12,6 +12,7 @@ import isItemConsumableFN from "./is-item-consumable.helper";
 import isItemWeaponFN from "./is-item-weapon.helper";
 import makeImmutableFN from "./make-immutable";
 import difficultyCheckFN from "./difficulty-check.helper";
+import createMonsterFN from "./create-monster.helper";
 
 namespace Helpers {
   /**
@@ -72,5 +73,9 @@ namespace Helpers {
    * Trap difficulty check
    */
   export const difficultyCheck = difficultyCheckFN;
+  /**
+   * Create monster
+   */
+  export const createMonster = createMonsterFN;
 }
 export default Helpers;

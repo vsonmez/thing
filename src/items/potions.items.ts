@@ -2,6 +2,26 @@ import Consumable from "./models/consumable.type";
 import ItemList from "./models/item-list.type";
 
 const potions: ItemList<Consumable> = {
+  healingHerb: {
+    type: "consumable",
+    subType: "potion",
+    rarity: "common",
+    defname: "healingHerb",
+    name: "Healing Herb",
+    price: 0.5,
+    quantity: 0,
+    isConsumable: true,
+    isEquippable: false,
+    isPurchasable: true,
+    isSellable: true,
+    isUsable: false,
+    isEquipped: false,
+    description: {
+      tr: "Herb. 1 iyileştirir.",
+      en: "Herb. Heals 1.",
+    },
+    healthPointGain: 1,
+  },
   lesserHealPotion: {
     type: "consumable",
     subType: "potion",

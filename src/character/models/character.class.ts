@@ -44,7 +44,7 @@ class Character {
       return 0;
     });
     // Generate a random number between 1 and 10 for the "health" variable
-    const health = Helpers.getRandomNumber(1, 10);
+    const health = Helpers.getRandomNumber(3, 10);
     /**
      * Assign the sorted stats to the "str", "dex", and "cons" variables
      */
@@ -81,7 +81,7 @@ class Character {
     // Calculate the stat modifier for constitution
     const consModifier = Math.round(Helpers.calculateStatModifier(cons));
 
-    const currentHealth = Math.round(health < 5 ? 5 : health + consModifier);
+    const currentHealth = Math.round(health < 8 ? 8 : health + consModifier);
 
     this.stats = {
       health: {

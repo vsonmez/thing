@@ -12,6 +12,7 @@ import LanguageComponent from "./Language.component";
 import CharacterLocationComponent from "../character/components/CharacterLocation.component";
 import CharacterHungerComponent from "../character/components/CharacterHunger.component";
 import HeaderResponsiveMenuComponent from "./HeaderResponsiveMenu.component";
+import useCurrentScreen from "../store/hooks/global/use-current-screen.hook";
 /**
  *
  * It returns a JSX element representing a header section with multiple child components.
@@ -29,6 +30,7 @@ import HeaderResponsiveMenuComponent from "./HeaderResponsiveMenu.component";
  *
  */
 const Header: React.FC = () => {
+  const { currentScreen } = useCurrentScreen();
   return (
     <header className="p-1 border-b border-gray-700 flex gap-2 items-center ">
       <div className="hidden xl:flex">
@@ -38,7 +40,7 @@ const Header: React.FC = () => {
       <CharacterGoldComponent></CharacterGoldComponent>
       <CharacterHungerComponent></CharacterHungerComponent>
       <div className="gap-2 items-center hidden xl:flex">
-        <CharacterHealthComponent></CharacterHealthComponent>
+        {currentScreen !== "dungeon" && <CharacterHealthComponent></CharacterHealthComponent>}
         <CharacterStrengthAndDexterityComponent></CharacterStrengthAndDexterityComponent>
         <CharacterDefenseComponent></CharacterDefenseComponent>
         <CharacterAttackComponent></CharacterAttackComponent>

@@ -60,6 +60,12 @@
   "Welcome warning": "For now, only the 1st dungeon (Zephyrion Labyrinth) of the 1st city (Eldorath) is open.The dungeon is under construction. Only 'event', 'trap' and 'secret' actions work.",
   "Use": "Use",
   "You have died": "YOU HAVE DIED!",
+  "You killed": "YOU KILLED",
   "When yo die": "WHEN YOU DIE YOU LOSE ALL YOUR ITEMS!",
-  "Warning": "Warning"
+  "Warning": "Warning",
+  "You took damage": "You took damage",
+  "Monster couldn't hit": "Monster couldn't hit you",
+  "Monster took damage": "Monster took damage",
+  "You couldn't hit": "You couldn't hit the monster",
+  "Combat": "Combat"
 }

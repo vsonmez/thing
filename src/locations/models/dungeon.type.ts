@@ -2,6 +2,7 @@ import DungeonEventReturn from "../../dungeons/models/dungeon-event-return.type"
 import Trap from "../../dungeons/traps/models/trap.type";
 import Container from "../../items/models/container.type";
 import Item from "../../items/models/item-global.type";
+import Monster from "../../monsters/models/monster.type";
 
 type Dungeon = {
   name: string;
@@ -11,10 +12,10 @@ type Dungeon = {
     en: string;
   };
   monsters?: {
-    list: any[];
+    list: Monster[];
     amount: number;
     possibility: number;
-    boss: any[];
+    boss: Monster[];
     bossAmount: number;
   };
   traps?: {
