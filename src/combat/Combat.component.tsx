@@ -26,7 +26,16 @@ const Combat = ({ dungeon }: { dungeon: Dungeon }) => {
     }
     // eslint-disable-next-line
   }, []);
-  return <>{monster && <img src={require(`../assets/images/monsters/${monster.current.id}.jpeg`)} alt="" />}</>;
+  return (
+    <>
+      {monster && (
+        <figure>
+          <img src={require(`../assets/images/monsters/${monster.current.id}.jpeg`)} alt="" />
+          <figcaption className="text-center py-2">{monster.current.name}</figcaption>
+        </figure>
+      )}
+    </>
+  );
 };
 
 export default React.memo(Combat);
