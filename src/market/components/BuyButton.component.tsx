@@ -26,9 +26,12 @@ const BuyButton = ({ item }: { item: Item }) => {
       addMessage("Not enough gold", "error");
       return;
     }
-    decreaseGold(price.current);
-    addItemToInventory(item);
-    addMessage(`${t("Bought")}: ${item.name} ${price.current} ${t("Gold")}`, "success");
+    const confirm = window.confirm(`${t("Are you sure you want to buy")}: ${item.name} ${price.current} ${t("Gold")}?`);
+    if (confirm) {
+      decreaseGold(price.current);
+      addItemToInventory(item);
+      addMessage(`${t("Bought")}: ${item.name} ${price.current} ${t("Gold")}`, "success");
+    }
   }, [decreaseGold, price, addItemToInventory, item, characterGold, addMessage, t]);
   return (
     <ButtonComponent onClick={onBuy} className="flex gap-1 items-center mt-1">

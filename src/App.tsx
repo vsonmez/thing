@@ -9,6 +9,8 @@ import useMessagesStore from "./store/hooks/message/use-message-store";
 import useCharacterCurrentDungeon from "./store/hooks/character/use-character-current-dungeon.hook";
 import { useTranslation } from "react-i18next";
 import ModalComponent from "./shared-components/modal/Modal.component";
+import useTimer from "./hooks/use-timer.hook";
+import useCharacterHealth from "./store/hooks/character/use-character-health.hook";
 
 const App = () => {
   const initialLanguage = useRef(localStorage.getItem("language") || navigator.language);
@@ -18,6 +20,8 @@ const App = () => {
   const { currentDungeon } = useCharacterCurrentDungeon();
   const { addMessage } = useMessagesStore();
   const { i18n, t } = useTranslation();
+  const { startTimer, timerTime, timerIsRuning, setTime } = useTimer(30);
+  const { characterCurrentHealth, characterMaxHealth, increaseCharacterHealth, renewCharacter } = useCharacterHealth();
 
   const toggleWarning = useCallback(() => {
     setIsShowWarning(!isShowWarning);
@@ -29,6 +33,29 @@ const App = () => {
     });
     // eslint-disable-next-line
   }, []);
+
+  useEffect(() => {
+    if (characterCurrentHealth < characterMaxHealth && !timerIsRuning) {
+      setTime(30);
+      startTimer();
+    }
+    // eslint-disable-next-line
+  }, [characterCurrentHealth, timerIsRuning]);
+
+  useEffect(() => {
+    if (timerTime <= 0) {
+      increaseCharacterHealth(1);
+    }
+    // eslint-disable-next-line
+  }, [timerTime]);
+
+  useEffect(() => {
+    if (characterCurrentHealth < 1) {
+      addMessage("You have died", "error");
+      renewCharacter();
+    }
+    // eslint-disable-next-line
+  }, [characterCurrentHealth]);
 
   return (
     <>

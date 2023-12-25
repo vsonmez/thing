@@ -31,6 +31,9 @@ namespace CombatLogStore {
         };
         state.unshift(newLog);
       },
+      reset: () => {
+        return [];
+      },
     },
   });
   export const actions = combatLogSlice.actions;

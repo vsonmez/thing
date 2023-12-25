@@ -1,5 +1,4 @@
 import { useCallback } from "react";
-import CombatLog from "../../../combat/models/combat-log.type";
 import CombatLogStore from "../../combat-log.store";
 import AppStore from "../../index.store";
 import { MessageTypes } from "../../../message/models/message.type";
@@ -15,11 +14,17 @@ const useCombatLog = () => {
     [dispatch]
   );
 
+  const resetCombatLog = useCallback(() => {
+    dispatch(CombatLogStore.actions.reset());
+  }, [dispatch]);
+
   return {
     /** list of combat logs */
     combatLog,
     /** add combat log */
     addCombatLog,
+    /** reset combat log */
+    resetCombatLog,
   };
 };
 

@@ -16,9 +16,11 @@ import CharacterHealthComponent from "../../character/components/CharacterHealth
 import CombatLogComponent from "./CombatLog.component";
 import useCombatLog from "../../store/hooks/combat/use-combat-log.hook";
 import CombatPotionBarComponent from "./CombatPotionBar.component";
+import useInventory from "../../store/hooks/inventory/use-inventory.hook";
 
 const Combat = ({ dungeon, onClose }: { dungeon: Dungeon; onClose: () => void }) => {
-  const { addCombatLog } = useCombatLog();
+  const { addItemToInventory } = useInventory();
+  const { addCombatLog, resetCombatLog } = useCombatLog();
   const { increaseExperience } = useCharacterExperience();
   const { characterCurrentHealth, decreaseCharacterHealth } = useCharacterHealth();
   const { characterAttack } = useCharacterAttack();
@@ -39,7 +41,7 @@ const Combat = ({ dungeon, onClose }: { dungeon: Dungeon; onClose: () => void })
     const monsterDamageDice = Helpers.getRandomNumber(1, monster.damage);
     if (isCritical || monsterTotalAttack >= characterDefense) {
       if (isCritical) {
-        addCombatLog(`${t("You took damage")}: ${monster.name} ${monsterDamageDice * 2}`, "error");
+        addCombatLog(`${t("Critical")}: ${monster.name} ${monsterDamageDice * 2}`, "error");
         decreaseCharacterHealth(monsterDamageDice * 2);
       } else {
         addCombatLog(`${t("You took damage")}: ${monster.name} ${monsterDamageDice}`, "error");
@@ -57,7 +59,7 @@ const Combat = ({ dungeon, onClose }: { dungeon: Dungeon; onClose: () => void })
     const characterDamageDice = Helpers.getRandomNumber(1, characterDamage);
     if (isCritical || characterTotalAttack >= monster.defense) {
       if (isCritical) {
-        addCombatLog(`${t("Monster took damage")}: ${characterDamageDice * 2}`, "success");
+        addCombatLog(`${t("Critical")}: ${characterDamageDice * 2}`, "success");
         setMonster({ ...monster, hp: monster.hp - characterDamageDice * 2 });
       } else {
         addCombatLog(`${t("Monster took damage")}: ${characterDamageDice}`, "success");
@@ -81,17 +83,30 @@ const Combat = ({ dungeon, onClose }: { dungeon: Dungeon; onClose: () => void })
         const experience = Helpers.getRandomNumber(1, monster.experience);
         increaseExperience(experience);
         addDungeonLog(`${t("Experience")}: ${experience}`, "success");
-        const reward = commonRewards.current["gold"] as number;
-        const gold = Helpers.getRandomNumber(0, reward);
-        if (gold > 0) {
-          addDungeonLog(`${t("You found")}: ${gold}${t("Gold")}`);
-          increaseGold(gold);
+        const reward = Helpers.getRandomElementFromArray(Object.values(commonRewards.current));
+        if (typeof reward === "number") {
+          const gold = Helpers.getRandomNumber(0, reward);
+          if (gold > 0) {
+            addDungeonLog(`${t("You found")}: ${gold}${t("Gold")}`, "success");
+            increaseGold(gold);
+          }
+        } else {
+          const rewardGainLuck = Helpers.getRandomNumber();
+          if (rewardGainLuck < 40) {
+            addItemToInventory(reward);
+            addDungeonLog(`${t("You found")}: ${reward.name}`, "success");
+          }
         }
       }
       onClose();
     }
     // eslint-disable-next-line
   }, [monster, characterCurrentHealth, commonRewards]);
+
+  useEffect(() => {
+    resetCombatLog();
+    // eslint-disable-next-line
+  }, []);
   return (
     <>
       {monster && (

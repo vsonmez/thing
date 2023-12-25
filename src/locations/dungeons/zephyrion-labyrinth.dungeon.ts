@@ -1,6 +1,7 @@
 import movingWalls from "../../dungeons/dungeon-events/moving-walls.event";
 import Traps from "../../dungeons/traps/index.traps";
 import chests from "../../items/chests.items";
+import potions from "../../items/potions.items";
 import monsters from "../../monsters/index.monsters";
 import Dungeon from "../models/dungeon.type";
 
@@ -39,7 +40,11 @@ const zephyrionLabyrinth: Dungeon = {
   },
   rewards: {
     common: {
-      gold: 2,
+      gold: 5,
+      healingHerb: {
+        ...potions.healingHerb,
+        quantity: 1,
+      },
     },
     uncommon: {},
     rare: {},

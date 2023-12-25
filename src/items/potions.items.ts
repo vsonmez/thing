@@ -12,8 +12,8 @@ const potions: ItemList<Consumable> = {
     quantity: 0,
     isConsumable: true,
     isEquippable: false,
-    isPurchasable: true,
-    isSellable: true,
+    isPurchasable: false,
+    isSellable: false,
     isUsable: false,
     isEquipped: false,
     description: {
