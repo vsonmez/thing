@@ -37,6 +37,14 @@ const Footer = () => {
     setShowModal(false);
   }, []);
 
+  const onReset = useCallback(() => {
+    const confirm = window.confirm("Are you sure you want to reset?");
+    if (confirm) {
+      localStorage.clear();
+      window.location.reload();
+    }
+  }, []);
+
   useEffect(() => {
     if (currentScreen === "dungeon") {
       setShowModal(false);
@@ -93,6 +101,9 @@ const Footer = () => {
             <span className="hidden sm:block">{t("Dungeons")}</span>
             <img alt="" width={48} src={dungeonsImage} className={`sm:hidden ${characterIsInDungeon && "grayscale"}`} />
           </>
+        </ButtonComponent>
+        <ButtonComponent onClick={onReset} className="ml-auto">
+          <>Reset</>
         </ButtonComponent>
       </footer>
       {showModal && (
