@@ -117,7 +117,6 @@ namespace CharacterStore {
       },
       renewCharacter: (state: CharacterStoreType) => {
         localStorage.removeItem("character");
-        debugger;
         const character = {
           ...Helpers.createCharacter(state.name, {
             cons: state.stats.constitution.value,
