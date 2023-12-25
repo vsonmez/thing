@@ -10,6 +10,7 @@ import CharacterStrengthAndDexterityComponent from "../character/components/Char
 import ButtonComponent from "./Button.component";
 import LanguageComponent from "./Language.component";
 import CharacterNameComponent from "../character/components/CharacterName.component";
+import CharacterHealthComponent from "../character/components/CharacterHealth.component";
 
 const HeaderResponsiveMenu = () => {
   const [showMenu, setShowMenu] = useState(false);
@@ -27,6 +28,9 @@ const HeaderResponsiveMenu = () => {
         <ul className="absolute right-0 bg-black p-2 rounded border border-gray-400 flex flex-col space-y-1">
           <li className="border-b border-gray-500">
             <CharacterNameComponent></CharacterNameComponent>
+          </li>
+          <li className="border-b border-gray-500">
+            <CharacterHealthComponent></CharacterHealthComponent>
           </li>
           <li className="border-b border-gray-500">
             <CharacterStrengthAndDexterityComponent></CharacterStrengthAndDexterityComponent>
