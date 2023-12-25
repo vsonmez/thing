@@ -16,7 +16,7 @@ const DungeonExitCombatButton = ({ timerIsRuning }: { timerIsRuning: boolean }) 
     setCurrentDungeon("");
   }, [setCurrentScreen, setCharacterIsInDungeon, setCurrentDungeon]);
   return (
-    <ButtonComponent disabled={timerIsRuning} onClick={onExitCombat}>
+    <ButtonComponent className="ml-auto" disabled={timerIsRuning} onClick={onExitCombat}>
       <>{t("Exit")}</>
     </ButtonComponent>
   );

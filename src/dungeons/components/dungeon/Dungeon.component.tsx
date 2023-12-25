@@ -14,6 +14,7 @@ import DungeonStaticsComponent from "./DungeonStatics.component";
 import DungeonExitCombatButtonComponent from "./DungeonExitCombatButton.component";
 import DungeonResultComponent from "./result/DungeonResult.component";
 import useCharacterHunger from "../../../store/hooks/character/use-character-hunger.hook";
+import CharacterHealthComponent from "../../../character/components/CharacterHealth.component";
 
 const Dungeon = () => {
   const { characterHunger, decreaseCharacterHunger } = useCharacterHunger();
@@ -69,12 +70,13 @@ const Dungeon = () => {
         {!dungeon.current.monsters && <div>Under Construction</div>}
       </h1>
       <DungeonLogListComponent></DungeonLogListComponent>
-      <div className="bg-black/80 p-1 flex gap-2">
+      <div className="bg-black/80 p-1 flex gap-3">
         {dungeon.current.monsters && (
           <ButtonComponent disabled={timerIsRuning} onClick={onMoveForward}>
             <>{t("Move Forward")}</>
           </ButtonComponent>
         )}
+        <CharacterHealthComponent></CharacterHealthComponent>
         <DungeonExitCombatButtonComponent timerIsRuning={timerIsRuning}></DungeonExitCombatButtonComponent>
       </div>
       {dungeonExploringResultKey && (
