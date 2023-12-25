@@ -1,4 +1,4 @@
-import React, { useCallback, useState } from "react";
+import React, { useCallback } from "react";
 import Dungeon from "../../../locations/models/dungeon.type";
 import DungeonImageComponent from "./DungeonImage.component";
 import ButtonComponent from "../../../shared-components/Button.component";
@@ -16,18 +16,13 @@ const DungeonListItem = ({ dungeon }: { dungeon: Dungeon }) => {
   const { setCurrentDungeon } = useCharacterCurrentDungeon();
   const { setCurrentScreen } = useCurrentScreen();
   const { t, i18n } = useTranslation();
-  const [isShowDetail, setIsShowDetail] = useState<boolean>(false);
-
-  const toggleShowDetail = useCallback(() => {
-    setIsShowDetail(!isShowDetail);
-  }, [isShowDetail, setIsShowDetail]);
 
   const onEnterDungeon = useCallback(() => {
     setCurrentScreen("dungeon");
     setCharacterIsInDungeon(true);
     setCurrentDungeon(dungeon.id);
     decreaseCharacterHunger(Constants.dungeonEnterHungerPoint);
-  }, [setCurrentScreen, setCharacterIsInDungeon, setCurrentDungeon, dungeon]);
+  }, [setCurrentScreen, setCharacterIsInDungeon, setCurrentDungeon, dungeon, decreaseCharacterHunger]);
   return (
     <li key={dungeon.id} className="relative flex overflow-hidden">
       <DungeonImageComponent dungeonID={dungeon.id}></DungeonImageComponent>

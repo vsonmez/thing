@@ -19,12 +19,14 @@ const CharacterHealth: React.FC = () => {
       setTime(30);
       startTimer();
     }
-  }, [characterCurrentHealth, timerIsRuning, startTimer, characterMaxHealth]);
+    // eslint-disable-next-line
+  }, [characterCurrentHealth, timerIsRuning]);
 
   useEffect(() => {
     if (timerTime <= 0) {
       increaseCharacterHealth(1);
     }
+    // eslint-disable-next-line
   }, [timerTime]);
 
   useEffect(() => {
@@ -32,6 +34,7 @@ const CharacterHealth: React.FC = () => {
       addMessage("You have died", "error");
       renewCharacter();
     }
+    // eslint-disable-next-line
   }, [characterCurrentHealth]);
 
   return (

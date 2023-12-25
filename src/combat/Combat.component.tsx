@@ -5,7 +5,6 @@ import useDungeonLog from "../store/hooks/dungeon/use-dungeon-log.hook";
 import { useTranslation } from "react-i18next";
 import Helpers from "../helpers/index.helpers";
 import Dungeon from "../locations/models/dungeon.type";
-import img from "../assets/images/monsters/voiletCrystalFungus.jpeg";
 
 const Combat = ({ dungeon }: { dungeon: Dungeon }) => {
   const { increaseGold } = useCharacterGold();

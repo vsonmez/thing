@@ -27,6 +27,7 @@ const App = () => {
       addMessage("Welcome message", "success");
       addMessage("Welcome warning", "warning");
     });
+    // eslint-disable-next-line
   }, []);
 
   return (

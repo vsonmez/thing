@@ -37,7 +37,8 @@ const Dungeon = () => {
     } else {
       addDungeonLog("Not Enough Hunger Point", "error");
     }
-  }, [startTimer, addDungeonLog, characterHunger, decreaseCharacterHunger]);
+    // eslint-disable-next-line
+  }, [characterHunger]);
 
   useEffect(() => {
     if (timerTime <= 0) {
