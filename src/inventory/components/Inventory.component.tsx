@@ -5,6 +5,7 @@ import ItemDetailComponent from "../../items/components/ItemDetail.component";
 import InventoryButtonsComponent from "./InventoryButtons.component";
 import EquipmentComponent from "../../equipment/components/Equipment.component";
 import { useTranslation } from "react-i18next";
+import ItemNameComponent from "../../items/components/ItemName.component";
 /**
  *  It uses the useInventory hook to fetch an inventory object. The component renders a list of items from the inventory object.
 
@@ -19,12 +20,12 @@ const Inventory = () => {
     <>
       <EquipmentComponent></EquipmentComponent>
       <div>
-        <h1>{t("Inventory")}</h1>
-        <ul className="sm:flex gap-4 flex-wrap">
+        <h1 className="mb-2">{t("Inventory")}</h1>
+        <ul className="flex gap-4 flex-wrap flex-col sm:flex-row">
           {Object.values(inventory).map((item) => (
-            <li key={item.defname}>
+            <li key={item.defname} className="border border-gray-400 rounded p-2">
               <span>
-                {item.name} - ({item.quantity})
+                <ItemNameComponent item={item}></ItemNameComponent> - ({item.quantity})
               </span>
               <div className="flex p-1 gap-1 items-center">
                 <ItemImageComponent width={72} itemDefName={item.defname}></ItemImageComponent>

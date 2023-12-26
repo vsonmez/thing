@@ -11,10 +11,12 @@ import { useTranslation } from "react-i18next";
 import ModalComponent from "./shared-components/modal/Modal.component";
 import useTimer from "./hooks/use-timer.hook";
 import useCharacterHealth from "./store/hooks/character/use-character-health.hook";
+import CreateCharacterComponent from "./character/components/CreateCharacter.component";
+import useCharacterName from "./store/hooks/character/use-character-name.hook";
 
 const App = () => {
   const initialLanguage = useRef(localStorage.getItem("language") || navigator.language);
-  const [isShowWarning, setIsShowWarning] = useState(true);
+  const { characterName } = useCharacterName();
   const { currentScreen } = useCurrentScreen();
   const { characterLocation } = useCharacterLocation();
   const { currentDungeon } = useCharacterCurrentDungeon();
@@ -23,9 +25,6 @@ const App = () => {
   const { startTimer, timerTime, timerIsRuning, setTime } = useTimer(30);
   const { characterCurrentHealth, characterMaxHealth, increaseCharacterHealth, renewCharacter } = useCharacterHealth();
 
-  const toggleWarning = useCallback(() => {
-    setIsShowWarning(!isShowWarning);
-  }, [isShowWarning, setIsShowWarning]);
   useEffect(() => {
     i18n.changeLanguage(initialLanguage.current, () => {
       addMessage("Welcome message", "success");
@@ -65,11 +64,7 @@ const App = () => {
         {currentScreen === "dungeon" && <DungeonComponent></DungeonComponent>}
       </div>
       <FooterComponent></FooterComponent>
-      {isShowWarning && (
-        <ModalComponent title={t("Warning")} onClose={toggleWarning}>
-          <div className="bg-white rounded p-3 text-center text-[24px] text-red-500">{t("When yo die")}</div>
-        </ModalComponent>
-      )}
+      {!characterName && <CreateCharacterComponent></CreateCharacterComponent>}
     </>
   );
 };

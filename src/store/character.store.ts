@@ -60,6 +60,12 @@ namespace CharacterStore {
     initialState,
     name: "character",
     reducers: {
+      setCharacter: (state: CharacterStoreType, action: PayloadAction<CharacterStoreType>) => {
+        return {
+          ...state,
+          ...action.payload,
+        };
+      },
       setCharacterName: (state: CharacterStoreType, action: PayloadAction<string>) => {
         state.name = action.payload;
       },
@@ -118,15 +124,15 @@ namespace CharacterStore {
       renewCharacter: (state: CharacterStoreType) => {
         localStorage.removeItem("character");
         const character = {
-          ...Helpers.createCharacter(state.name, {
+          ...new Character(state.name, {
             cons: state.stats.constitution.value,
             dex: state.stats.dexterity.value,
-            hp: state.stats.health.max,
             str: state.stats.strength.value,
+            health: state.stats.health.max,
           }),
         };
         return {
-          ...state,
+          ...character,
           gold: state.gold,
           level: state.level,
           experience: state.experience,
@@ -134,9 +140,6 @@ namespace CharacterStore {
           hunger: state.hunger,
           currentDungeon: "",
           isInDungeon: false,
-          stats: {
-            ...character.stats,
-          },
         };
       },
     },
@@ -148,12 +151,12 @@ namespace CharacterStore {
     damage: (state: AppStore.RootState) => state.character.stats.damage,
     defense: (state: AppStore.RootState) => state.character.stats.defense,
     health: (state: AppStore.RootState) => state.character.stats.health,
+    strength: (state: AppStore.RootState) => state.character.stats.strength,
+    dexterity: (state: AppStore.RootState) => state.character.stats.dexterity,
     name: (state: AppStore.RootState) => state.character.name,
     level: (state: AppStore.RootState) => state.character.level,
     experience: (state: AppStore.RootState) => state.character.experience,
     gold: (state: AppStore.RootState) => state.character.gold,
-    strength: (state: AppStore.RootState) => state.character.stats.strength,
-    dexterity: (state: AppStore.RootState) => state.character.stats.dexterity,
     location: (state: AppStore.RootState) => state.character.location,
     hunger: (state: AppStore.RootState) => state.character.hunger,
     isInDungeon: (state: AppStore.RootState) => state.character.isInDungeon,

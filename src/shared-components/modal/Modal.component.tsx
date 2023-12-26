@@ -11,17 +11,23 @@ const Modal = ({
   children,
   showFooter,
   onClose,
+  hideCloseButton,
 }: {
   title: string;
   children: JSX.Element;
   showFooter?: boolean;
-  onClose: () => void;
+  onClose?: () => void;
+  hideCloseButton?: boolean;
 }) => {
   return (
     <div className="flex overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 bottom-0 z-50 justify-center items-center w-full md:inset-0  max-h-full backdrop-blur-sm">
       <div className="relative p-4 w-full max-w-2xl h-full">
         <div className="relative  rounded-lg shadow bg-gray-700 max-h-full flex flex-col">
-          <ModalHeaderComponent title={title} onClose={onClose}></ModalHeaderComponent>
+          <ModalHeaderComponent
+            title={title}
+            onClose={onClose}
+            hideCloseButton={hideCloseButton}
+          ></ModalHeaderComponent>
           <div className="p-4 space-y-4 overflow-auto h-full">{children}</div>
           {showFooter && <ModalFooterComponent></ModalFooterComponent>}
         </div>

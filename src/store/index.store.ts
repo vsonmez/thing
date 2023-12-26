@@ -1,7 +1,6 @@
 import { configureStore } from "@reduxjs/toolkit";
 import CharacterStore from "./character.store";
 import { TypedUseSelectorHook, useDispatch, useSelector } from "react-redux";
-import Helpers from "../helpers/index.helpers";
 import InventoryStore from "./inventory.store";
 import Character from "../character/models/character.class";
 import ItemList from "../items/models/item-list.type";
@@ -22,7 +21,11 @@ const characterData: Character = character
       isInDungeon: false,
       currentDungeon: "",
     }
-  : { ...Helpers.createCharacter("") };
+  : new Character("", {
+      str: 0,
+      dex: 0,
+      cons: 0,
+    });
 
 const inventory = localStorage.getItem("inventory");
 const inventoryData: ItemList = inventory

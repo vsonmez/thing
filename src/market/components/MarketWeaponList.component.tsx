@@ -4,6 +4,7 @@ import ItemImageComponent from "../../items/components/ItemImage.component";
 import Weapon from "../../items/models/weapon.type";
 import BuyButtonComponent from "./BuyButton.component";
 import ItemDetailComponent from "../../items/components/ItemDetail.component";
+import ItemNameComponent from "../../items/components/ItemName.component";
 /**
  * It renders a list of weapons by mapping over an array of weapons and rendering a list item for each weapon.
  *
@@ -27,7 +28,7 @@ const MarketWeaponList = () => {
           <li key={weapon.defname} className="flex p-1 gap-1 items-center">
             <ItemImageComponent itemDefName={weapon.defname}></ItemImageComponent>
             <div className="flex flex-col items-start">
-              <span>{weapon.name}</span>
+              <ItemNameComponent item={weapon}></ItemNameComponent>
               <ItemDetailComponent item={weapon}></ItemDetailComponent>
               <BuyButtonComponent item={weapon}></BuyButtonComponent>
             </div>

@@ -26,7 +26,6 @@ const DungeonSecret = ({ dungeon }: { dungeon: Dungeon }) => {
           addDungeonLog(`${t("You found")}: ${t(reward.name)}`, "success");
           increaseExperience(Math.ceil(secret.current.difficulty / 10));
           addDungeonLog(`${t("Earned exprience")}: ${Math.ceil(secret.current.difficulty / 10)}`, "success");
-          console.log(reward);
           break;
         default:
           break;

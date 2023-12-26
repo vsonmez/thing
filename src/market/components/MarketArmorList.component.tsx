@@ -4,6 +4,7 @@ import ItemImageComponent from "../../items/components/ItemImage.component";
 import Armor from "../../items/models/armor.type";
 import BuyButtonComponent from "./BuyButton.component";
 import ItemDetailComponent from "../../items/components/ItemDetail.component";
+import ItemNameComponent from "../../items/components/ItemName.component";
 /**
  *  It renders a list of armor items that can be purchased.
 
@@ -24,7 +25,7 @@ const MarketArmorList: React.FC = () => {
           <li key={armor.defname} className="flex p-1 gap-1 items-center">
             <ItemImageComponent itemDefName={armor.defname}></ItemImageComponent>
             <div className="flex flex-col items-start">
-              <span>{armor.name}</span>
+              <ItemNameComponent item={armor}></ItemNameComponent>
               <ItemDetailComponent item={armor}></ItemDetailComponent>
               <BuyButtonComponent item={armor}></BuyButtonComponent>
             </div>

@@ -4,6 +4,7 @@ import ItemImageComponent from "../../items/components/ItemImage.component";
 import ButtonComponent from "../../shared-components/Button.component";
 import useEquipArmor from "../../store/hooks/equipment/use-equip-armor.hook";
 import { useTranslation } from "react-i18next";
+import ItemNameComponent from "../../items/components/ItemName.component";
 /**
  * This code snippet is a React component called Equipment that renders a UI for displaying equipment information. It uses two custom hooks: useEquipWeapon and useEquipArmor.
 
@@ -22,7 +23,9 @@ const Equipment = () => {
       <ul className="flex gap-1">
         {equippedWeapon ? (
           <li className="relative w-[64px]">
-            <small className="absolute bottom-6 w-full text-center">{equippedWeapon.name}</small>
+            <small className="absolute bottom-6 w-full text-center">
+              <ItemNameComponent item={equippedWeapon}></ItemNameComponent>
+            </small>
             <ItemImageComponent width={64} itemDefName={equippedWeapon.defname}></ItemImageComponent>
             <ButtonComponent onClick={unEquipWeapon} className="mt-1 text-[12px] w-full">
               <span>{t("Unequip")}</span>
@@ -35,7 +38,9 @@ const Equipment = () => {
         )}
         {equippedArmor ? (
           <li className="relative w-[64px]">
-            <small className="absolute bottom-6 w-full text-center">{equippedArmor.name}</small>
+            <small className="absolute bottom-6 w-full text-center">
+              <ItemNameComponent item={equippedArmor}></ItemNameComponent>
+            </small>
             <ItemImageComponent width={64} itemDefName={equippedArmor.defname}></ItemImageComponent>
             <ButtonComponent onClick={unEquipArmor} className="mt-1 text-[12px] w-full">
               <span>{t("Unequip")}</span>
