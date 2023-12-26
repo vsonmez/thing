@@ -53,6 +53,9 @@ const zephyrionLabyrinth: Dungeon = {
       crystalPieces: {
         ...Items.miscellaneous.crystalPieces,
       },
+      bread: {
+        ...Items.consumables.bread,
+      },
     },
     uncommon: {
       daggerUncommon: {

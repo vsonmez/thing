@@ -207,7 +207,7 @@ const armors: ItemList<Armor> = {
     defname: "paddedArmorMythic",
     name: "Padded Armor +4",
     price: 6000,
-    defense: 7,
+    defense: 6,
     quantity: 0,
     isConsumable: false,
     isEquippable: true,
