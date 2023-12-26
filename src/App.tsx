@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useRef, useState } from "react";
+import { useEffect, useRef } from "react";
 import DungeonComponent from "./dungeons/components/dungeon/Dungeon.component";
 import MessageListComponent from "./message/components/MessageList.component";
 import FooterComponent from "./shared-components/Footer.component";
@@ -8,11 +8,10 @@ import useCurrentScreen from "./store/hooks/global/use-current-screen.hook";
 import useMessagesStore from "./store/hooks/message/use-message-store";
 import useCharacterCurrentDungeon from "./store/hooks/character/use-character-current-dungeon.hook";
 import { useTranslation } from "react-i18next";
-import ModalComponent from "./shared-components/modal/Modal.component";
-import useTimer from "./hooks/use-timer.hook";
-import useCharacterHealth from "./store/hooks/character/use-character-health.hook";
 import CreateCharacterComponent from "./character/components/CreateCharacter.component";
 import useCharacterName from "./store/hooks/character/use-character-name.hook";
+import HealthRegenerationComponent from "./shared-components/HealthRegeneration.component";
+import CalculateIdleTimeComponent from "./shared-components/CalculateIdleTime.component";
 
 const App = () => {
   const initialLanguage = useRef(localStorage.getItem("language") || navigator.language);
@@ -21,9 +20,7 @@ const App = () => {
   const { characterLocation } = useCharacterLocation();
   const { currentDungeon } = useCharacterCurrentDungeon();
   const { addMessage } = useMessagesStore();
-  const { i18n, t } = useTranslation();
-  const { startTimer, timerTime, timerIsRuning, setTime } = useTimer(30);
-  const { characterCurrentHealth, characterMaxHealth, increaseCharacterHealth, renewCharacter } = useCharacterHealth();
+  const { i18n } = useTranslation();
 
   useEffect(() => {
     i18n.changeLanguage(initialLanguage.current, () => {
@@ -33,31 +30,10 @@ const App = () => {
     // eslint-disable-next-line
   }, []);
 
-  useEffect(() => {
-    if (characterCurrentHealth < characterMaxHealth && !timerIsRuning) {
-      setTime(30);
-      startTimer();
-    }
-    // eslint-disable-next-line
-  }, [characterCurrentHealth, timerIsRuning]);
-
-  useEffect(() => {
-    if (timerTime <= 0) {
-      increaseCharacterHealth(1);
-    }
-    // eslint-disable-next-line
-  }, [timerTime]);
-
-  useEffect(() => {
-    if (characterCurrentHealth < 1) {
-      addMessage("You have died", "error");
-      renewCharacter();
-    }
-    // eslint-disable-next-line
-  }, [characterCurrentHealth]);
-
   return (
     <>
+      <CalculateIdleTimeComponent></CalculateIdleTimeComponent>
+      <HealthRegenerationComponent></HealthRegenerationComponent>
       <HeaderComponent></HeaderComponent>
       <div className={`overflow-auto h-full content ${currentDungeon || characterLocation}`}>
         {currentScreen === "message" && <MessageListComponent></MessageListComponent>}

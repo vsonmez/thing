@@ -1,4 +1,4 @@
-import React, { useCallback, useMemo, useRef } from "react";
+import React, { useCallback, useMemo } from "react";
 import useInventory from "../../store/hooks/inventory/use-inventory.hook";
 import ItemImageComponent from "../../items/components/ItemImage.component";
 import useCharacterHealth from "../../store/hooks/character/use-character-health.hook";

@@ -87,7 +87,7 @@ const CreateCharacter = () => {
       return;
     }
     setCharacter(new Character(name, { str, dex, cons }));
-  }, [name, totalStatPoint, setCharacter]);
+  }, [name, totalStatPoint, setCharacter, str, dex, cons]);
 
   useEffect(() => {
     const _totalStatPoint = localStorage.getItem("totalStatPoint")

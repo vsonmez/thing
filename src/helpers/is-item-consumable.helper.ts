@@ -1,4 +1,3 @@
-import Armor from "../items/models/armor.type";
 import Consumable from "../items/models/consumable.type";
 import ItemBase from "../items/models/item-base.type";
 /**

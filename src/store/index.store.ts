@@ -88,6 +88,7 @@ namespace AppStore {
     localStorage.setItem("character", JSON.stringify(character));
     localStorage.setItem("inventory", JSON.stringify(store.getState().inventory));
     localStorage.setItem("equipment", JSON.stringify(store.getState().equipment));
+    localStorage.setItem("saveTime", new Date().getTime().toString());
   });
 
   export type RootState = ReturnType<typeof store.getState>;

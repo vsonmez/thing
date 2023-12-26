@@ -56,7 +56,7 @@ const Combat = ({ dungeon, onClose, isBoss }: { dungeon: Dungeon; onClose: () =>
     } else {
       addCombatLog(`${t("Monster couldn't hit")}`);
     }
-  }, [monster, decreaseCharacterHealth, characterDefense]);
+  }, [monster, decreaseCharacterHealth, characterDefense, addCombatLog, t]);
 
   const onAttackToMonster = useCallback(() => {
     const { characterDamageDice, characterTotalAttack, isCritical } = Helpers.combatHelpers.attackToMonster(
@@ -76,7 +76,7 @@ const Combat = ({ dungeon, onClose, isBoss }: { dungeon: Dungeon; onClose: () =>
       addCombatLog(`${t("You couldn't hit")}`);
     }
     onAttackToCharacter();
-  }, [characterDamage, characterAttack, monster, onAttackToCharacter]);
+  }, [characterDamage, characterAttack, monster, onAttackToCharacter, addCombatLog, t]);
 
   useEffect(() => {
     setMonster(Helpers.createMonster(currentMonster.current));
