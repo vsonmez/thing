@@ -33,6 +33,10 @@ const useDungeon = () => {
     dispatch(DungeonStore.actions.decreaseSecretAmount());
   }, [dispatch]);
 
+  const decreaseBossAmount = useCallback(() => {
+    dispatch(DungeonStore.actions.decreaseBossAmount());
+  }, [dispatch]);
+
   return {
     /**
      * The eventAmount property is a number that represents the amount of events in the dungeon.
@@ -70,6 +74,10 @@ const useDungeon = () => {
      * The decreaseSecretAmount method is a function that sets the amount of secret passages in the dungeon.
      */
     decreaseSecretAmount,
+    /**
+     * The decreaseBossAmount method is a function that sets the amount of bosses in the dungeon.
+     */
+    decreaseBossAmount,
     /**
      * The resetDungeon method is a function that resets the dungeon.
      */

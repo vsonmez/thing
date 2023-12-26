@@ -17,8 +17,14 @@ import CombatLogComponent from "./CombatLog.component";
 import useCombatLog from "../../store/hooks/combat/use-combat-log.hook";
 import CombatPotionBarComponent from "./CombatPotionBar.component";
 import useInventory from "../../store/hooks/inventory/use-inventory.hook";
+import useCurrentScreen from "../../store/hooks/global/use-current-screen.hook";
+import useMessagesStore from "../../store/hooks/message/use-message-store";
+import useCharacterIsInDungeon from "../../store/hooks/character/use-character-is-in-dungeon.hook";
 
 const Combat = ({ dungeon, onClose, isBoss }: { dungeon: Dungeon; onClose: () => void; isBoss?: boolean }) => {
+  const { setCurrentScreen } = useCurrentScreen();
+  const { setCharacterIsInDungeon } = useCharacterIsInDungeon();
+  const { addMessage } = useMessagesStore();
   const { addItemToInventory } = useInventory();
   const { addCombatLog, resetCombatLog } = useCombatLog();
   const { increaseExperience } = useCharacterExperience();
@@ -28,7 +34,7 @@ const Combat = ({ dungeon, onClose, isBoss }: { dungeon: Dungeon; onClose: () =>
   const { characterDamage } = useCharacterDamage();
   const [monster, setMonster] = useState<Monster>();
   const { increaseGold } = useCharacterGold();
-  const { decreaseMonsterAmount } = useDungeon();
+  const { decreaseMonsterAmount, decreaseBossAmount } = useDungeon();
   const { addDungeonLog } = useDungeonLog();
   const { t } = useTranslation();
   const currentMonster = useRef(
@@ -79,12 +85,18 @@ const Combat = ({ dungeon, onClose, isBoss }: { dungeon: Dungeon; onClose: () =>
   useEffect(() => {
     if (monster?.hp < 1 || characterCurrentHealth < 1) {
       if (monster.hp < 1) {
-        decreaseMonsterAmount();
-        addDungeonLog(`${t("You killed")}: ${monster.name}`, "success");
+        if (isBoss) {
+          decreaseBossAmount();
+          addDungeonLog(`${t("You killed")}: ${monster.name}`, "warning");
+        } else {
+          decreaseMonsterAmount();
+          addDungeonLog(`${t("You killed")}: ${monster.name}`, "success");
+        }
+
         const experience = Helpers.getRandomNumber(1, monster.experience);
         increaseExperience(experience);
         addDungeonLog(`${t("Experience")}: ${experience}`, "success");
-        const reward = Helpers.combatHelpers.getCombatReward(dungeon.rewards);
+        const reward = Helpers.combatHelpers.getCombatReward(dungeon.rewards, isBoss);
         if (reward) {
           if (typeof reward === "number") {
             const gold = Helpers.getRandomNumber(0, reward);
@@ -94,7 +106,12 @@ const Combat = ({ dungeon, onClose, isBoss }: { dungeon: Dungeon; onClose: () =>
             }
           } else {
             const rewardGainLuck = Helpers.getRandomNumber();
-            if (rewardGainLuck < 40) {
+            if (isBoss) {
+              setCurrentScreen("message");
+              setCharacterIsInDungeon(false);
+              addMessage(`${t("You found")}: ${reward.name}`, "success");
+              onClose();
+            } else if (rewardGainLuck < 40) {
               addItemToInventory(reward);
               addDungeonLog(`${t("You found")}: ${reward.name}`, "success");
             }

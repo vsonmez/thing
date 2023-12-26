@@ -12,8 +12,8 @@ const Select = ({
   initialValue,
 }: {
   initialValue?: string;
-  options: { key: string; value: string }[];
-  onChange: (event: string) => void;
+  options: { key: string; value: string | number }[];
+  onChange: (event: string | number) => void;
 }) => {
   const [value, setValue] = React.useState(initialValue);
   const onChangeHandler = useCallback(

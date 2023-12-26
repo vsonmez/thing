@@ -23,15 +23,17 @@ namespace InventoryStore {
     name: "inventory",
     reducers: {
       addItemToInventory: (state: ItemList, { payload }: PayloadAction<Item>) => {
-        const itemInInventory = state[payload.defname];
+        const payloadItem = payload;
+        const quantity = payloadItem.quantity || 1;
+        const itemInInventory = state[payloadItem.defname];
         if (itemInInventory) {
-          itemInInventory.quantity += 1;
+          itemInInventory.quantity += quantity;
         } else {
           const itemToBeAdded = {
-            ...payload,
-            quantity: 1,
+            ...payloadItem,
+            quantity,
           };
-          state[payload.defname] = itemToBeAdded;
+          state[payloadItem.defname] = itemToBeAdded;
         }
       },
       removeItemFromInventory: (state: ItemList, { payload }: PayloadAction<string>) => {

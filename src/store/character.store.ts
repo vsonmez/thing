@@ -1,7 +1,6 @@
 import { PayloadAction, createSlice } from "@reduxjs/toolkit";
 import AppStore from "./index.store";
 import Character from "../character/models/character.class";
-import Helpers from "../helpers/index.helpers";
 /**
  * This code snippet defines a namespace called CharacterStore in TypeScript. It declares a type CharacterStoreType which is an alias for the Character type. 
  * 

@@ -38,7 +38,7 @@ export const getCombatReward = (rewards: DungeonRewards, isBoss: boolean = false
   ];
   let randomNumberMax: number = 100;
   if (isBoss) {
-    randomNumberMax = Constants.commonItemPossibility;
+    randomNumberMax = Constants.rareItemPossibility;
   }
   const randomNumber = Helpers.getRandomNumber(1, randomNumberMax);
   const possibility = possibilities.find((possibility) => randomNumber <= possibility);
