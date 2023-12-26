@@ -13,6 +13,7 @@ import isItemWeaponFN from "./is-item-weapon.helper";
 import makeImmutableFN from "./make-immutable";
 import difficultyCheckFN from "./difficulty-check.helper";
 import createMonsterFN from "./create-monster.helper";
+import { attackToCharacter, attackToMonster, getCombatReward } from "./combat.helper";
 
 namespace Helpers {
   /**
@@ -77,5 +78,11 @@ namespace Helpers {
    * Create monster
    */
   export const createMonster = createMonsterFN;
+
+  export const combatHelpers = {
+    attackToCharacter,
+    attackToMonster,
+    getCombatReward,
+  };
 }
 export default Helpers;

@@ -4,6 +4,7 @@ import armors from "./armors.items";
 import weapons from "./weapon.items";
 import foods from "./foods.items";
 import potions from "./potions.items";
+import miscellaneous from "./miscellaneous.items";
 /**
  * This code snippet defines a constant variable Items that has two properties:
  * - weapons,
@@ -15,6 +16,7 @@ const Items: {
   weapons: ItemList;
   armors: ItemList;
   consumables: ItemList;
+  miscellaneous: ItemList;
 } = {
   weapons: {
     ...Helpers.makeImmutable(weapons),
@@ -25,6 +27,9 @@ const Items: {
   consumables: {
     ...Helpers.makeImmutable(foods),
     ...Helpers.makeImmutable(potions),
+  },
+  miscellaneous: {
+    ...Helpers.makeImmutable(miscellaneous),
   },
 };
 export default Items;

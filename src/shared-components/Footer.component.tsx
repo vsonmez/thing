@@ -55,18 +55,19 @@ const Footer = () => {
   return (
     <>
       <footer className="flex sm:gap-2 border-t border-gray-700 py-1 sm:p-2">
-        <ButtonComponent
-          disabled={characterIsInDungeon}
-          onClick={() => {
-            onChangeTab("Market");
-          }}
-          className="sm:p-2 border-0"
-        >
-          <>
-            <span className="hidden sm:block">{t("Market")}</span>
-            <img alt="" width={48} src={marketImage} className={`sm:hidden ${characterIsInDungeon && "grayscale"}`} />
-          </>
-        </ButtonComponent>
+        {!characterIsInDungeon && (
+          <ButtonComponent
+            onClick={() => {
+              onChangeTab("Market");
+            }}
+            className="sm:p-2 border-0"
+          >
+            <>
+              <span className="hidden sm:block">{t("Market")}</span>
+              <img alt="" width={48} src={marketImage} className="sm:hidden " />
+            </>
+          </ButtonComponent>
+        )}
         <ButtonComponent
           onClick={() => {
             onChangeTab("Inventory");
@@ -78,30 +79,32 @@ const Footer = () => {
             <img alt="" width={48} src={inventoryImage} className="sm:hidden" />
           </>
         </ButtonComponent>
-        <ButtonComponent
-          disabled={characterIsInDungeon}
-          onClick={() => {
-            onChangeTab("Cities");
-          }}
-          className="sm:p-2 border-0"
-        >
-          <>
-            <span className="hidden sm:block">{t("Cities")}</span>
-            <img alt="" width={48} src={citiesImage} className={`sm:hidden ${characterIsInDungeon && "grayscale"}`} />
-          </>
-        </ButtonComponent>
-        <ButtonComponent
-          disabled={characterIsInDungeon}
-          onClick={() => {
-            onChangeTab("Dungeons");
-          }}
-          className="sm:p-2 border-0"
-        >
-          <>
-            <span className="hidden sm:block">{t("Dungeons")}</span>
-            <img alt="" width={48} src={dungeonsImage} className={`sm:hidden ${characterIsInDungeon && "grayscale"}`} />
-          </>
-        </ButtonComponent>
+        {!characterIsInDungeon && (
+          <ButtonComponent
+            onClick={() => {
+              onChangeTab("Cities");
+            }}
+            className="sm:p-2 border-0"
+          >
+            <>
+              <span className="hidden sm:block">{t("Cities")}</span>
+              <img alt="" width={48} src={citiesImage} className="sm:hidden" />
+            </>
+          </ButtonComponent>
+        )}
+        {!characterIsInDungeon && (
+          <ButtonComponent
+            onClick={() => {
+              onChangeTab("Dungeons");
+            }}
+            className="sm:p-2 border-0"
+          >
+            <>
+              <span className="hidden sm:block">{t("Dungeons")}</span>
+              <img alt="" width={48} src={dungeonsImage} className="sm:hidden" />
+            </>
+          </ButtonComponent>
+        )}
         <ButtonComponent onClick={onReset} className="ml-auto">
           <>Reset</>
         </ButtonComponent>

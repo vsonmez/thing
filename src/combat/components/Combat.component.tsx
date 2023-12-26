@@ -18,7 +18,7 @@ import useCombatLog from "../../store/hooks/combat/use-combat-log.hook";
 import CombatPotionBarComponent from "./CombatPotionBar.component";
 import useInventory from "../../store/hooks/inventory/use-inventory.hook";
 
-const Combat = ({ dungeon, onClose }: { dungeon: Dungeon; onClose: () => void }) => {
+const Combat = ({ dungeon, onClose, isBoss }: { dungeon: Dungeon; onClose: () => void; isBoss?: boolean }) => {
   const { addItemToInventory } = useInventory();
   const { addCombatLog, resetCombatLog } = useCombatLog();
   const { increaseExperience } = useCharacterExperience();
@@ -31,14 +31,14 @@ const Combat = ({ dungeon, onClose }: { dungeon: Dungeon; onClose: () => void })
   const { decreaseMonsterAmount } = useDungeon();
   const { addDungeonLog } = useDungeonLog();
   const { t } = useTranslation();
-  const currentMonster = useRef(Helpers.getRandomElementFromArray(dungeon.monsters.list));
+  const currentMonster = useRef(
+    Helpers.getRandomElementFromArray(isBoss ? dungeon.monsters.boss : dungeon.monsters.list)
+  );
   const commonRewards = useRef(dungeon.rewards.common);
 
   const onAttackToCharacter = useCallback(() => {
-    const attackDice = Helpers.getRandomNumber(1, 20);
-    let isCritical = attackDice === 20;
-    const monsterTotalAttack = attackDice + monster.attack;
-    const monsterDamageDice = Helpers.getRandomNumber(1, monster.damage);
+    const { isCritical, monsterDamageDice, monsterTotalAttack } = Helpers.combatHelpers.attackToCharacter(monster);
+
     if (isCritical || monsterTotalAttack >= characterDefense) {
       if (isCritical) {
         addCombatLog(`${t("Critical")}: ${monster.name} ${monsterDamageDice * 2}`, "error");
@@ -53,10 +53,11 @@ const Combat = ({ dungeon, onClose }: { dungeon: Dungeon; onClose: () => void })
   }, [monster, decreaseCharacterHealth, characterDefense]);
 
   const onAttackToMonster = useCallback(() => {
-    const attackDice = Helpers.getRandomNumber(1, 20);
-    let isCritical = attackDice >= 20;
-    const characterTotalAttack = attackDice + characterAttack;
-    const characterDamageDice = Helpers.getRandomNumber(1, characterDamage);
+    const { characterDamageDice, characterTotalAttack, isCritical } = Helpers.combatHelpers.attackToMonster(
+      characterAttack,
+      characterDamage
+    );
+
     if (isCritical || characterTotalAttack >= monster.defense) {
       if (isCritical) {
         addCombatLog(`${t("Critical")}: ${characterDamageDice * 2}`, "success");
@@ -83,18 +84,20 @@ const Combat = ({ dungeon, onClose }: { dungeon: Dungeon; onClose: () => void })
         const experience = Helpers.getRandomNumber(1, monster.experience);
         increaseExperience(experience);
         addDungeonLog(`${t("Experience")}: ${experience}`, "success");
-        const reward = Helpers.getRandomElementFromArray(Object.values(commonRewards.current));
-        if (typeof reward === "number") {
-          const gold = Helpers.getRandomNumber(0, reward);
-          if (gold > 0) {
-            addDungeonLog(`${t("You found")}: ${gold}${t("Gold")}`, "success");
-            increaseGold(gold);
-          }
-        } else {
-          const rewardGainLuck = Helpers.getRandomNumber();
-          if (rewardGainLuck < 40) {
-            addItemToInventory(reward);
-            addDungeonLog(`${t("You found")}: ${reward.name}`, "success");
+        const reward = Helpers.combatHelpers.getCombatReward(dungeon.rewards);
+        if (reward) {
+          if (typeof reward === "number") {
+            const gold = Helpers.getRandomNumber(0, reward);
+            if (gold > 0) {
+              addDungeonLog(`${t("You found")}: ${gold}${t("Gold")}`, "success");
+              increaseGold(gold);
+            }
+          } else {
+            const rewardGainLuck = Helpers.getRandomNumber();
+            if (rewardGainLuck < 40) {
+              addItemToInventory(reward);
+              addDungeonLog(`${t("You found")}: ${reward.name}`, "success");
+            }
           }
         }
       }
@@ -124,11 +127,11 @@ const Combat = ({ dungeon, onClose }: { dungeon: Dungeon; onClose: () => void })
           </div>
           <CombatPotionBarComponent></CombatPotionBarComponent>
           <div className="flex gap-2 mt-2">
-            <ButtonComponent onClick={onAttackToMonster}>
-              <>{t("Attack")}</>
-            </ButtonComponent>
+            <CharacterHealthComponent></CharacterHealthComponent>
             <div className="ml-auto">
-              <CharacterHealthComponent></CharacterHealthComponent>
+              <ButtonComponent onClick={onAttackToMonster}>
+                <>{t("Attack")}</>
+              </ButtonComponent>
             </div>
           </div>
           <CombatLogComponent></CombatLogComponent>

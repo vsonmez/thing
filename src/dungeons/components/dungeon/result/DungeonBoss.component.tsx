@@ -1,16 +1,22 @@
-import React, { useEffect, useRef } from "react";
+import React, { useCallback, useState } from "react";
 import Dungeon from "../../../../locations/models/dungeon.type";
-import Helpers from "../../../../helpers/index.helpers";
-import useDungeonLog from "../../../../store/hooks/dungeon/use-dungeon-log.hook";
+import ModalComponent from "../../../../shared-components/modal/Modal.component";
+import CombatComponent from "../../../../combat/components/Combat.component";
+import { useTranslation } from "react-i18next";
 
 const DungeonBoss = ({ dungeon }: { dungeon: Dungeon }) => {
-  const { addDungeonLog } = useDungeonLog();
-  const boss = useRef(Helpers.getRandomElementFromArray(dungeon.monsters.boss));
-  useEffect(() => {
-    addDungeonLog(`Boss`);
-    // eslint-disable-next-line
-  }, []);
-  return <></>;
+  const [showCombat, setShowCombat] = useState(true);
+  const { t } = useTranslation();
+  const onCLoseCombat = useCallback(() => {
+    setShowCombat(false);
+  }, [setShowCombat]);
+  if (showCombat) {
+    return (
+      <ModalComponent title={t("Combat")} onClose={onCLoseCombat}>
+        <CombatComponent dungeon={dungeon} onClose={onCLoseCombat} isBoss={true}></CombatComponent>
+      </ModalComponent>
+    );
+  }
 };
 
 export default React.memo(DungeonBoss);

@@ -4,6 +4,7 @@ import MarketWeaponListComponent from "./MarketWeaponList.component";
 import { useTranslation } from "react-i18next";
 import ButtonComponent from "../../shared-components/Button.component";
 import MarketConsumableListComponent from "./MarketConsumableList.component";
+import useCharacterGold from "../../store/hooks/character/use-character-gold.hook";
 /**
  * It renders a header with the title "Market" and two buttons for selecting between "Armors" and "Weapons".
  *
@@ -13,6 +14,7 @@ import MarketConsumableListComponent from "./MarketConsumableList.component";
  */
 const Market: React.FC = () => {
   const { t } = useTranslation();
+  const { characterGold } = useCharacterGold();
   const [selectedTab, setSelectedTab] = useState<"armors" | "weapons" | "consumables">("armors");
 
   const onChangeTab = useCallback((selectedTab: "armors" | "weapons" | "consumables") => {
@@ -21,7 +23,10 @@ const Market: React.FC = () => {
 
   return (
     <div>
-      <div className="flex gap-2">
+      <span className="absolute top-[20px] left-[100px] text-yellow-300">
+        {t("Gold")}: {characterGold}
+      </span>
+      <div className="flex gap-2 flex-wrap">
         <ButtonComponent
           onClick={() => onChangeTab("armors")}
           className={`px-2 py-1 ${selectedTab === "armors" ? "bg-gray-300 text-black" : ""}`}
@@ -41,9 +46,11 @@ const Market: React.FC = () => {
           <>{t("Consumables")}</>
         </ButtonComponent>
       </div>
-      {selectedTab === "armors" && <MarketArmorListComponent></MarketArmorListComponent>}
-      {selectedTab === "weapons" && <MarketWeaponListComponent></MarketWeaponListComponent>}
-      {selectedTab === "consumables" && <MarketConsumableListComponent></MarketConsumableListComponent>}
+      <div className="h-full overflow-auto">
+        {selectedTab === "armors" && <MarketArmorListComponent></MarketArmorListComponent>}
+        {selectedTab === "weapons" && <MarketWeaponListComponent></MarketWeaponListComponent>}
+        {selectedTab === "consumables" && <MarketConsumableListComponent></MarketConsumableListComponent>}
+      </div>
     </div>
   );
 };

@@ -6,7 +6,7 @@ import Helpers from "../../../../helpers/index.helpers";
 import useDungeon from "../../../../store/hooks/dungeon/use-dungeon.store";
 
 const DungeonEvent = ({ dungeon }: { dungeon: Dungeon }) => {
-  const { decreaseEventAmount, resetDungeon, eventAmount } = useDungeon();
+  const { decreaseEventAmount, resetDungeon, eventAmount, secretAmount } = useDungeon();
   const { addDungeonLog } = useDungeonLog();
   const { t } = useTranslation();
   const event = useRef(Helpers.getRandomElementFromArray(dungeon.events.list));
@@ -19,7 +19,7 @@ const DungeonEvent = ({ dungeon }: { dungeon: Dungeon }) => {
         resetDungeon({
           bossAmount: dungeon.monsters.bossAmount,
           monsterAmount: dungeon.monsters.amount,
-          secretAmount: 0,
+          secretAmount,
           trapAmount: dungeon.traps.amount,
           eventAmount: eventAmount - 1,
         });

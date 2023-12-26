@@ -34,7 +34,7 @@ const BuyButton = ({ item }: { item: Item }) => {
     }
   }, [decreaseGold, price, addItemToInventory, item, characterGold, addMessage, t]);
   return (
-    <ButtonComponent onClick={onBuy} className="flex gap-1 items-center mt-1">
+    <ButtonComponent disabled={price.current > characterGold} onClick={onBuy} className="flex gap-1 items-center mt-1">
       <>
         <span>{t("Buy")}</span>
         <small>
