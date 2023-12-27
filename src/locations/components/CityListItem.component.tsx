@@ -58,7 +58,7 @@ const CityListItem = ({ city }: { city: Location }) => {
       <CityImageComponent cityID={city.id}></CityImageComponent>
       <div
         className={`absolute bg-black/50 p-2 bottom-[1px] left-[1px] right-[1px] rounded overflow-auto sm:h-auto ${
-          characterLocation === city.id ? "bg-green-900/50 rounded h-full" : ""
+          characterLocation === city.id ? "bg-green-900/50 rounded" : ""
         }`}
       >
         <CityDetailComponent city={city}></CityDetailComponent>
