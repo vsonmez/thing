@@ -61,11 +61,11 @@ const Footer = () => {
             onClick={() => {
               onChangeTab("Market");
             }}
-            className="sm:p-2 border-0"
+            className="sm:p-2 border-0 rounded-full overflow-clip"
           >
             <>
               <span className="hidden sm:block">{t("Market")}</span>
-              <img alt="" width={48} src={marketImage} className="sm:hidden " />
+              <img alt="" width={48} src={marketImage} className="sm:hidden rounded-full border-2 border-yellow-500" />
             </>
           </ButtonComponent>
         )}
@@ -73,11 +73,11 @@ const Footer = () => {
           onClick={() => {
             onChangeTab("Inventory");
           }}
-          className="sm:p-2 border-0"
+          className="sm:p-2 border-0 rounded-full overflow-clip"
         >
           <>
             <span className="hidden sm:block">{t("Inventory And Equipments")}</span>
-            <img alt="" width={48} src={inventoryImage} className="sm:hidden" />
+            <img alt="" width={48} src={inventoryImage} className="sm:hidden rounded-full border-2 border-yellow-500" />
           </>
         </ButtonComponent>
         {!characterIsInDungeon && (
@@ -85,11 +85,11 @@ const Footer = () => {
             onClick={() => {
               onChangeTab("Cities");
             }}
-            className="sm:p-2 border-0"
+            className="sm:p-2 border-0 rounded-full overflow-hidden"
           >
             <>
               <span className="hidden sm:block">{t("Cities")}</span>
-              <img alt="" width={48} src={citiesImage} className="sm:hidden" />
+              <img alt="" width={48} src={citiesImage} className="sm:hidden rounded-full border-2 border-yellow-500" />
             </>
           </ButtonComponent>
         )}
@@ -98,11 +98,16 @@ const Footer = () => {
             onClick={() => {
               onChangeTab("Dungeons");
             }}
-            className="sm:p-2 border-0"
+            className="sm:p-2 border-0 rounded-full overflow-hidden"
           >
             <>
               <span className="hidden sm:block">{t("Dungeons")}</span>
-              <img alt="" width={48} src={dungeonsImage} className="sm:hidden" />
+              <img
+                alt=""
+                width={48}
+                src={dungeonsImage}
+                className="sm:hidden rounded-full border-2 border-yellow-500"
+              />
             </>
           </ButtonComponent>
         )}
