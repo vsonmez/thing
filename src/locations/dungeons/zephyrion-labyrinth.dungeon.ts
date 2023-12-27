@@ -31,7 +31,7 @@ const zephyrionLabyrinth: Dungeon = {
   },
   events: {
     list: [movingWalls()],
-    possibility: 6,
+    possibility: 0,
     amount: 3,
   },
   secrets: {
