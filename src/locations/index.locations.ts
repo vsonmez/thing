@@ -11,6 +11,32 @@ const Locations: {
     },
     name: "Eldorath",
     id: "eldorath",
+    areas: {
+      forest: {
+        name: "Forest",
+        id: "forest",
+      },
+      mine: {
+        name: "Mine",
+        id: "mine",
+      },
+      steppe: {
+        name: "Steppe",
+        id: "steppe",
+      },
+      port: {
+        name: "Port",
+        id: "port",
+      },
+      famrs: {
+        name: "Famrs",
+        id: "famrs",
+      },
+      mountain: {
+        name: "Mountain",
+        id: "mountain",
+      },
+    },
     dungeons: {
       zephyrionLabyrinth: {
         ...zephyrionLabyrinth,

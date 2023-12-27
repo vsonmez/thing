@@ -79,8 +79,8 @@ const Combat = ({ dungeon, onClose, isBoss }: { dungeon: Dungeon; onClose: () =>
   }, [characterDamage, characterAttack, monster, onAttackToCharacter, addCombatLog, t]);
 
   useEffect(() => {
-    setMonster(Helpers.createMonster(currentMonster.current));
-  }, [setMonster, currentMonster]);
+    setMonster(Helpers.createMonster(currentMonster.current, isBoss));
+  }, [setMonster, currentMonster, isBoss]);
 
   useEffect(() => {
     if (monster?.hp < 1 || characterCurrentHealth < 1) {

@@ -7,6 +7,9 @@ type Location = {
   };
   name: string;
   id: string;
+  areas?: {
+    [key: string]: {};
+  };
   dungeons?: {
     [key: string]: Dungeon;
   };
