@@ -62,9 +62,9 @@ const CityListItem = ({ city }: { city: Location }) => {
         }`}
       >
         <CityDetailComponent city={city}></CityDetailComponent>
-        {city.areas && characterLocation === city.id && !timerIsRuning && (
+        {/* {city.areas && characterLocation === city.id && !timerIsRuning && (
           <AreaListComponent city={city}></AreaListComponent>
-        )}
+        )} */}
         {characterLocation !== city.id && (
           <div className="mt-1">
             <ButtonComponent onClick={onTravel}>
