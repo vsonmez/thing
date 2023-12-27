@@ -12,6 +12,15 @@ const monsters: {
     defense: 9,
     experience: 10,
   },
+  packOfCrystalFairies: {
+    name: "Pack of Crystal Fairies",
+    id: "packOfCrystalFairies",
+    hp: 35,
+    attack: 0,
+    damage: 3,
+    defense: 14,
+    experience: 30,
+  },
   voiletCrystalFungus: {
     name: "Violet Crystal Fungus",
     id: "voiletCrystalFungus",

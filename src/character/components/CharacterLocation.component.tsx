@@ -12,7 +12,8 @@ const CharacterLocation = () => {
       <span> {t("Location")}: </span>
       <span className="ml-1">
         {locations.current[characterLocation].name}/
-        {locations.current[characterLocation].areas[characterArea]?.name[i18n.language]}
+        {locations.current[characterLocation]?.areas &&
+          locations.current[characterLocation]?.areas[characterArea]?.name[i18n.language]}
       </span>
     </div>
   );

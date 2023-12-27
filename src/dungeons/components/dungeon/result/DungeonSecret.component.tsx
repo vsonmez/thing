@@ -6,8 +6,10 @@ import useDungeonLog from "../../../../store/hooks/dungeon/use-dungeon-log.hook"
 import { useTranslation } from "react-i18next";
 import useInventory from "../../../../store/hooks/inventory/use-inventory.hook";
 import useCharacterExperience from "../../../../store/hooks/character/use-character-experience.hook";
+import useCharacterSkills from "../../../../store/hooks/character/use-character-skills.hook";
 
 const DungeonSecret = ({ dungeon }: { dungeon: Dungeon }) => {
+  const { characterSkillList } = useCharacterSkills();
   const { increaseExperience } = useCharacterExperience();
   const { addItemToInventory } = useInventory();
   const { decreaseSecretAmount } = useDungeon();
@@ -16,7 +18,7 @@ const DungeonSecret = ({ dungeon }: { dungeon: Dungeon }) => {
   const secret = useRef(Helpers.getRandomElementFromArray(dungeon.secrets.list));
   useEffect(() => {
     decreaseSecretAmount();
-    const isFoundScret = Helpers.difficultyCheck(secret.current);
+    const isFoundScret = Helpers.difficultyCheck(secret.current, characterSkillList.spot);
     if (isFoundScret) {
       addDungeonLog(`${t("Secret")}: ${secret.current.name}`, "success");
       switch (secret.current.type) {

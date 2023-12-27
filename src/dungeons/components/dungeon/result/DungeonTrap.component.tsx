@@ -6,8 +6,10 @@ import { useTranslation } from "react-i18next";
 import useDungeonLog from "../../../../store/hooks/dungeon/use-dungeon-log.hook";
 import useCharacterExperience from "../../../../store/hooks/character/use-character-experience.hook";
 import useCharacterHealth from "../../../../store/hooks/character/use-character-health.hook";
+import useCharacterSkills from "../../../../store/hooks/character/use-character-skills.hook";
 
 const DungeonTrap = ({ dungeon }: { dungeon: Dungeon }) => {
+  const { characterSkillList } = useCharacterSkills();
   const { decreaseTrapAmount } = useDungeon();
   const { addDungeonLog } = useDungeonLog();
   const { t } = useTranslation();
@@ -17,7 +19,7 @@ const DungeonTrap = ({ dungeon }: { dungeon: Dungeon }) => {
   useEffect(() => {
     decreaseTrapAmount();
 
-    const isFoundTrap = Helpers.difficultyCheck(trap.current);
+    const isFoundTrap = Helpers.difficultyCheck(trap.current, characterSkillList.spot);
 
     if (isFoundTrap) {
       addDungeonLog(`${t("You spot")}: ${trap.current.name}`, "success");

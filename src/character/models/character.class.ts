@@ -2,6 +2,7 @@ import CharacterStats from "./character-stats.class";
 import Helpers from "../../helpers/index.helpers";
 
 class Character {
+  skills: { [key: string]: number };
   stats: CharacterStats;
   name: string;
   level: number = 0;
@@ -50,6 +51,15 @@ class Character {
         value: stats.cons,
         modifier: consModifier,
       },
+    };
+    this.skills = {
+      hide: 0,
+      stealth: 0,
+      search: 0,
+      spot: 0,
+      disableDevice: 0,
+      openLock: 0,
+      stealing: 0,
     };
   }
 }

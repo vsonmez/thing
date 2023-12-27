@@ -21,7 +21,17 @@ import useCurrentScreen from "../../store/hooks/global/use-current-screen.hook";
 import useMessagesStore from "../../store/hooks/message/use-message-store";
 import useCharacterIsInDungeon from "../../store/hooks/character/use-character-is-in-dungeon.hook";
 
-const Combat = ({ dungeon, onClose, isBoss }: { dungeon: Dungeon; onClose: () => void; isBoss?: boolean }) => {
+const Combat = ({
+  dungeon,
+  onClose,
+  isBoss,
+  eventMoster,
+}: {
+  dungeon: Dungeon;
+  onClose: () => void;
+  eventMoster?: Monster;
+  isBoss?: boolean;
+}) => {
   const { setCurrentScreen } = useCurrentScreen();
   const { setCharacterIsInDungeon } = useCharacterIsInDungeon();
   const { addMessage } = useMessagesStore();
@@ -32,7 +42,7 @@ const Combat = ({ dungeon, onClose, isBoss }: { dungeon: Dungeon; onClose: () =>
   const { characterAttack } = useCharacterAttack();
   const { characterDefense } = useCharacterDefense();
   const { characterDamage } = useCharacterDamage();
-  const [monster, setMonster] = useState<Monster>();
+  const [monster, setMonster] = useState<Monster>(eventMoster);
   const { increaseGold } = useCharacterGold();
   const { decreaseMonsterAmount, decreaseBossAmount } = useDungeon();
   const { addDungeonLog } = useDungeonLog();
@@ -79,8 +89,8 @@ const Combat = ({ dungeon, onClose, isBoss }: { dungeon: Dungeon; onClose: () =>
   }, [characterDamage, characterAttack, monster, onAttackToCharacter, addCombatLog, t]);
 
   useEffect(() => {
-    setMonster(Helpers.createMonster(currentMonster.current, isBoss));
-  }, [setMonster, currentMonster, isBoss]);
+    setMonster(eventMoster || Helpers.createMonster(currentMonster.current, isBoss));
+  }, [setMonster, currentMonster, isBoss, eventMoster]);
 
   useEffect(() => {
     if (monster?.hp < 1 || characterCurrentHealth < 1) {
@@ -132,19 +142,26 @@ const Combat = ({ dungeon, onClose, isBoss }: { dungeon: Dungeon; onClose: () =>
     <>
       {monster && (
         <figure>
-          <div className="flex gap-2 items-center">
-            <img className="max-w-[96px]" src={require(`../../assets/images/monsters/${monster.id}.jpeg`)} alt="" />
-            <figcaption className="text-center py-2">
-              <div className="flex gap-2 flex-col">
-                <small>{monster.name}</small>
+          <div>
+            <h1 className="text-center">{monster.name}</h1>
+            <img
+              className="max-w-[100%] rounded"
+              src={require(`../../assets/images/monsters/${monster.id}.jpeg`)}
+              alt=""
+            />
+            <figcaption className="text-center pt-1">
+              <div className="flex gap-2 items-center justify-between">
                 <span>
-                  {t("Health")}: {monster.hp}
+                  {t("Health")}
+                  <span className="block">{monster.hp}</span>
                 </span>
                 <span>
-                  Max {t("Damage")}: {monster.damage}
+                  Max {t("Damage")}
+                  <span className="block">{monster.damage}</span>
                 </span>
                 <span>
-                  Max {t("Critical")}: {monster.damage * 2}
+                  Max {t("Critical")}
+                  <span className="block">{monster.damage * 2}</span>
                 </span>
               </div>
             </figcaption>

@@ -47,7 +47,7 @@
   "Event": "Event",
   "Trap": "Trap ",
   "Secret": "Secret",
-  "Dungeon has been reset": "The maze walls have changed, all monsters have been reset.",
+  "Dungeon has been reset. Pack of monsters appeared": "The maze walls have been reset. The monster horde has appeared.",
   "Move Forward": "Move Forward",
   "Exit": "Exit",
   "You found": "You found",

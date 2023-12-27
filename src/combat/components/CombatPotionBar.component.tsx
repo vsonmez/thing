@@ -33,7 +33,7 @@ const CombatPotionBar = () => {
     [characterCurrentHealth, characterMaxHealth, addCombatLog, increaseCharacterHealth, removeItemFromInventory, t]
   );
   return (
-    <ul className="mt-2 flex flex-wrap border-t pt-2">
+    <ul className="mt-2 flex flex-wrap border-t border-gray-500 pt-2">
       {healingPotions.map((item) => (
         <li key={item.defname}>
           <ButtonComponent className="border-0 relative" onClick={() => onUsePotion({ item })}>

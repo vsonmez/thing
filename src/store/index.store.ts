@@ -88,7 +88,6 @@ namespace AppStore {
   store.subscribe(() => {
     const character = store.getState().character;
     const inventory = store.getState().inventory;
-    const isReset = localStorage.getItem("reset");
     localStorage.setItem("character", JSON.stringify(character));
     localStorage.setItem("inventory", JSON.stringify(inventory));
     localStorage.setItem("equipment", JSON.stringify(store.getState().equipment));

@@ -55,6 +55,12 @@ namespace CharacterStore {
         value: 0,
       },
     },
+    skills: {
+      hide: 0,
+      stealth: 0,
+      search: 0,
+      spot: 0,
+    },
   };
   const characterSlice = createSlice({
     initialState,
@@ -124,6 +130,17 @@ namespace CharacterStore {
       setCurrentDungeon: (state: CharacterStoreType, action: PayloadAction<string>) => {
         state.currentDungeon = action.payload;
       },
+      setSkillPoint: (
+        state: CharacterStoreType,
+        action: PayloadAction<{
+          defName: string;
+          amount: number;
+        }>
+      ) => {
+        const skillDefName = action.payload.defName;
+        const currentSkillAmount = state.skills[skillDefName] || 0;
+        state.skills[skillDefName] = Math.max(currentSkillAmount + action.payload.amount, 0);
+      },
       renewCharacter: (state: CharacterStoreType) => {
         localStorage.removeItem("character");
         const character = {
@@ -165,6 +182,7 @@ namespace CharacterStore {
     isInDungeon: (state: AppStore.RootState) => state.character.isInDungeon,
     currentDungeon: (state: AppStore.RootState) => state.character.currentDungeon,
     area: (state: AppStore.RootState) => state.character.area,
+    skills: (state: AppStore.RootState) => state.character.skills,
   };
 }
 

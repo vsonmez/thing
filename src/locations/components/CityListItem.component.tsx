@@ -57,12 +57,14 @@ const CityListItem = ({ city }: { city: Location }) => {
     <li key={city.id} className="relative flex items-center justify-center">
       <CityImageComponent cityID={city.id}></CityImageComponent>
       <div
-        className={`absolute bg-black/50 p-2 bottom-[1px] left-[1px] right-[1px] rounded overflow-auto h-full sm:h-auto ${
-          characterLocation === city.id ? "bg-green-900/50 rounded" : ""
+        className={`absolute bg-black/50 p-2 bottom-[1px] left-[1px] right-[1px] rounded overflow-auto sm:h-auto ${
+          characterLocation === city.id ? "bg-green-900/50 rounded h-full" : ""
         }`}
       >
         <CityDetailComponent city={city}></CityDetailComponent>
-        {city.areas && characterLocation && !timerIsRuning && <AreaListComponent city={city}></AreaListComponent>}
+        {city.areas && characterLocation === city.id && !timerIsRuning && (
+          <AreaListComponent city={city}></AreaListComponent>
+        )}
         {characterLocation !== city.id && (
           <div className="mt-1">
             <ButtonComponent onClick={onTravel}>
