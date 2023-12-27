@@ -29,6 +29,7 @@ namespace CharacterStore {
     experience: 0,
     gold: 100,
     location: "eldorath",
+    area: "market",
     hunger: 100,
     isInDungeon: false,
     currentDungeon: "",
@@ -108,6 +109,9 @@ namespace CharacterStore {
       setLocation: (state: CharacterStoreType, action: PayloadAction<string>) => {
         state.location = action.payload;
       },
+      setArea: (state: CharacterStoreType, action: PayloadAction<string>) => {
+        state.area = action.payload;
+      },
       increaseHunger: (state: CharacterStoreType, action: PayloadAction<number>) => {
         state.hunger = Math.min(state.hunger + action.payload, 100);
       },
@@ -160,6 +164,7 @@ namespace CharacterStore {
     hunger: (state: AppStore.RootState) => state.character.hunger,
     isInDungeon: (state: AppStore.RootState) => state.character.isInDungeon,
     currentDungeon: (state: AppStore.RootState) => state.character.currentDungeon,
+    area: (state: AppStore.RootState) => state.character.area,
   };
 }
 

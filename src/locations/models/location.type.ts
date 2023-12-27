@@ -1,3 +1,4 @@
+import CityArea from "./area.type";
 import Dungeon from "./dungeon.type";
 
 type Location = {
@@ -8,7 +9,7 @@ type Location = {
   name: string;
   id: string;
   areas?: {
-    [key: string]: {};
+    [key: string]: CityArea;
   };
   dungeons?: {
     [key: string]: Dungeon;

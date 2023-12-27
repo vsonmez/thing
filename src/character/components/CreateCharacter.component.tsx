@@ -87,6 +87,7 @@ const CreateCharacter = () => {
       return;
     }
     setCharacter(new Character(name, { str, dex, cons }));
+    localStorage.removeItem("reset");
   }, [name, totalStatPoint, setCharacter, str, dex, cons]);
 
   useEffect(() => {

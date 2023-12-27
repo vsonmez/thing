@@ -9,6 +9,7 @@ The hook returns an object with two properties: characterLocation, which represe
 const useCharacterLocation = () => {
   const dispatch = AppStore.useAppDispatch();
   const characterLocation = AppStore.useAppSelector(CharacterStore.select.location);
+  const characterArea = AppStore.useAppSelector(CharacterStore.select.area);
 
   const setCharacterLocation = useCallback(
     (location: string, callback?: Function) => {
@@ -17,11 +18,26 @@ const useCharacterLocation = () => {
     [dispatch]
   );
 
+  const setCharacterArea = useCallback(
+    (area: string, callback?: Function) => {
+      dispatch(CharacterStore.actions.setArea(area), callback && callback());
+    },
+    [dispatch]
+  );
+
   return {
     /** Character Location */
     characterLocation,
+    /**
+     * Character Area
+     */
+    characterArea,
     /** Set Character Location */
     setCharacterLocation,
+    /**
+     * Character Area
+     */
+    setCharacterArea,
   };
 };
 

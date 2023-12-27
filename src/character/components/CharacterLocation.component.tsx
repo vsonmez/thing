@@ -5,12 +5,15 @@ import Locations from "../../locations/index.locations";
 
 const CharacterLocation = () => {
   const locations = useRef(Locations);
-  const { characterLocation } = useCharacterLocation();
-  const { t } = useTranslation();
+  const { characterLocation, characterArea } = useCharacterLocation();
+  const { t, i18n } = useTranslation();
   return (
     <div className="flex">
       <span> {t("Location")}: </span>
-      <span className="ml-1">{locations.current[characterLocation].name}</span>
+      <span className="ml-1">
+        {locations.current[characterLocation].name}/
+        {locations.current[characterLocation].areas[characterArea]?.name[i18n.language]}
+      </span>
     </div>
   );
 };

@@ -10,7 +10,6 @@ const CalculateIdleTime = () => {
   useEffect(() => {
     if (saveTime.current) {
       const different = Helpers.getTimeDifference(Number(saveTime.current), now.current);
-      console.log(different);
       const healAmount = different.totalSeconds / 20;
       increaseCharacterHealth(healAmount);
     }

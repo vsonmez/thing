@@ -8,6 +8,7 @@ class Character {
   experience: number = 0;
   gold: number;
   location: string = "eldorath";
+  area: string = "market";
   hunger: number = 100;
   isInDungeon: boolean = false;
   currentDungeon: string;

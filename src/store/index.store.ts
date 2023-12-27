@@ -14,6 +14,8 @@ import potions from "../items/potions.items";
 import armors from "../items/armors.items";
 import weapons from "../items/weapon.items";
 
+const isReset = localStorage.getItem("reset");
+
 const character = localStorage.getItem("character");
 const characterData: Character = character
   ? {
@@ -28,26 +30,25 @@ const characterData: Character = character
     });
 
 const inventory = localStorage.getItem("inventory");
-const inventoryData: ItemList = inventory
-  ? JSON.parse(inventory)
-  : {
-      healingHerb: {
-        ...potions.healingHerb,
-        quantity: 20,
-      },
-      lesserHealPotion: {
-        ...potions.lesserHealPotion,
-        quantity: 3,
-      },
-      paddedArmor: {
-        ...armors.paddedArmor,
-        quantity: 1,
-      },
-      dagger: {
-        ...weapons.dagger,
-        quantity: 1,
-      },
-    };
+const inventoryData: ItemList = inventory ? JSON.parse(inventory) : {};
+const inventoryResetData = {
+  healingHerb: {
+    ...potions.healingHerb,
+    quantity: 20,
+  },
+  lesserHealPotion: {
+    ...potions.lesserHealPotion,
+    quantity: 3,
+  },
+  paddedArmor: {
+    ...armors.paddedArmor,
+    quantity: 1,
+  },
+  dagger: {
+    ...weapons.dagger,
+    quantity: 1,
+  },
+};
 
 const equipment = localStorage.getItem("equipment");
 const equipmentData = equipment ? JSON.parse(equipment) : {};
@@ -55,6 +56,7 @@ const equipmentData = equipment ? JSON.parse(equipment) : {};
 localStorage.setItem("character", JSON.stringify(characterData));
 localStorage.setItem("inventory", JSON.stringify(inventoryData));
 localStorage.setItem("equipment", JSON.stringify(equipmentData));
+
 /**
  * This code snippet defines a namespace called AppStore. It exports a store object that is created using the configureStore function. The store object is responsible for managing the application state and is initialized with a reducer function that combines the reducers from CharacterStore, InventoryStore, EquipmentStore, and MessageStore.
 
@@ -75,18 +77,20 @@ namespace AppStore {
       global: GlobalStore.reducer,
     },
     preloadedState: {
+      inventory: isReset ? inventoryResetData : inventoryData,
       character: {
         ...characterData,
       },
-      inventory: inventoryData,
       equipment: equipmentData,
     },
   });
 
   store.subscribe(() => {
     const character = store.getState().character;
+    const inventory = store.getState().inventory;
+    const isReset = localStorage.getItem("reset");
     localStorage.setItem("character", JSON.stringify(character));
-    localStorage.setItem("inventory", JSON.stringify(store.getState().inventory));
+    localStorage.setItem("inventory", JSON.stringify(inventory));
     localStorage.setItem("equipment", JSON.stringify(store.getState().equipment));
     localStorage.setItem("saveTime", new Date().getTime().toString());
   });

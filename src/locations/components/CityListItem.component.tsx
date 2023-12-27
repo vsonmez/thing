@@ -10,6 +10,7 @@ import useCharacterHunger from "../../store/hooks/character/use-character-hunger
 import Constants from "../../constants/index.constants";
 import useIsBusy from "../../store/hooks/global/use-is-busy.hook";
 import CityDetailComponent from "./CityDetail.component";
+import AreaListComponent from "./AreaList.component";
 /**
  * This code snippet defines a React functional component called CityListItem. It receives a city object as a prop, which has properties like name, id, and description.
 
@@ -56,11 +57,12 @@ const CityListItem = ({ city }: { city: Location }) => {
     <li key={city.id} className="relative flex items-center justify-center">
       <CityImageComponent cityID={city.id}></CityImageComponent>
       <div
-        className={`absolute bg-black/50 p-2 bottom-[1px] left-[1px] right-[1px] rounded overflow-hidden ${
+        className={`absolute bg-black/50 p-2 bottom-[1px] left-[1px] right-[1px] rounded overflow-auto h-full sm:h-auto ${
           characterLocation === city.id ? "bg-green-900/50 rounded" : ""
         }`}
       >
         <CityDetailComponent city={city}></CityDetailComponent>
+        {city.areas && characterLocation && !timerIsRuning && <AreaListComponent city={city}></AreaListComponent>}
         {characterLocation !== city.id && (
           <div className="mt-1">
             <ButtonComponent onClick={onTravel}>

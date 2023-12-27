@@ -15,7 +15,7 @@ const DungeonMonster = ({ dungeon }: { dungeon: Dungeon }) => {
 
   if (showCombat) {
     return (
-      <ModalComponent title={t("Combat")} onClose={onCLoseCombat}>
+      <ModalComponent title={t("Combat")} onClose={onCLoseCombat} hideCloseButton={true}>
         <CombatComponent dungeon={dungeon} onClose={onCLoseCombat}></CombatComponent>
       </ModalComponent>
     );

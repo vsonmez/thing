@@ -41,6 +41,7 @@ const Footer = () => {
     const confirm = window.confirm("Are you sure you want to reset?");
     if (confirm) {
       localStorage.clear();
+      localStorage.setItem("reset", "true");
       window.location.reload();
     }
   }, []);

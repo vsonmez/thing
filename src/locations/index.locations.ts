@@ -12,28 +12,60 @@ const Locations: {
     name: "Eldorath",
     id: "eldorath",
     areas: {
+      cityCenter: {
+        name: {
+          tr: "Şehir Merkezi",
+          en: "City Center",
+        },
+        id: "cityCenter",
+      },
+      market: {
+        name: {
+          tr: "Pazar",
+          en: "Market",
+        },
+        id: "market",
+      },
       forest: {
-        name: "Forest",
+        name: {
+          tr: "Orman",
+          en: "Forest",
+        },
         id: "forest",
       },
       mine: {
-        name: "Mine",
+        name: {
+          tr: "Maden",
+          en: "Mine",
+        },
         id: "mine",
       },
       steppe: {
-        name: "Steppe",
+        name: {
+          tr: "Bozkır",
+          en: "Steppe",
+        },
         id: "steppe",
       },
       port: {
-        name: "Port",
+        name: {
+          tr: "Liman",
+          en: "Port",
+        },
         id: "port",
       },
       famrs: {
-        name: "Famrs",
+        name: {
+          tr: "Çiflikler",
+          en: "Famrs",
+        },
         id: "famrs",
       },
       mountain: {
-        name: "Mountain",
+        name: {
+          tr: "Dağ",
+          en: "Mountain",
+        },
         id: "mountain",
       },
     },

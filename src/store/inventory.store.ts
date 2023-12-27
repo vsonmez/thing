@@ -2,6 +2,9 @@ import { PayloadAction, createSlice } from "@reduxjs/toolkit";
 import ItemList from "../items/models/item-list.type";
 import AppStore from "./index.store";
 import Item from "../items/models/item-global.type";
+import potions from "../items/potions.items";
+import armors from "../items/armors.items";
+import weapons from "../items/weapon.items";
 /**
  * This code snippet defines a namespace called InventoryStore in TypeScript. It exports an actions object, a reducer function, and a select object.
 
@@ -17,7 +20,24 @@ These reducer functions use the produce function from the immer library to creat
 - setIsEquipped sets the isEquipped property of an item in the inventory.
  */
 namespace InventoryStore {
-  const initialState: ItemList = {};
+  const initialState: ItemList = {
+    healingHerb: {
+      ...potions.healingHerb,
+      quantity: 20,
+    },
+    lesserHealPotion: {
+      ...potions.lesserHealPotion,
+      quantity: 3,
+    },
+    paddedArmor: {
+      ...armors.paddedArmor,
+      quantity: 1,
+    },
+    dagger: {
+      ...weapons.dagger,
+      quantity: 1,
+    },
+  };
   const inventorySlice = createSlice({
     initialState,
     name: "inventory",
