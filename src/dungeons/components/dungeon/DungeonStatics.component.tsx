@@ -24,10 +24,10 @@ const DungeonStatics = () => {
 
   return (
     <div className="flex gap-2">
-      <div className="flex flex-col items-center">
+      {/* <div className="flex flex-col items-center">
         <span>{t("Event")}</span>
         <span>{eventAmount}</span>
-      </div>
+      </div> */}
       <div className="flex flex-col items-center">
         <span>{t("Secret")}</span>
         <span>{secretAmount}</span>
