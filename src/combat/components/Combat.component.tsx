@@ -140,6 +140,12 @@ const Combat = ({ dungeon, onClose, isBoss }: { dungeon: Dungeon; onClose: () =>
                 <span>
                   {t("Health")}: {monster.hp}
                 </span>
+                <span>
+                  Max {t("Damage")}: {monster.damage}
+                </span>
+                <span>
+                  Max {t("Critical")}: {monster.damage * 2}
+                </span>
               </div>
             </figcaption>
           </div>
