@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/thing/static/css/main.526201e3.css",
-    "main.js": "/thing/static/js/main.053d1e06.js",
+    "main.css": "/thing/static/css/main.87033511.css",
+    "main.js": "/thing/static/js/main.f4b376dc.js",
     "static/media/daggerUncommon.jpeg": "/thing/static/media/daggerUncommon.3f38ea581436338eed2c.jpeg",
     "static/media/daggerLegendary.jpeg": "/thing/static/media/daggerLegendary.9ab34cdedb23081c1f66.jpeg",
     "static/media/longsword.jpeg": "/thing/static/media/longsword.54236d8a1f2aad7831cd.jpeg",
@@ -107,11 +107,11 @@
     "static/media/chapelOfRadianceCaverns.jpeg": "/thing/static/media/chapelOfRadianceCaverns.92f2e82dfaa778fe43ab.jpeg",
     "static/media/oraclesSanctum.jpeg": "/thing/static/media/oraclesSanctum.791b26aa6e7e000b7221.jpeg",
     "index.html": "/thing/index.html",
-    "main.526201e3.css.map": "/thing/static/css/main.526201e3.css.map",
-    "main.053d1e06.js.map": "/thing/static/js/main.053d1e06.js.map"
+    "main.87033511.css.map": "/thing/static/css/main.87033511.css.map",
+    "main.f4b376dc.js.map": "/thing/static/js/main.f4b376dc.js.map"
   },
   "entrypoints": [
-    "static/css/main.526201e3.css",
-    "static/js/main.053d1e06.js"
+    "static/css/main.87033511.css",
+    "static/js/main.f4b376dc.js"
   ]
 }
