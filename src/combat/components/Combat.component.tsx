@@ -109,6 +109,7 @@ const Combat = ({ dungeon, onClose, isBoss }: { dungeon: Dungeon; onClose: () =>
             if (isBoss) {
               setCurrentScreen("message");
               setCharacterIsInDungeon(false);
+              addItemToInventory(reward);
               addMessage(`${t("You found")}: ${reward.name}`, "success");
               onClose();
             } else if (rewardGainLuck < 40) {

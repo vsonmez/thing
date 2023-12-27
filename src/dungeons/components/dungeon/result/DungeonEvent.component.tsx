@@ -16,13 +16,13 @@ const DungeonEvent = ({ dungeon }: { dungeon: Dungeon }) => {
     addDungeonLog(`${t(event.current.message)}`, "error");
     switch (event.current.event) {
       case "resetDungeon":
-        resetDungeon({
+        /* resetDungeon({
           bossAmount: dungeon.monsters.bossAmount,
           monsterAmount: dungeon.monsters.amount,
           secretAmount,
           trapAmount,
           eventAmount: eventAmount - 1,
-        });
+        }); */
         break;
       default:
         break;
