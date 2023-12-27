@@ -20,6 +20,7 @@ import useInventory from "../../store/hooks/inventory/use-inventory.hook";
 import useCurrentScreen from "../../store/hooks/global/use-current-screen.hook";
 import useMessagesStore from "../../store/hooks/message/use-message-store";
 import useCharacterIsInDungeon from "../../store/hooks/character/use-character-is-in-dungeon.hook";
+import useCharacterCurrentDungeon from "../../store/hooks/character/use-character-current-dungeon.hook";
 
 const Combat = ({
   dungeon,
@@ -32,6 +33,7 @@ const Combat = ({
   eventMoster?: Monster;
   isBoss?: boolean;
 }) => {
+  const { setCurrentDungeon } = useCharacterCurrentDungeon();
   const { setCurrentScreen } = useCurrentScreen();
   const { setCharacterIsInDungeon } = useCharacterIsInDungeon();
   const { addMessage } = useMessagesStore();
@@ -117,6 +119,7 @@ const Combat = ({
           } else {
             const rewardGainLuck = Helpers.getRandomNumber();
             if (isBoss) {
+              setCurrentDungeon("");
               setCurrentScreen("message");
               setCharacterIsInDungeon(false);
               addItemToInventory(reward);

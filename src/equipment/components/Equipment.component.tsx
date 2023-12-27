@@ -23,7 +23,7 @@ const Equipment = () => {
       <ul className="flex gap-1">
         {equippedWeapon ? (
           <li className="relative w-[64px]">
-            <small className="absolute bottom-6 w-full text-center bg-black/25">
+            <small className="absolute bottom-6 w-full text-center bg-black/50">
               <ItemNameComponent item={equippedWeapon}></ItemNameComponent>
             </small>
             <ItemImageComponent width={64} itemDefName={equippedWeapon.defname}></ItemImageComponent>
@@ -38,7 +38,7 @@ const Equipment = () => {
         )}
         {equippedArmor ? (
           <li className="relative w-[64px]">
-            <small className="absolute bottom-6 w-full text-center bg-black/25">
+            <small className="absolute bottom-6 w-full text-center bg-black/50">
               <ItemNameComponent item={equippedArmor}></ItemNameComponent>
             </small>
             <ItemImageComponent width={64} itemDefName={equippedArmor.defname}></ItemImageComponent>
